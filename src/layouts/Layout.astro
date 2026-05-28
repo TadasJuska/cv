@@ -1,0 +1,23 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+const {
+  title = 'Tadas — Platform Engineer',
+  description = 'Platform Engineer specialising in cloud infrastructure, containers, and developer platforms.',
+} = Astro.props;
+---
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body class="bg-slate-950 text-slate-200 antialiased">
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,55 @@
+---
+const roles = [
+  {
+    title: 'Platform Engineer',
+    company: 'YOUR_COMPANY',
+    period: 'YYYY – Present',
+    location: 'City, Country',
+    bullets: [
+      'TODO: Describe a key achievement — lead with impact, follow with how.',
+      'TODO: Infrastructure you built, scale you handled, or reliability you improved.',
+      'TODO: Tools and technologies used.',
+    ],
+  },
+  {
+    title: 'YOUR_PREVIOUS_ROLE',
+    company: 'YOUR_COMPANY',
+    period: 'YYYY – YYYY',
+    location: 'City, Country',
+    bullets: [
+      'TODO: Key achievement.',
+      'TODO: Another achievement.',
+    ],
+  },
+];
+---
+<section id="experience" class="py-24 border-t border-slate-800">
+  <div class="max-w-5xl mx-auto px-6">
+    <p class="font-mono text-cyan-400 text-xs mb-2 tracking-widest uppercase">02. Experience</p>
+    <h2 class="text-3xl font-bold text-slate-100 mb-12">Where I've worked</h2>
+    <div class="space-y-6">
+      {roles.map((role) => (
+        <div class="bg-slate-900 rounded-xl border border-slate-800 border-l-2 border-l-cyan-400 p-6">
+          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-5">
+            <div>
+              <h3 class="text-slate-100 font-semibold text-lg leading-tight">{role.title}</h3>
+              <p class="text-cyan-400 text-sm mt-0.5">{role.company}</p>
+            </div>
+            <div class="sm:text-right shrink-0">
+              <p class="text-slate-300 text-sm font-mono">{role.period}</p>
+              <p class="text-slate-500 text-sm">{role.location}</p>
+            </div>
+          </div>
+          <ul class="space-y-2.5">
+            {role.bullets.map(bullet => (
+              <li class="flex gap-3 text-slate-400 text-sm leading-relaxed">
+                <span class="text-cyan-400 shrink-0 mt-0.5">▹</span>
+                <span>{bullet}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
