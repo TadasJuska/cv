@@ -1,19 +1,186 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Nav from '../components/Nav.astro';
-import Hero from '../components/Hero.astro';
-import Skills from '../components/Skills.astro';
-import Experience from '../components/Experience.astro';
-import Projects from '../components/Projects.astro';
-import Contact from '../components/Contact.astro';
+import '../styles/global.css';
+
+const skills = [
+  {
+    icon: '☁️',
+    category: 'Cloud & IaC',
+    items: ['AWS', 'Terraform', 'Pulumi', 'Ansible', 'CloudFormation'],
+  },
+  {
+    icon: '🐳',
+    category: 'Containers',
+    items: ['Docker', 'Kubernetes', 'Helm', 'k3s', 'Docker Compose'],
+  },
+  {
+    icon: '⚙️',
+    category: 'CI/CD & GitOps',
+    items: ['GitHub Actions', 'ArgoCD', 'Flux', 'GitLab CI'],
+  },
+];
+
+const experience = [
+  {
+    title: 'DevOps / Platform Engineer',
+    company: 'Contractor',
+    period: 'TODO – Present',
+    bullets: [
+      'TODO: Describe your key achievements and impact.',
+      'TODO: Infrastructure built, scale handled, reliability improved.',
+      'TODO: Tools and technologies used.',
+    ],
+  },
+  {
+    title: 'TODO: Previous Role',
+    company: 'TODO: Company',
+    period: 'TODO – TODO',
+    bullets: [
+      'TODO: Key achievement.',
+    ],
+  },
+];
 ---
+
 <Layout>
-  <Nav />
-  <main>
-    <Hero />
-    <Skills />
-    <Experience />
-    <Projects />
-    <Contact />
+  <main class="min-h-screen p-4 md:p-6 lg:p-8">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-auto">
+
+      <!-- Hero card -->
+      <div class="md:col-span-2 bg-slate-900 rounded-3xl border border-slate-800 p-8 flex flex-col justify-between gap-8">
+        <div>
+          <div class="inline-flex items-center gap-2 text-xs font-mono text-indigo-400 bg-indigo-400/10 border border-indigo-400/20 px-3 py-1.5 rounded-full mb-6">
+            <span class="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse"></span>
+            Available for contracts
+          </div>
+          <h1 class="text-5xl md:text-6xl font-bold text-white tracking-tight mb-2">Tadas J.</h1>
+          <p class="text-xl text-indigo-400 font-medium mb-4">Platform & DevOps Engineer</p>
+          <p class="text-slate-400 leading-relaxed max-w-lg">
+            Building scalable infrastructure and developer platforms as a contractor.
+            I design CI/CD pipelines, container orchestration, and the automation that lets engineering teams ship with confidence.
+          </p>
+        </div>
+        <div class="flex gap-3 flex-wrap">
+          <a href="mailto:tadas.juska@outlook.com"
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-medium transition-colors">
+            Email me
+          </a>
+          <a href="https://github.com/TadasJuska" target="_blank" rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-sm font-medium transition-colors border border-slate-700">
+            GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/tadas-j-887508b6/" target="_blank" rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-sm font-medium transition-colors border border-slate-700">
+            LinkedIn
+          </a>
+        </div>
+      </div>
+
+      <!-- Status card -->
+      <div class="bg-indigo-600 rounded-3xl p-8 flex flex-col justify-between min-h-48">
+        <span class="text-4xl">⚡</span>
+        <div>
+          <p class="text-indigo-200 text-xs font-mono uppercase tracking-widest mb-2">Status</p>
+          <p class="text-white text-2xl font-bold leading-tight">Open to<br />contracts</p>
+          <p class="text-indigo-200 text-sm mt-2">DevOps · Platform · SRE</p>
+        </div>
+      </div>
+
+      <!-- Skill cards -->
+      {skills.map(({ icon, category, items }) => (
+        <div class="bg-slate-900 rounded-3xl border border-slate-800 p-6 hover:border-indigo-500/40 transition-colors">
+          <p class="text-slate-400 text-xs font-mono uppercase tracking-widest mb-4">{icon} {category}</p>
+          <div class="flex flex-wrap gap-2">
+            {items.map(item => (
+              <span class="px-2.5 py-1 rounded-lg text-xs font-mono bg-slate-800 text-slate-300 border border-slate-700">
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+      ))}
+
+      <!-- Experience card -->
+      <div class="md:col-span-2 bg-slate-900 rounded-3xl border border-slate-800 p-8">
+        <p class="text-slate-400 text-xs font-mono uppercase tracking-widest mb-6">Experience</p>
+        <div class="space-y-8">
+          {experience.map(role => (
+            <div class="border-l-2 border-indigo-500/30 pl-5">
+              <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-3">
+                <div>
+                  <h3 class="text-white font-semibold">{role.title}</h3>
+                  <p class="text-indigo-400 text-sm">{role.company}</p>
+                </div>
+                <span class="text-slate-500 text-xs font-mono shrink-0 mt-0.5">{role.period}</span>
+              </div>
+              <ul class="space-y-2">
+                {role.bullets.map(b => (
+                  <li class="text-slate-400 text-sm flex gap-2 leading-relaxed">
+                    <span class="text-indigo-400 shrink-0 mt-0.5">▹</span>{b}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Homelab project card -->
+      <div class="bg-slate-900 rounded-3xl border border-slate-800 p-6 hover:border-indigo-500/40 transition-colors flex flex-col justify-between">
+        <div>
+          <p class="text-slate-400 text-xs font-mono uppercase tracking-widest mb-3">🏠 Project</p>
+          <h3 class="text-white font-semibold text-lg mb-2">Homelab</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-4">
+            15+ services on Docker Compose with Traefik reverse proxy, WireGuard VPN, Gatus monitoring, and automated nightly backups.
+          </p>
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            {['Docker', 'Traefik', 'WireGuard', 'nginx'].map(t => (
+              <span class="px-2 py-0.5 rounded-md text-xs font-mono bg-slate-800 text-slate-400 border border-slate-700">{t}</span>
+            ))}
+          </div>
+        </div>
+        <a href="https://github.com/TadasJuska/beenas" target="_blank" rel="noopener noreferrer"
+          class="text-indigo-400 hover:text-indigo-300 text-sm font-medium transition-colors">
+          View on GitHub →
+        </a>
+      </div>
+
+      <!-- Observability card -->
+      <div class="bg-slate-900 rounded-3xl border border-slate-800 p-6 hover:border-indigo-500/40 transition-colors">
+        <p class="text-slate-400 text-xs font-mono uppercase tracking-widest mb-4">📊 Observability</p>
+        <div class="flex flex-wrap gap-2">
+          {['Prometheus', 'Grafana', 'Loki', 'OpenTelemetry', 'ELK'].map(item => (
+            <span class="px-2.5 py-1 rounded-lg text-xs font-mono bg-slate-800 text-slate-300 border border-slate-700">{item}</span>
+          ))}
+        </div>
+      </div>
+
+      <!-- Email card -->
+      <a href="mailto:tadas.juska@outlook.com"
+        class="bg-slate-900 rounded-3xl border border-slate-800 p-6 hover:border-indigo-500/40 transition-colors group flex flex-col justify-between gap-6">
+        <p class="text-slate-400 text-xs font-mono uppercase tracking-widest">✉️ Email</p>
+        <div>
+          <p class="text-white font-medium text-sm group-hover:text-indigo-400 transition-colors break-all">
+            tadas.juska@outlook.com
+          </p>
+          <p class="text-slate-500 text-xs mt-1">Let's work together →</p>
+        </div>
+      </a>
+
+      <!-- LinkedIn card -->
+      <a href="https://www.linkedin.com/in/tadas-j-887508b6/" target="_blank" rel="noopener noreferrer"
+        class="bg-indigo-600/10 rounded-3xl border border-indigo-500/20 p-6 hover:bg-indigo-600/20 hover:border-indigo-500/40 transition-colors group flex flex-col justify-between gap-6">
+        <p class="text-indigo-400 text-xs font-mono uppercase tracking-widest">💼 LinkedIn</p>
+        <div>
+          <p class="text-white font-medium group-hover:text-indigo-300 transition-colors">Tadas J.</p>
+          <p class="text-indigo-400 text-xs mt-1">Connect →</p>
+        </div>
+      </a>
+
+    </div>
+
+    <p class="text-center text-slate-700 text-xs font-mono mt-8 pb-4">
+      Built with Astro · Self-hosted on homelab
+    </p>
   </main>
 </Layout>

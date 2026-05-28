@@ -1,17 +1,15 @@
 ---
-import '../styles/global.css';
-
 interface Props {
   title?: string;
   description?: string;
 }
 const {
-  title = 'Tadas — Platform Engineer',
-  description = 'Platform Engineer specialising in cloud infrastructure, containers, and developer platforms.',
+  title = 'Tadas J. — Platform & DevOps Engineer',
+  description = 'Platform & DevOps Engineer available for contracts. Building scalable infrastructure, CI/CD pipelines, and developer platforms.',
 } = Astro.props;
 ---
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,7 +17,7 @@ const {
     <meta name="description" content={description} />
     <title>{title}</title>
   </head>
-  <body class="bg-slate-950 text-slate-200 antialiased">
+  <body class="bg-slate-950 antialiased">
     <slot />
   </body>
 </html>
