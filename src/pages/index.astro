@@ -70,7 +70,7 @@ const projects = [
   },
   {
     name: 'This CV',
-    description: 'Demo project showcasing DevOps practices around a simple Astro site. Multi-stage Docker build, multi-arch image (amd64/arm64), Trivy vulnerability scanning, and a gated GitHub Actions pipeline — check and scan must pass before publish.',
+    description: 'Demo project showcasing DevOps practices around a simple Astro site. GitHub Actions runs three gated jobs: check (npm ci + build), scan (Trivy filesystem scan — blocks on CRITICAL/HIGH CVEs), and publish (multi-stage Docker build pushed as multi-arch amd64/arm64 image to ghcr.io). Publish only runs on main after both checks pass. Dependabot keeps Actions versions current.',
     tech: ['Astro', 'Docker', 'GitHub Actions', 'Trivy', 'ghcr.io'],
     url: 'https://github.com/TadasJuska/cv',
   },
