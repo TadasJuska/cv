@@ -3,184 +3,255 @@ import Layout from '../layouts/Layout.astro';
 import '../styles/global.css';
 
 const skills = [
-  {
-    icon: '☁️',
-    category: 'Cloud & IaC',
-    items: ['AWS', 'Terraform', 'Pulumi', 'Ansible', 'CloudFormation'],
-  },
-  {
-    icon: '🐳',
-    category: 'Containers',
-    items: ['Docker', 'Kubernetes', 'Helm', 'k3s', 'Docker Compose'],
-  },
-  {
-    icon: '⚙️',
-    category: 'CI/CD & GitOps',
-    items: ['GitHub Actions', 'ArgoCD', 'Flux', 'GitLab CI'],
-  },
+  { category: 'Cloud & IaC', items: ['AWS', 'Terraform', 'Pulumi', 'Ansible', 'CloudFormation'] },
+  { category: 'Containers', items: ['Docker', 'Kubernetes', 'Helm', 'k3s', 'Docker Compose'] },
+  { category: 'CI/CD & GitOps', items: ['GitHub Actions', 'ArgoCD', 'Flux', 'GitLab CI', 'Jenkins'] },
+  { category: 'Observability', items: ['Prometheus', 'Grafana', 'Loki', 'OpenTelemetry', 'ELK'] },
+  { category: 'Networking', items: ['Traefik', 'nginx', 'WireGuard', 'Cloudflare', 'Vault'] },
+  { category: 'Languages', items: ['Python', 'Go', 'Bash', 'TypeScript', 'YAML'] },
 ];
 
 const experience = [
   {
-    title: 'DevOps / Platform Engineer',
-    company: 'Contractor',
-    period: 'TODO – Present',
+    title: 'Senior DevOps Engineer',
+    company: 'Wise',
+    period: 'Aug 2023 – May 2026',
     bullets: [
-      'TODO: Describe your key achievements and impact.',
-      'TODO: Infrastructure built, scale handled, reliability improved.',
-      'TODO: Tools and technologies used.',
+      'Modernised platform networking with eBPF-based Cilium CNI — replacing kube-proxy, enabling WireGuard + ztunnel end-to-end encryption, and bringing zero-trust ambient mesh to production Kubernetes.',
+      'Migrated CI/CD from Jenkins to GitHub Actions and introduced GitOps with ArgoCD and Helm — every change versioned, auditable, and automatically reconciled.',
+      'Managed infrastructure with OpenTofu and OS-level configuration with SaltStack across multi-tenant SaaS environments.',
+      'Operated Django microservices, PostgreSQL, Apache Solr, and SSO integrations with full observability via Prometheus, Grafana, and Alertmanager.',
     ],
   },
   {
-    title: 'TODO: Previous Role',
-    company: 'TODO: Company',
-    period: 'TODO – TODO',
+    title: 'Senior Infrastructure Engineer',
+    company: 'Swedbank',
+    period: 'Jun 2020 – Aug 2023',
     bullets: [
-      'TODO: Key achievement.',
+      'Evolved infrastructure across internal data centres and cloud (AWS, Azure); led performance, penetration, and security audits.',
+      'Automated provisioning and configuration with Terraform, Ansible, and Puppet; managed incident response and on-call rotation.',
+      'Delivered observability with Zabbix and Grafana across Oracle, PostgreSQL, and Cassandra.',
     ],
+  },
+  {
+    title: 'Infrastructure Engineer',
+    company: 'Swedbank',
+    period: 'Apr 2018 – Jun 2020',
+    bullets: [
+      'Managed Linux and Windows server environments — patching, vulnerability remediation, and network security.',
+      'Automated operational tasks with Python, Bash, Jenkins, and Azure Pipelines.',
+      'Implemented authentication and encryption: TLS, LDAP, Kerberos, NTLM, SSO.',
+    ],
+  },
+  {
+    title: 'Senior System Administrator',
+    company: 'Rubineta',
+    period: 'Jan 2016 – Apr 2018',
+    bullets: [
+      'Managed IT department budget and supervised a team of two.',
+      'Administered server environments: patching, security hardening, and disaster recovery.',
+      'Installed and maintained applications across Linux and Windows servers.',
+    ],
+  },
+];
+
+const projects = [
+  {
+    name: 'Fully Managed EKS Platform',
+    description: 'Production EKS cluster built entirely as code — ArgoCD app-of-apps GitOps, Kargo chart promotion with approval gates, Cilium CNI with mTLS/SPIFFE, Karpenter node autoscaling, OpenBao/Vault with ESO for secrets, and cert-manager. Every infrastructure component self-managed and reconciled from Git.',
+    tech: ['EKS', 'ArgoCD', 'Kargo', 'Cilium', 'Karpenter', 'OpenBao', 'ESO', 'Helm'],
+    private: true,
+  },
+  {
+    name: 'Cilium (Open Source)',
+    description: 'Working directly with the Cilium team on end-to-end encryption using the ztunnel ambient proxy model — bringing zero-trust, sidecar-free mTLS to production Kubernetes without sidecar overhead.',
+    tech: ['Kubernetes', 'eBPF', 'Cilium', 'WireGuard', 'Zero Trust'],
+    url: 'https://github.com/cilium/cilium',
+  },
+  {
+    name: 'This CV',
+    description: 'Demo project showcasing DevOps practices around a simple Astro site. Multi-stage Docker build, multi-arch image (amd64/arm64), Trivy vulnerability scanning, and a gated GitHub Actions pipeline — check and scan must pass before publish.',
+    tech: ['Astro', 'Docker', 'GitHub Actions', 'Trivy', 'ghcr.io'],
+    url: 'https://github.com/TadasJuska/cv',
+  },
+  {
+    name: 'Homelab (beenas)',
+    description: '15+ self-hosted services on Docker Compose with Traefik reverse proxy, automatic wildcard TLS, WireGuard VPN, Gatus uptime monitoring, and nightly automated backups.',
+    tech: ['Docker', 'Traefik', 'WireGuard', 'nginx', "Let's Encrypt"],
+    url: 'https://github.com/TadasJuska/beenas',
   },
 ];
 ---
 
 <Layout>
-  <main class="min-h-screen p-4 md:p-6 lg:p-8">
-    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-auto">
+  <!-- Scroll progress bar -->
+  <div id="progress-bar" class="fixed top-0 left-0 h-0.5 bg-indigo-500 z-50 w-0 transition-none"></div>
 
-      <!-- Hero card -->
-      <div class="md:col-span-2 bg-slate-900 rounded-3xl border border-slate-800 p-8 flex flex-col justify-between gap-8">
-        <div>
-          <div class="inline-flex items-center gap-2 text-xs font-mono text-indigo-400 bg-indigo-400/10 border border-indigo-400/20 px-3 py-1.5 rounded-full mb-6">
-            <span class="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse"></span>
-            Available for contracts
-          </div>
-          <h1 class="text-5xl md:text-6xl font-bold text-white tracking-tight mb-2">Tadas J.</h1>
-          <p class="text-xl text-indigo-400 font-medium mb-4">Platform & DevOps Engineer</p>
-          <p class="text-slate-400 leading-relaxed max-w-lg">
-            Building scalable infrastructure and developer platforms as a contractor.
-            I design CI/CD pipelines, container orchestration, and the automation that lets engineering teams ship with confidence.
-          </p>
-        </div>
-        <div class="flex gap-3 flex-wrap">
-          <a href="mailto:tadas.juska@outlook.com"
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-medium transition-colors">
-            Email me
-          </a>
-          <a href="https://github.com/TadasJuska" target="_blank" rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-sm font-medium transition-colors border border-slate-700">
-            GitHub
-          </a>
-          <a href="https://www.linkedin.com/in/tadas-j-887508b6/" target="_blank" rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-sm font-medium transition-colors border border-slate-700">
-            LinkedIn
-          </a>
-        </div>
-      </div>
+  <!-- Hero -->
+  <section class="min-h-screen flex flex-col items-center justify-center relative px-6 text-center">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(99,102,241,0.08)_0%,_transparent_70%)]"></div>
+    <p class="font-mono text-indigo-400 text-sm tracking-widest uppercase mb-8 opacity-0 animate-[charIn_0.6s_0.1s_cubic-bezier(0.16,1,0.3,1)_forwards]">
+      Senior DevOps / Platform Engineer · Open to remote contracts
+    </p>
+    <h1 class="text-7xl md:text-9xl font-bold text-white tracking-tight mb-6 overflow-hidden">
+      <span class="hero-char" style="animation-delay: 0.15s">T</span><span class="hero-char" style="animation-delay: 0.2s">a</span><span class="hero-char" style="animation-delay: 0.25s">d</span><span class="hero-char" style="animation-delay: 0.3s">a</span><span class="hero-char" style="animation-delay: 0.35s">s</span><span class="hero-char inline-block w-6" style="animation-delay: 0.4s"> </span><span class="hero-char text-indigo-400" style="animation-delay: 0.45s">J</span><span class="hero-char text-indigo-400" style="animation-delay: 0.5s">u</span><span class="hero-char text-indigo-400" style="animation-delay: 0.55s">š</span><span class="hero-char text-indigo-400" style="animation-delay: 0.6s">k</span><span class="hero-char text-indigo-400" style="animation-delay: 0.65s">a</span>
+    </h1>
+    <p class="text-slate-400 text-lg max-w-lg leading-relaxed opacity-0 animate-[charIn_0.6s_0.6s_cubic-bezier(0.16,1,0.3,1)_forwards]">
+      Platform and DevOps engineer focused on production-grade, cloud-native infrastructure — secure, observable, and genuinely automated. Comfortable across any Kubernetes distribution or cloud provider. The platform changes; the engineering principles don't.
+    </p>
+    <div class="flex gap-4 mt-10 opacity-0 animate-[charIn_0.6s_0.75s_cubic-bezier(0.16,1,0.3,1)_forwards] flex-wrap justify-center">
+      <a href="mailto:tadas.juska@outlook.com"
+        class="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-medium transition-colors">
+        Email me
+      </a>
+      <a href="https://github.com/TadasJuska" target="_blank" rel="noopener noreferrer"
+        class="px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium transition-colors border border-slate-700">
+        GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/tadasjuska" target="_blank" rel="noopener noreferrer"
+        class="px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium transition-colors border border-slate-700">
+        LinkedIn
+      </a>
+    </div>
+    <div class="absolute bottom-10 opacity-0 animate-[charIn_0.6s_1s_cubic-bezier(0.16,1,0.3,1)_forwards] flex flex-col items-center gap-2">
+      <span class="text-slate-600 text-xs font-mono tracking-widest">SCROLL</span>
+      <div class="w-px h-12 bg-gradient-to-b from-slate-600 to-transparent"></div>
+    </div>
+  </section>
 
-      <!-- Status card -->
-      <div class="bg-indigo-600 rounded-3xl p-8 flex flex-col justify-between min-h-48">
-        <span class="text-4xl">⚡</span>
-        <div>
-          <p class="text-indigo-200 text-xs font-mono uppercase tracking-widest mb-2">Status</p>
-          <p class="text-white text-2xl font-bold leading-tight">Open to<br />contracts</p>
-          <p class="text-indigo-200 text-sm mt-2">DevOps · Platform · SRE</p>
-        </div>
-      </div>
-
-      <!-- Skill cards -->
-      {skills.map(({ icon, category, items }) => (
-        <div class="bg-slate-900 rounded-3xl border border-slate-800 p-6 hover:border-indigo-500/40 transition-colors">
-          <p class="text-slate-400 text-xs font-mono uppercase tracking-widest mb-4">{icon} {category}</p>
+  <!-- Skills -->
+  <section class="py-32 px-6 max-w-5xl mx-auto">
+    <div data-animate class="mb-16">
+      <p class="font-mono text-indigo-400 text-xs tracking-widest uppercase mb-3">What I work with</p>
+      <h2 class="text-4xl font-bold text-white">Skills</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {skills.map((group, i) => (
+        <div
+          data-animate
+          style={`transition-delay: ${i * 80}ms`}
+          class="bg-slate-900 rounded-2xl border border-slate-800 p-6 hover:border-indigo-500/30 transition-colors"
+        >
+          <h3 class="text-slate-300 text-xs font-mono uppercase tracking-widest mb-4">{group.category}</h3>
           <div class="flex flex-wrap gap-2">
-            {items.map(item => (
-              <span class="px-2.5 py-1 rounded-lg text-xs font-mono bg-slate-800 text-slate-300 border border-slate-700">
+            {group.items.map(item => (
+              <span class="px-3 py-1 rounded-full text-xs font-mono bg-slate-800 text-slate-300 border border-slate-700">
                 {item}
               </span>
             ))}
           </div>
         </div>
       ))}
+    </div>
+  </section>
 
-      <!-- Experience card -->
-      <div class="md:col-span-2 bg-slate-900 rounded-3xl border border-slate-800 p-8">
-        <p class="text-slate-400 text-xs font-mono uppercase tracking-widest mb-6">Experience</p>
-        <div class="space-y-8">
-          {experience.map(role => (
-            <div class="border-l-2 border-indigo-500/30 pl-5">
-              <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-3">
-                <div>
-                  <h3 class="text-white font-semibold">{role.title}</h3>
-                  <p class="text-indigo-400 text-sm">{role.company}</p>
-                </div>
-                <span class="text-slate-500 text-xs font-mono shrink-0 mt-0.5">{role.period}</span>
-              </div>
-              <ul class="space-y-2">
-                {role.bullets.map(b => (
-                  <li class="text-slate-400 text-sm flex gap-2 leading-relaxed">
-                    <span class="text-indigo-400 shrink-0 mt-0.5">▹</span>{b}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <!-- Homelab project card -->
-      <div class="bg-slate-900 rounded-3xl border border-slate-800 p-6 hover:border-indigo-500/40 transition-colors flex flex-col justify-between">
-        <div>
-          <p class="text-slate-400 text-xs font-mono uppercase tracking-widest mb-3">🏠 Project</p>
-          <h3 class="text-white font-semibold text-lg mb-2">Homelab</h3>
-          <p class="text-slate-400 text-sm leading-relaxed mb-4">
-            15+ services on Docker Compose with Traefik reverse proxy, WireGuard VPN, Gatus monitoring, and automated nightly backups.
-          </p>
-          <div class="flex flex-wrap gap-1.5 mb-4">
-            {['Docker', 'Traefik', 'WireGuard', 'nginx'].map(t => (
-              <span class="px-2 py-0.5 rounded-md text-xs font-mono bg-slate-800 text-slate-400 border border-slate-700">{t}</span>
-            ))}
+  <!-- Experience -->
+  <section class="py-32 px-6 max-w-5xl mx-auto border-t border-slate-800/50">
+    <div data-animate class="mb-16">
+      <p class="font-mono text-indigo-400 text-xs tracking-widest uppercase mb-3">Where I've worked</p>
+      <h2 class="text-4xl font-bold text-white">Experience</h2>
+    </div>
+    <div class="space-y-12">
+      {experience.map((role, i) => (
+        <div data-animate style={`transition-delay: ${i * 120}ms`} class="grid md:grid-cols-3 gap-6">
+          <div class="md:col-span-1">
+            <p class="font-mono text-slate-500 text-sm">{role.period}</p>
+          </div>
+          <div class="md:col-span-2 border-l-2 border-indigo-500/30 pl-6">
+            <h3 class="text-white font-semibold text-xl mb-1">{role.title}</h3>
+            <p class="text-indigo-400 text-sm mb-4">{role.company}</p>
+            <ul class="space-y-2.5">
+              {role.bullets.map(b => (
+                <li class="flex gap-3 text-slate-400 text-sm leading-relaxed">
+                  <span class="text-indigo-400 shrink-0 mt-0.5">▹</span>{b}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-        <a href="https://github.com/TadasJuska/beenas" target="_blank" rel="noopener noreferrer"
-          class="text-indigo-400 hover:text-indigo-300 text-sm font-medium transition-colors">
-          View on GitHub →
+      ))}
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="py-32 px-6 max-w-5xl mx-auto border-t border-slate-800/50">
+    <div data-animate class="mb-16">
+      <p class="font-mono text-indigo-400 text-xs tracking-widest uppercase mb-3">Things I've built</p>
+      <h2 class="text-4xl font-bold text-white">Projects</h2>
+    </div>
+    <div class="grid md:grid-cols-2 gap-6">
+      {projects.map((project, i) => {
+        const Tag = project.url ? 'a' : 'div';
+        const linkProps = project.url ? { href: project.url, target: '_blank', rel: 'noopener noreferrer' } : {};
+        return (
+          <Tag
+            {...linkProps}
+            data-animate="scale"
+            style={`transition-delay: ${i * 100}ms`}
+            class={`group bg-slate-900 rounded-2xl border border-slate-800 p-8 transition-colors flex flex-col gap-4 ${project.url ? 'hover:border-indigo-500/40' : ''}`}
+          >
+            <div class="flex items-start justify-between gap-4">
+              <h3 class={`text-white font-semibold text-lg ${project.url ? 'group-hover:text-indigo-400 transition-colors' : ''}`}>{project.name}</h3>
+              {project.url
+                ? <span class="text-slate-600 group-hover:text-slate-300 transition-colors text-xl">↗</span>
+                : <span class="px-2 py-0.5 rounded text-xs font-mono bg-slate-800 text-slate-500 border border-slate-700">private</span>
+              }
+            </div>
+            <p class="text-slate-400 text-sm leading-relaxed flex-1">{project.description}</p>
+            <div class="flex flex-wrap gap-2">
+              {project.tech.map(t => (
+                <span class="px-2.5 py-1 rounded-lg text-xs font-mono bg-slate-800 text-slate-400 border border-slate-700">{t}</span>
+              ))}
+            </div>
+          </Tag>
+        );
+      })}
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="py-32 px-6 text-center border-t border-slate-800/50">
+    <div data-animate>
+      <p class="font-mono text-indigo-400 text-xs tracking-widest uppercase mb-3">Get in touch</p>
+      <h2 class="text-4xl font-bold text-white mb-6">Let's work together</h2>
+      <p class="text-slate-400 mb-10 max-w-md mx-auto">
+        Open to remote DevOps and Platform Engineering contracts. Reach out anytime.
+      </p>
+      <div class="flex gap-4 justify-center flex-wrap">
+        <a href="mailto:tadas.juska@outlook.com"
+          class="px-8 py-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-medium transition-colors text-lg">
+          tadas.juska@outlook.com
+        </a>
+        <a href="https://www.linkedin.com/in/tadasjuska" target="_blank" rel="noopener noreferrer"
+          class="px-8 py-4 rounded-xl border border-slate-700 hover:border-slate-500 text-slate-300 hover:text-white font-medium transition-colors text-lg">
+          LinkedIn
         </a>
       </div>
-
-      <!-- Observability card -->
-      <div class="bg-slate-900 rounded-3xl border border-slate-800 p-6 hover:border-indigo-500/40 transition-colors">
-        <p class="text-slate-400 text-xs font-mono uppercase tracking-widest mb-4">📊 Observability</p>
-        <div class="flex flex-wrap gap-2">
-          {['Prometheus', 'Grafana', 'Loki', 'OpenTelemetry', 'ELK'].map(item => (
-            <span class="px-2.5 py-1 rounded-lg text-xs font-mono bg-slate-800 text-slate-300 border border-slate-700">{item}</span>
-          ))}
-        </div>
-      </div>
-
-      <!-- Email card -->
-      <a href="mailto:tadas.juska@outlook.com"
-        class="bg-slate-900 rounded-3xl border border-slate-800 p-6 hover:border-indigo-500/40 transition-colors group flex flex-col justify-between gap-6">
-        <p class="text-slate-400 text-xs font-mono uppercase tracking-widest">✉️ Email</p>
-        <div>
-          <p class="text-white font-medium text-sm group-hover:text-indigo-400 transition-colors break-all">
-            tadas.juska@outlook.com
-          </p>
-          <p class="text-slate-500 text-xs mt-1">Let's work together →</p>
-        </div>
-      </a>
-
-      <!-- LinkedIn card -->
-      <a href="https://www.linkedin.com/in/tadas-j-887508b6/" target="_blank" rel="noopener noreferrer"
-        class="bg-indigo-600/10 rounded-3xl border border-indigo-500/20 p-6 hover:bg-indigo-600/20 hover:border-indigo-500/40 transition-colors group flex flex-col justify-between gap-6">
-        <p class="text-indigo-400 text-xs font-mono uppercase tracking-widest">💼 LinkedIn</p>
-        <div>
-          <p class="text-white font-medium group-hover:text-indigo-300 transition-colors">Tadas J.</p>
-          <p class="text-indigo-400 text-xs mt-1">Connect →</p>
-        </div>
-      </a>
-
     </div>
+  </section>
 
-    <p class="text-center text-slate-700 text-xs font-mono mt-8 pb-4">
-      Built with Astro · Self-hosted on homelab
-    </p>
-  </main>
+  <footer class="text-center text-slate-700 text-xs font-mono pb-8">
+    Built with Astro · Self-hosted on homelab
+  </footer>
+
+  <script>
+    // Scroll progress bar
+    const bar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+      const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+      bar!.style.width = pct + '%';
+    }, { passive: true });
+
+    // Intersection observer for scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+  </script>
 </Layout>

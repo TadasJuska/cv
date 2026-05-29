@@ -3,14 +3,41 @@ name: Build and publish
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
-  build:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Scan with Trivy
+        uses: aquasecurity/trivy-action@0.28.0
+        with:
+          scan-type: fs
+          scan-ref: .
+          format: table
+          exit-code: '1'
+          severity: CRITICAL,HIGH
+
+  publish:
+    needs: [check, scan]
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
-
     steps:
       - uses: actions/checkout@v4
 
@@ -29,6 +56,7 @@ jobs:
         with:
           context: .
           push: true
+          platforms: linux/amd64,linux/arm64
           tags: ghcr.io/tadasjuska/cv:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max

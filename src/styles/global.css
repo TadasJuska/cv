@@ -1,1 +1,54 @@
 @import "tailwindcss";
+
+[data-animate] {
+  opacity: 0;
+  transform: translateY(48px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-animate].in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-animate="left"] {
+  transform: translateX(-48px);
+}
+
+[data-animate="left"].in-view {
+  transform: translateX(0);
+}
+
+[data-animate="right"] {
+  transform: translateX(48px);
+}
+
+[data-animate="right"].in-view {
+  transform: translateX(0);
+}
+
+[data-animate="scale"] {
+  transform: scale(0.92);
+}
+
+[data-animate="scale"].in-view {
+  transform: scale(1);
+}
+
+.hero-char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(60px);
+  animation: charIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes charIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
