@@ -57,7 +57,6 @@ jobs:
           tags: |
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
-            type=sha,prefix=
             type=raw,value=latest,enable={{is_default_branch}}
 
       - name: Set up Docker Buildx
@@ -73,3 +72,11 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+
+      - name: Delete untagged images
+        uses: actions/delete-package-versions@v5
+        with:
+          package-name: cv
+          package-type: container
+          delete-untagged-versions: true
+          min-versions-to-keep: 5
