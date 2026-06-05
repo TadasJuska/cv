@@ -80,27 +80,47 @@ const experience = [
 
 const projects = [
   {
-    name: 'CV',
-    description: 'Demo project showcasing DevOps practices around a simple Astro site. GitHub Actions runs three gated jobs: check (npm ci + build), scan (Trivy filesystem scan — blocks on CRITICAL/HIGH CVEs), and publish (multi-stage Docker build pushed as multi-arch amd64/arm64 image to ghcr.io). Publish only runs on main after both checks pass. Dependabot keeps Actions versions current.',
+    name: 'This Website · CV',
+    description: 'This site — an Astro CV with a production-grade DevOps pipeline behind it.',
+    bullets: [
+      'Three gated GitHub Actions jobs: check (npm ci + build), scan (Trivy — blocks on CRITICAL/HIGH CVEs), and publish (multi-arch amd64/arm64 Docker image pushed to ghcr.io).',
+      'Publish only runs on main after both check and scan pass.',
+      'Dependabot keeps all Actions versions current.',
+    ],
     tech: ['Astro', 'Docker', 'GitHub Actions', 'Trivy', 'ghcr.io'],
     url: 'https://github.com/TadasJuska/cv',
   },
   {
     name: 'Fully Managed EKS Platform',
-    description: 'Production EKS cluster built entirely as code — cluster provisioned with Terraform/OpenTofu, ArgoCD app-of-apps GitOps with ApplicationSet templates to scale Helm and manifest deployments across environments without duplication, Kargo chart promotion with per-PR preview environments and approval gates into stg and prod, Cilium CNI with pod-to-pod mTLS and SPIFFE/SVID identity enforcing zero-trust encryption for all in-cluster traffic, Karpenter node autoscaling, OpenBao/Vault with ESO for secrets, cert-manager for TLS, and external-dns for automatic Route53 record management from Ingress annotations. Every infrastructure component self-managed and reconciled from Git.',
+    description: 'Production EKS cluster built entirely as code — every component self-managed and reconciled from Git.',
+    bullets: [
+      'ArgoCD app-of-apps GitOps with ApplicationSet templates — scales Helm deployments across environments without duplication.',
+      'Kargo chart promotion with per-PR preview environments and approval gates into stg and prod.',
+      'Cilium CNI with pod-to-pod mTLS and SPIFFE/SVID identity — zero-trust encryption for all in-cluster traffic, no sidecars.',
+      'Karpenter node autoscaling, OpenBao + ESO for secrets, cert-manager for TLS, external-dns for automatic Route53 management.',
+    ],
     tech: ['EKS', 'Terraform', 'OpenTofu', 'ArgoCD', 'Kargo', 'Cilium', 'Karpenter', 'OpenBao', 'ESO', 'Helm', 'external-dns', 'Route53'],
     private: true,
     arch: true,
   },
   {
     name: 'Cilium',
-    description: 'Working directly with the Cilium team on end-to-end encryption using the ztunnel ambient proxy model — bringing zero-trust, sidecar-free mTLS to production Kubernetes without sidecar overhead.',
+    description: 'Contributing directly to the Cilium open-source project on end-to-end encryption.',
+    bullets: [
+      'Implementing the ztunnel ambient proxy model — zero-trust, sidecar-free mTLS for production Kubernetes.',
+      'Removing sidecar overhead while maintaining full encryption and identity enforcement across all in-cluster traffic.',
+    ],
     tech: ['Kubernetes', 'eBPF', 'Cilium', 'WireGuard', 'Zero Trust'],
     url: 'https://github.com/cilium/cilium',
   },
   {
     name: 'Homelab',
-    description: 'Personal lab for running things I actually use — media server, home automation, and custom OpenWrt router. Traefik handles routing and TLS across all services. A practical environment for testing infra patterns before applying them at work.',
+    description: 'Personal lab for running things I actually use.',
+    bullets: [
+      'Media server, home automation, and a custom OpenWrt router.',
+      'Traefik handles routing and TLS across all services.',
+      'Practical environment for testing infra patterns before applying them at work.',
+    ],
     tech: ['Docker', 'Traefik', 'Home Assistant', 'OpenWrt', "Let's Encrypt"],
   },
 ];
@@ -262,7 +282,18 @@ const projects = [
                 : <span class="px-2 py-0.5 rounded text-xs font-mono bg-slate-800 text-slate-500 border border-slate-700">private</span>
               }
             </div>
-            <p class="text-slate-400 text-sm leading-relaxed flex-1">{project.description}</p>
+            <div class="flex-1 flex flex-col gap-3">
+              {project.description && <p class="text-slate-400 text-sm leading-relaxed">{project.description}</p>}
+              {project.bullets && (
+                <ul class="space-y-2">
+                  {project.bullets.map((b: string) => (
+                    <li class="flex gap-3 text-slate-400 text-sm leading-relaxed">
+                      <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0 mt-1.5 shadow-[0_0_6px_rgba(34,211,238,0.9)]"></span>{b}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
             <div class="flex flex-wrap gap-2">
               {project.tech.map(t => (
                 <span class="px-2.5 py-1 rounded-lg text-xs font-mono bg-slate-800 text-slate-400 border border-slate-700">{t}</span>
