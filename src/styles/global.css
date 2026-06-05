@@ -52,3 +52,117 @@
 html {
   scroll-behavior: smooth;
 }
+
+.print-only {
+  display: none;
+}
+
+@page {
+  margin: 0;
+}
+
+@media print {
+  body {
+    padding: 0.75cm 0;
+  }
+
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  /* Force all animated/hidden elements visible — JS beforeprint also handles this */
+  [data-animate],
+  .opacity-0,
+  .hero-char {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  /* Keep cards and experience entries intact — no splitting across pages */
+  .rounded-2xl,
+  [data-animate] {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Prevent overflow-hidden on h1 from clipping hero chars during print */
+  h1 {
+    overflow: visible !important;
+  }
+
+  body {
+    background: #fff !important;
+    color: #1e293b !important;
+  }
+
+  .no-print,
+  #progress-bar,
+  #arch-modal,
+  #arch-open {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  section {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+    min-height: unset !important;
+  }
+
+  .hero-char {
+    display: inline !important;
+  }
+
+  h1, h2, h3 {
+    color: #0f172a !important;
+  }
+
+  h1 span {
+    color: #0891b2 !important;
+  }
+
+  p, li, span {
+    color: #334155 !important;
+  }
+
+  .text-cyan-400,
+  .text-cyan-500 {
+    color: #0891b2 !important;
+  }
+
+  .bg-slate-900,
+  .bg-slate-800 {
+    background: #f8fafc !important;
+    border-color: #e2e8f0 !important;
+  }
+
+  a {
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+
+  .border-slate-800 {
+    border-color: #e2e8f0 !important;
+  }
+
+  /* Remove glow from bullet dots — box-shadow doesn't print */
+  .shadow-\[0_0_6px_rgba\(34\,211\,238\,0\.9\)\] {
+    box-shadow: none !important;
+  }
+
+  /* Section divider lines */
+  section + section {
+    border-top: 1px solid #e2e8f0;
+  }
+
+  /* Keep section headings with their content — no orphan headings at page bottom */
+  h2, h3 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+}
