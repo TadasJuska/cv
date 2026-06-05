@@ -79,4 +79,5 @@ jobs:
         with:
           package-name: cv
           package-type: container
+          delete-untagged-versions: true
           min-versions-to-keep: 50
