@@ -9,9 +9,11 @@ const hero = {
   bio: "Platform and DevOps engineer focused on production-grade, cloud-native infrastructure — secure, observable, and genuinely automated. Comfortable across any Kubernetes distribution or cloud provider. The platform changes; the engineering principles don't.",
   email: 'tadas.juska@outlook.com',
   github: 'https://github.com/TadasJuska',
+  githubShort: 'github.com/TadasJuska',
   linkedin: 'https://www.linkedin.com/in/tadasjuska',
   location: 'Remote · Europe',
-  languages: 'Lithuanian · English',
+  languages: 'Lithuanian (native) · English (fluent)',
+  availability: 'Available now · Contract · Remote',
 };
 
 const skills = [
@@ -38,7 +40,7 @@ const experience = [
         bullets: [
           'Modernised platform networking with eBPF-based Cilium CNI — replacing kube-proxy, enabling WireGuard + ztunnel end-to-end encryption, and bringing zero-trust ambient mesh to production Kubernetes.',
           'Migrated CI/CD from Jenkins to GitHub Actions and introduced GitOps with ArgoCD and Helm — every change versioned, auditable, and automatically reconciled.',
-          'Managed infrastructure with OpenTofu and OS-level configuration with SaltStack across multi-tenant SaaS environments.',
+          'Moved all infrastructure to IaC with OpenTofu and OS configuration to SaltStack — every resource declared and version-controlled, no snowflakes, no undocumented state.',
           'Operated Django microservices, PostgreSQL, Apache Solr, and SSO integrations with full observability via Prometheus, Grafana, and Alertmanager.',
         ],
       },
@@ -47,45 +49,63 @@ const experience = [
         location: 'Iceland',
         period: 'Aug 2023 – June 2024 ',
         bullets: [
-          'Managed and scaled cloud infrastructure on AWS — EC2 fleet management and configuration automation with SaltStack.',
-          'Led software version upgrades and vulnerability remediation across the stack, reducing exposure and keeping dependencies current.',
-          'Identified and resolved performance bottlenecks, improving system throughput and reliability across environments.',
-          'Supported engineering teams with infrastructure tooling and incident response.',
+          'Inherited outdated AWS infrastructure and brought it fully current — OS patches, dependency upgrades, and vulnerability remediation across the entire EC2 fleet.',
+          'Automated infrastructure configuration with SaltStack — replaced manual, error-prone provisioning with repeatable, version-controlled state.',
+          'Tracked down and fixed performance bottlenecks across environments, improving throughput and stability across the stack.',
+          'Kept CI/CD pipelines running daily — diagnosing and resolving failures fast to keep engineering teams unblocked.',
         ],
       },
     ],
   },
   {
-    title: 'Senior Infrastructure Engineer',
+    title: 'Infrastructure Engineer → Senior Infrastructure Engineer',
     company: 'Swedbank',
     location: 'Sweden',
-    period: 'Jun 2020 – Aug 2023',
-    bullets: [
-      'Evolved infrastructure across internal data centres and cloud (AWS, Azure); led performance, penetration, and security audits.',
-      'Automated provisioning and configuration with Terraform, Ansible, and Puppet; managed incident response and on-call rotation.',
-      'Delivered observability with Zabbix and Grafana across Oracle, PostgreSQL, and Cassandra.',
+    period: 'Apr 2018 – Aug 2023',
+    clients: [
+      {
+        name: 'Senior Infrastructure Engineer',
+        period: 'Jun 2020 – Aug 2023',
+        bullets: [
+          'Operated infrastructure for a high-security card data platform processing 10 million files per day — delivering data to other banks and financial services across internal teams and external partners.',
+          'Introduced Terraform and Ansible to the bank — bringing IaC and automated tool deployments to an environment that had neither, reducing toil and making scale-up a low-maintenance operation.',
+          'Owned security and authentication across the stack — TLS, LDAP, Kerberos, NTLM, SSO — and led internal and external performance, penetration, and security audits.',
+          'Delivered full observability with Zabbix and Grafana across Oracle and Cassandra; on-call rotation and incident management.',
+        ],
+      },
+      {
+        name: 'Infrastructure Engineer',
+        period: 'Apr 2018 – Jun 2020',
+        bullets: [
+          'Managed Linux and Windows server environments — patching, vulnerability remediation, and network security.',
+          'Automated operational tasks with Python, Bash, Jenkins, and Azure Pipelines.',
+          'Implemented authentication and encryption: TLS, LDAP, Kerberos, NTLM, SSO.',
+        ],
+      },
     ],
   },
   {
-    title: 'Infrastructure Engineer',
-    company: 'Swedbank',
-    location: 'Sweden',
-    period: 'Apr 2018 – Jun 2020',
-    bullets: [
-      'Managed Linux and Windows server environments — patching, vulnerability remediation, and network security.',
-      'Automated operational tasks with Python, Bash, Jenkins, and Azure Pipelines.',
-      'Implemented authentication and encryption: TLS, LDAP, Kerberos, NTLM, SSO.',
-    ],
-  },
-  {
-    title: 'Senior System Administrator',
+    title: 'System Administrator → Senior System Administrator',
     company: 'Rubineta',
     location: 'Lithuania',
-    period: 'Jan 2016 – Apr 2018',
-    bullets: [
-      'Managed IT department budget and supervised a team of two.',
-      'Administered server environments: patching, security hardening, and disaster recovery.',
-      'Installed and maintained applications across Linux and Windows servers.',
+    period: 'May 2015 – Apr 2018',
+    clients: [
+      {
+        name: 'Senior System Administrator',
+        period: 'Jan 2016 – Apr 2018',
+        bullets: [
+          'Owned the IT department — budget, procurement, and a team of two (Desktop Technician and Junior Sysadmin).',
+          'Administered Linux and Windows server environments — patching, vulnerability remediation, network security, and disaster recovery planning with regular backup testing.',
+          'Installed and maintained applications across Linux and Windows servers; handled hardware repairs, upgrades, and inventory management.',
+        ],
+      },
+      {
+        name: 'System Administrator',
+        period: 'May 2015 – Jan 2016',
+        bullets: [
+          'Provided daily support for servers and computers used by customers.',
+        ],
+      },
     ],
   },
 ];
@@ -96,7 +116,7 @@ const projects = [
     description: 'This site — an Astro CV with a production-grade DevOps pipeline behind it.',
     bullets: [
       'Three gated GitHub Actions jobs: check (npm ci + build), scan (Trivy — blocks on CRITICAL/HIGH CVEs), and publish (multi-arch amd64/arm64 Docker image pushed to ghcr.io).',
-      'Publish only runs on main after both check and scan pass.',
+      'Publish only runs on a version tag push after both check and scan pass.',
       'Dependabot keeps all Actions versions current.',
     ],
     tech: ['Astro', 'Docker', 'GitHub Actions', 'Trivy', 'ghcr.io'],
@@ -117,10 +137,10 @@ const projects = [
   },
   {
     name: 'Cilium',
-    description: 'Contributing directly to the Cilium open-source project on end-to-end encryption.',
+    description: 'Beta tester for Cilium releases on Kubernetes — validating new features in real cluster environments before they ship.',
     bullets: [
-      'Implementing the ztunnel ambient proxy model — zero-trust, sidecar-free mTLS for production Kubernetes.',
-      'Removing sidecar overhead while maintaining full encryption and identity enforcement across all in-cluster traffic.',
+      'Tested the ztunnel ambient proxy model — zero-trust, sidecar-free mTLS for production Kubernetes.',
+      'Validated end-to-end encryption with WireGuard and SPIFFE/SVID identity across in-cluster traffic, providing feedback on edge cases ahead of stable release.',
     ],
     tech: ['Kubernetes', 'eBPF', 'Cilium', 'WireGuard', 'Zero Trust'],
     url: 'https://github.com/cilium/cilium',
@@ -137,6 +157,29 @@ const projects = [
     tech: ['Docker', 'Traefik', 'Home Assistant', 'OpenWrt', "Let's Encrypt"],
   },
 ];
+
+const certifications = [
+  { name: 'Certified Kubernetes Administrator (CKA)', issuer: 'The Linux Foundation', issued: 'Feb 2024' },
+  { name: 'Azure Architect Design (AZ-301)', issuer: 'Microsoft', issued: 'May 2020' },
+  { name: 'Agile Expert Certificate of Proficiency', issuer: 'Swedbank', issued: 'Apr 2020' },
+  { name: 'Atlassian Certified Jira Administrator', issuer: 'Atlassian', issued: 'Jul 2018' },
+  { name: 'CompTIA A+', issuer: 'Linux Academy', issued: 'Apr 2018' },
+  { name: 'Cyberoam Certified Network & Security Professional', issuer: 'Cyberoam', issued: 'May 2016' },
+  { name: 'ECDL', issuer: 'United Latino Students Association', issued: 'Feb 2014' },
+];
+
+const education = [
+  {
+    degree: "Bachelor's degree, Computer Sciences & Computer Engineering",
+    institution: 'Vilnius University of Applied Sciences',
+    period: '2013 – 2017',
+  },
+  {
+    degree: 'Secondary Education',
+    institution: '"Džiugas" Gimnasium',
+    period: '2001 – 2013',
+  },
+];
 ---
 
 <Layout>
@@ -148,9 +191,10 @@ const projects = [
     <p style="color:#0891b2;font-family:monospace;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.15em;margin-bottom:0.5rem">{hero.title}</p>
     <h1 style="font-size:2.5rem;font-weight:700;color:#0f172a;margin-bottom:1rem">{hero.firstName} <span style="color:#0891b2">{hero.lastName}</span></h1>
     <p style="color:#334155;font-size:0.95rem;line-height:1.7;max-width:42rem;margin-bottom:1rem">{hero.bio}</p>
-    <p style="color:#64748b;font-size:0.8rem;font-family:monospace">
-      {hero.email} &nbsp;·&nbsp; linkedin.com/in/tadasjuska &nbsp;·&nbsp; {hero.location} &nbsp;·&nbsp; {hero.languages}
+    <p style="color:#64748b;font-size:0.8rem;font-family:monospace;margin-bottom:0.4rem">
+      {hero.email} &nbsp;·&nbsp; linkedin.com/in/tadasjuska &nbsp;·&nbsp; {hero.githubShort} &nbsp;·&nbsp; {hero.location} &nbsp;·&nbsp; {hero.languages}
     </p>
+    <p style="color:#0891b2;font-size:0.8rem;font-family:monospace;font-weight:600">{hero.availability}</p>
   </section>
 
   <!-- Hero -->
@@ -164,6 +208,12 @@ const projects = [
     </h1>
     <p class="text-slate-400 text-lg max-w-lg leading-relaxed opacity-0 animate-[charIn_0.6s_0.6s_cubic-bezier(0.16,1,0.3,1)_forwards]">
       {hero.bio}
+    </p>
+    <p class="mt-4 opacity-0 animate-[charIn_0.6s_0.68s_cubic-bezier(0.16,1,0.3,1)_forwards]">
+      <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-sm font-mono">
+        <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+        {hero.availability}
+      </span>
     </p>
     <div class="flex gap-4 mt-10 opacity-0 animate-[charIn_0.6s_0.75s_cubic-bezier(0.16,1,0.3,1)_forwards] flex-wrap justify-center">
       <a href={`mailto:${hero.email}`}
@@ -204,32 +254,6 @@ const projects = [
     <div class="absolute bottom-10 opacity-0 animate-[charIn_0.6s_1s_cubic-bezier(0.16,1,0.3,1)_forwards] flex flex-col items-center gap-2">
       <span class="text-slate-600 text-xs font-mono tracking-widest">SCROLL</span>
       <div class="w-px h-12 bg-gradient-to-b from-slate-600 to-transparent"></div>
-    </div>
-  </section>
-
-  <!-- Skills -->
-  <section class="py-32 px-6 max-w-5xl mx-auto">
-    <div data-animate class="mb-16">
-      <p class="font-mono text-cyan-400 text-xs tracking-widest uppercase mb-3">What I work with</p>
-      <h2 class="text-4xl font-bold text-white">Skills</h2>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      {skills.map((group, i) => (
-        <div
-          data-animate
-          style={`transition-delay: ${i * 80}ms`}
-          class="bg-slate-900 rounded-2xl border border-slate-800 p-6 hover:border-cyan-500/30 transition-colors"
-        >
-          <h3 class="text-slate-400 text-xs font-mono uppercase tracking-widest mb-4">{group.category}</h3>
-          <div class="flex flex-wrap gap-2">
-            {group.items.map(item => (
-              <span class="px-3 py-1 rounded-full text-xs font-mono bg-slate-800 text-slate-400 border border-slate-700">
-                {item}
-              </span>
-            ))}
-          </div>
-        </div>
-      ))}
     </div>
   </section>
 
@@ -293,6 +317,75 @@ const projects = [
                 ))}
               </ul>
             )}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section class="py-32 px-6 max-w-5xl mx-auto border-t border-slate-800/50">
+    <div data-animate class="mb-16">
+      <h2 class="text-4xl font-bold text-white">Education</h2>
+    </div>
+    <div class="space-y-8">
+      {education.map((entry, i) => (
+        <div data-animate style={`transition-delay: ${i * 100}ms`} class="grid md:grid-cols-3 gap-6">
+          <div class="md:col-span-1">
+            <p class="font-mono text-slate-500 text-sm">{entry.period}</p>
+          </div>
+          <div class="md:col-span-2 border-l-2 border-cyan-500/30 pl-6">
+            <h3 class="text-white font-semibold text-lg mb-1">{entry.degree}</h3>
+            <p class="text-cyan-400 text-sm font-semibold">{entry.institution}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="py-32 px-6 max-w-5xl mx-auto border-t border-slate-800/50">
+    <div data-animate class="mb-16">
+      <p class="font-mono text-cyan-400 text-xs tracking-widest uppercase mb-3">What I work with</p>
+      <h2 class="text-4xl font-bold text-white">Skills</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {skills.map((group, i) => (
+        <div
+          data-animate
+          style={`transition-delay: ${i * 80}ms`}
+          class="bg-slate-900 rounded-2xl border border-slate-800 p-6 hover:border-cyan-500/30 transition-colors"
+        >
+          <h3 class="text-slate-400 text-xs font-mono uppercase tracking-widest mb-4">{group.category}</h3>
+          <div class="flex flex-wrap gap-2">
+            {group.items.map(item => (
+              <span class="px-3 py-1 rounded-full text-xs font-mono bg-slate-800 text-slate-400 border border-slate-700">
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Certifications -->
+  <section class="py-32 px-6 max-w-5xl mx-auto border-t border-slate-800/50">
+    <div data-animate class="mb-16">
+      <h2 class="text-4xl font-bold text-white">Certifications</h2>
+    </div>
+    <div class="grid md:grid-cols-2 gap-4">
+      {certifications.map((cert, i) => (
+        <div
+          data-animate
+          style={`transition-delay: ${i * 60}ms`}
+          class="bg-slate-900 rounded-2xl border border-slate-800 px-6 py-4 hover:border-cyan-500/30 transition-colors flex gap-4 items-start"
+        >
+          <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0 mt-2 shadow-[0_0_6px_rgba(34,211,238,0.9)]"></span>
+          <div>
+            <p class="text-white font-medium text-sm">{cert.name}</p>
+            <p class="text-cyan-400 text-xs font-mono mt-0.5">{cert.issuer}</p>
+            <p class="text-slate-500 text-xs font-mono mt-0.5">{cert.issued}</p>
           </div>
         </div>
       ))}
