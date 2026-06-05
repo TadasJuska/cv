@@ -3,29 +3,50 @@ import Layout from '../layouts/Layout.astro';
 import '../styles/global.css';
 
 const skills = [
-  { category: 'Cloud & IaC', items: ['AWS', 'Terraform', 'Pulumi', 'Ansible', 'CloudFormation'] },
-  { category: 'Containers', items: ['Docker', 'Kubernetes', 'Helm', 'k3s', 'Docker Compose'] },
-  { category: 'CI/CD & GitOps', items: ['GitHub Actions', 'ArgoCD', 'Flux', 'GitLab CI', 'Jenkins'] },
-  { category: 'Observability', items: ['Prometheus', 'Grafana', 'Loki', 'OpenTelemetry', 'ELK'] },
-  { category: 'Networking', items: ['Traefik', 'nginx', 'WireGuard', 'Cloudflare', 'Vault'] },
-  { category: 'Languages', items: ['Python', 'Go', 'Bash', 'TypeScript', 'YAML'] },
+  { category: 'Cloud & IaC', items: ['AWS', 'Azure', 'GCP', 'Terraform', 'OpenTofu', 'Terragrunt', 'Pulumi', 'Ansible', 'SaltStack', 'Chef', 'Puppet'] },
+  { category: 'Containers & Platform', items: ['Kubernetes', 'Cilium', 'Karpenter', 'Helm', 'Docker', 'Podman', 'containerd', 'k3s', 'OPA', 'Gatekeeper', 'cert-manager'] },
+  { category: 'CI/CD & GitOps', items: ['ArgoCD', 'Kargo', 'Flux', 'GitHub Actions', 'GitLab CI', 'Jenkins', 'Tekton', 'Renovate'] },
+  { category: 'Observability', items: ['Prometheus', 'Grafana', 'Loki', 'OpenTelemetry', 'Elasticsearch', 'Kibana', 'Zabbix', 'Icinga2'] },
+  { category: 'Security & Networking', items: ['Cilium mTLS', 'SPIFFE/SPIRE', 'VPN', 'OpenBao', 'Vault', 'Traefik', 'Nginx', 'Envoy', 'Istio'] },
+  { category: 'Data & Messaging', items: ['PostgreSQL', 'RabbitMQ', 'Kafka', 'Zookeeper', 'Apache Solr', 'Oracle DB', 'Elasticsearch'] },
+  { category: 'Languages', items: ['Python', 'Go', 'Bash', 'HCL', 'YAML'] },
 ];
 
 const experience = [
   {
-    title: 'Senior DevOps Engineer',
-    company: 'Wise',
-    period: 'Aug 2023 – May 2026',
-    bullets: [
-      'Modernised platform networking with eBPF-based Cilium CNI — replacing kube-proxy, enabling WireGuard + ztunnel end-to-end encryption, and bringing zero-trust ambient mesh to production Kubernetes.',
-      'Migrated CI/CD from Jenkins to GitHub Actions and introduced GitOps with ArgoCD and Helm — every change versioned, auditable, and automatically reconciled.',
-      'Managed infrastructure with OpenTofu and OS-level configuration with SaltStack across multi-tenant SaaS environments.',
-      'Operated Django microservices, PostgreSQL, Apache Solr, and SSO integrations with full observability via Prometheus, Grafana, and Alertmanager.',
+    title: 'Platform Engineer',
+    company: 'Self-Employed · Contract',
+    period: 'Aug 2023 – Present',
+    description: 'Building and operating modern cloud-native platforms — where CI/CD, GitOps, and zero-trust networking are done right.',
+    clients: [
+      {
+        name: 'Wise',
+        location: 'Iceland',
+        period: ' June 2024 – Jul 2026',
+        bullets: [
+          'Modernised platform networking with eBPF-based Cilium CNI — replacing kube-proxy, enabling WireGuard + ztunnel end-to-end encryption, and bringing zero-trust ambient mesh to production Kubernetes.',
+          'Migrated CI/CD from Jenkins to GitHub Actions and introduced GitOps with ArgoCD and Helm — every change versioned, auditable, and automatically reconciled.',
+          'Managed infrastructure with OpenTofu and OS-level configuration with SaltStack across multi-tenant SaaS environments.',
+          'Operated Django microservices, PostgreSQL, Apache Solr, and SSO integrations with full observability via Prometheus, Grafana, and Alertmanager.',
+        ],
+      },
+      {
+        name: 'Coredata',
+        location: 'Iceland',
+        period: 'Aug 2023 – June 2024 ',
+        bullets: [
+          'Managed and scaled cloud infrastructure on AWS — EC2 fleet management and configuration automation with SaltStack.',
+          'Led software version upgrades and vulnerability remediation across the stack, reducing exposure and keeping dependencies current.',
+          'Identified and resolved performance bottlenecks, improving system throughput and reliability across environments.',
+          'Supported engineering teams with infrastructure tooling and incident response.',
+        ],
+      },
     ],
   },
   {
     title: 'Senior Infrastructure Engineer',
     company: 'Swedbank',
+    location: 'Sweden',
     period: 'Jun 2020 – Aug 2023',
     bullets: [
       'Evolved infrastructure across internal data centres and cloud (AWS, Azure); led performance, penetration, and security audits.',
@@ -36,6 +57,7 @@ const experience = [
   {
     title: 'Infrastructure Engineer',
     company: 'Swedbank',
+    location: 'Sweden',
     period: 'Apr 2018 – Jun 2020',
     bullets: [
       'Managed Linux and Windows server environments — patching, vulnerability remediation, and network security.',
@@ -46,6 +68,7 @@ const experience = [
   {
     title: 'Senior System Administrator',
     company: 'Rubineta',
+    location: 'Lithuania',
     period: 'Jan 2016 – Apr 2018',
     bullets: [
       'Managed IT department budget and supervised a team of two.',
@@ -57,51 +80,51 @@ const experience = [
 
 const projects = [
   {
-    name: 'Fully Managed EKS Platform',
-    description: 'Production EKS cluster built entirely as code — ArgoCD app-of-apps GitOps, Kargo chart promotion with approval gates, Cilium CNI with mTLS/SPIFFE, Karpenter node autoscaling, OpenBao/Vault with ESO for secrets, and cert-manager. Every infrastructure component self-managed and reconciled from Git.',
-    tech: ['EKS', 'ArgoCD', 'Kargo', 'Cilium', 'Karpenter', 'OpenBao', 'ESO', 'Helm'],
-    private: true,
-  },
-  {
-    name: 'Cilium (Open Source)',
-    description: 'Working directly with the Cilium team on end-to-end encryption using the ztunnel ambient proxy model — bringing zero-trust, sidecar-free mTLS to production Kubernetes without sidecar overhead.',
-    tech: ['Kubernetes', 'eBPF', 'Cilium', 'WireGuard', 'Zero Trust'],
-    url: 'https://github.com/cilium/cilium',
-  },
-  {
-    name: 'This CV',
+    name: 'CV',
     description: 'Demo project showcasing DevOps practices around a simple Astro site. GitHub Actions runs three gated jobs: check (npm ci + build), scan (Trivy filesystem scan — blocks on CRITICAL/HIGH CVEs), and publish (multi-stage Docker build pushed as multi-arch amd64/arm64 image to ghcr.io). Publish only runs on main after both checks pass. Dependabot keeps Actions versions current.',
     tech: ['Astro', 'Docker', 'GitHub Actions', 'Trivy', 'ghcr.io'],
     url: 'https://github.com/TadasJuska/cv',
   },
   {
-    name: 'Homelab (beenas)',
-    description: '15+ self-hosted services on Docker Compose with Traefik reverse proxy, automatic wildcard TLS, WireGuard VPN, Gatus uptime monitoring, and nightly automated backups.',
-    tech: ['Docker', 'Traefik', 'WireGuard', 'nginx', "Let's Encrypt"],
-    url: 'https://github.com/TadasJuska/beenas',
+    name: 'Fully Managed EKS Platform',
+    description: 'Production EKS cluster built entirely as code — cluster provisioned with Terraform/OpenTofu, ArgoCD app-of-apps GitOps with ApplicationSet templates to scale Helm and manifest deployments across environments without duplication, Kargo chart promotion with per-PR preview environments and approval gates into stg and prod, Cilium CNI with pod-to-pod mTLS and SPIFFE/SVID identity enforcing zero-trust encryption for all in-cluster traffic, Karpenter node autoscaling, OpenBao/Vault with ESO for secrets, cert-manager for TLS, and external-dns for automatic Route53 record management from Ingress annotations. Every infrastructure component self-managed and reconciled from Git.',
+    tech: ['EKS', 'Terraform', 'OpenTofu', 'ArgoCD', 'Kargo', 'Cilium', 'Karpenter', 'OpenBao', 'ESO', 'Helm', 'external-dns', 'Route53'],
+    private: true,
+    arch: true,
+  },
+  {
+    name: 'Cilium',
+    description: 'Working directly with the Cilium team on end-to-end encryption using the ztunnel ambient proxy model — bringing zero-trust, sidecar-free mTLS to production Kubernetes without sidecar overhead.',
+    tech: ['Kubernetes', 'eBPF', 'Cilium', 'WireGuard', 'Zero Trust'],
+    url: 'https://github.com/cilium/cilium',
+  },
+  {
+    name: 'Homelab',
+    description: 'Personal lab for running things I actually use — media server, home automation, and custom OpenWrt router. Traefik handles routing and TLS across all services. A practical environment for testing infra patterns before applying them at work.',
+    tech: ['Docker', 'Traefik', 'Home Assistant', 'OpenWrt', "Let's Encrypt"],
   },
 ];
 ---
 
 <Layout>
   <!-- Scroll progress bar -->
-  <div id="progress-bar" class="fixed top-0 left-0 h-0.5 bg-indigo-500 z-50 w-0 transition-none"></div>
+  <div id="progress-bar" class="fixed top-0 left-0 h-0.5 bg-cyan-500 z-50 w-0 transition-none"></div>
 
   <!-- Hero -->
   <section class="min-h-screen flex flex-col items-center justify-center relative px-6 text-center">
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(99,102,241,0.08)_0%,_transparent_70%)]"></div>
-    <p class="font-mono text-indigo-400 text-sm tracking-widest uppercase mb-8 opacity-0 animate-[charIn_0.6s_0.1s_cubic-bezier(0.16,1,0.3,1)_forwards]">
-      Senior DevOps / Platform Engineer · Open to remote contracts
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(6,182,212,0.08)_0%,_transparent_70%)]"></div>
+    <p class="font-mono text-cyan-400 text-sm tracking-widest uppercase mb-8 opacity-0 animate-[charIn_0.6s_0.1s_cubic-bezier(0.16,1,0.3,1)_forwards]">
+      Senior Platform Engineer
     </p>
     <h1 class="text-7xl md:text-9xl font-bold text-white tracking-tight mb-6 overflow-hidden">
-      <span class="hero-char" style="animation-delay: 0.15s">T</span><span class="hero-char" style="animation-delay: 0.2s">a</span><span class="hero-char" style="animation-delay: 0.25s">d</span><span class="hero-char" style="animation-delay: 0.3s">a</span><span class="hero-char" style="animation-delay: 0.35s">s</span><span class="hero-char inline-block w-6" style="animation-delay: 0.4s"> </span><span class="hero-char text-indigo-400" style="animation-delay: 0.45s">J</span><span class="hero-char text-indigo-400" style="animation-delay: 0.5s">u</span><span class="hero-char text-indigo-400" style="animation-delay: 0.55s">š</span><span class="hero-char text-indigo-400" style="animation-delay: 0.6s">k</span><span class="hero-char text-indigo-400" style="animation-delay: 0.65s">a</span>
+      <span class="hero-char" style="animation-delay: 0.15s">T</span><span class="hero-char" style="animation-delay: 0.2s">a</span><span class="hero-char" style="animation-delay: 0.25s">d</span><span class="hero-char" style="animation-delay: 0.3s">a</span><span class="hero-char" style="animation-delay: 0.35s">s</span><span class="hero-char inline-block w-6" style="animation-delay: 0.4s"> </span><span class="hero-char text-cyan-400" style="animation-delay: 0.45s">J</span><span class="hero-char text-cyan-400" style="animation-delay: 0.5s">u</span><span class="hero-char text-cyan-400" style="animation-delay: 0.55s">š</span><span class="hero-char text-cyan-400" style="animation-delay: 0.6s">k</span><span class="hero-char text-cyan-400" style="animation-delay: 0.65s">a</span>
     </h1>
     <p class="text-slate-400 text-lg max-w-lg leading-relaxed opacity-0 animate-[charIn_0.6s_0.6s_cubic-bezier(0.16,1,0.3,1)_forwards]">
       Platform and DevOps engineer focused on production-grade, cloud-native infrastructure — secure, observable, and genuinely automated. Comfortable across any Kubernetes distribution or cloud provider. The platform changes; the engineering principles don't.
     </p>
     <div class="flex gap-4 mt-10 opacity-0 animate-[charIn_0.6s_0.75s_cubic-bezier(0.16,1,0.3,1)_forwards] flex-wrap justify-center">
       <a href="mailto:tadas.juska@outlook.com"
-        class="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-medium transition-colors">
+        class="px-6 py-3 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-medium transition-colors">
         Email me
       </a>
       <a href="https://github.com/TadasJuska" target="_blank" rel="noopener noreferrer"
@@ -113,6 +136,10 @@ const projects = [
         LinkedIn
       </a>
     </div>
+    <p class="flex items-center gap-1.5 mt-6 opacity-0 animate-[charIn_0.6s_0.9s_cubic-bezier(0.16,1,0.3,1)_forwards] text-slate-600 text-xs font-mono">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      Vilnius, Lithuania · Europe
+    </p>
     <div class="absolute bottom-10 opacity-0 animate-[charIn_0.6s_1s_cubic-bezier(0.16,1,0.3,1)_forwards] flex flex-col items-center gap-2">
       <span class="text-slate-600 text-xs font-mono tracking-widest">SCROLL</span>
       <div class="w-px h-12 bg-gradient-to-b from-slate-600 to-transparent"></div>
@@ -122,7 +149,7 @@ const projects = [
   <!-- Skills -->
   <section class="py-32 px-6 max-w-5xl mx-auto">
     <div data-animate class="mb-16">
-      <p class="font-mono text-indigo-400 text-xs tracking-widest uppercase mb-3">What I work with</p>
+      <p class="font-mono text-cyan-400 text-xs tracking-widest uppercase mb-3">What I work with</p>
       <h2 class="text-4xl font-bold text-white">Skills</h2>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -130,7 +157,7 @@ const projects = [
         <div
           data-animate
           style={`transition-delay: ${i * 80}ms`}
-          class="bg-slate-900 rounded-2xl border border-slate-800 p-6 hover:border-indigo-500/30 transition-colors"
+          class="bg-slate-900 rounded-2xl border border-slate-800 p-6 hover:border-cyan-500/30 transition-colors"
         >
           <h3 class="text-slate-300 text-xs font-mono uppercase tracking-widest mb-4">{group.category}</h3>
           <div class="flex flex-wrap gap-2">
@@ -148,7 +175,7 @@ const projects = [
   <!-- Experience -->
   <section class="py-32 px-6 max-w-5xl mx-auto border-t border-slate-800/50">
     <div data-animate class="mb-16">
-      <p class="font-mono text-indigo-400 text-xs tracking-widest uppercase mb-3">Where I've worked</p>
+      <p class="font-mono text-cyan-400 text-xs tracking-widest uppercase mb-3">Where I've worked</p>
       <h2 class="text-4xl font-bold text-white">Experience</h2>
     </div>
     <div class="space-y-12">
@@ -157,16 +184,54 @@ const projects = [
           <div class="md:col-span-1">
             <p class="font-mono text-slate-500 text-sm">{role.period}</p>
           </div>
-          <div class="md:col-span-2 border-l-2 border-indigo-500/30 pl-6">
+          <div class="md:col-span-2 border-l-2 border-cyan-500/30 pl-6">
             <h3 class="text-white font-semibold text-xl mb-1">{role.title}</h3>
-            <p class="text-indigo-400 text-sm mb-4">{role.company}</p>
-            <ul class="space-y-2.5">
-              {role.bullets.map(b => (
-                <li class="flex gap-3 text-slate-400 text-sm leading-relaxed">
-                  <span class="text-indigo-400 shrink-0 mt-0.5">▹</span>{b}
-                </li>
-              ))}
-            </ul>
+            <div class="flex items-center gap-3 mb-4 flex-wrap">
+              <p class="text-cyan-400 text-sm">{role.company}</p>
+              {role.location && (
+                <span class="flex items-center gap-1 text-slate-500 text-xs font-mono">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                  {role.location}
+                </span>
+              )}
+            </div>
+            {role.description && (
+              <p class="text-slate-400 text-sm leading-relaxed mb-6">{role.description}</p>
+            )}
+            {role.clients && (
+              <div class="space-y-6">
+                {role.clients.map(client => (
+                  <div>
+                    <p class="font-mono text-slate-500 text-xs mb-1">{client.period}</p>
+                    <div class="flex items-center gap-3 mb-2 flex-wrap">
+                      <span class="text-cyan-400 text-sm font-semibold">{client.name}</span>
+                      {client.location && (
+                        <span class="flex items-center gap-1 text-slate-500 text-xs font-mono">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                          {client.location}
+                        </span>
+                      )}
+                    </div>
+                    <ul class="space-y-2.5">
+                      {client.bullets.map(b => (
+                        <li class="flex gap-3 text-slate-400 text-sm leading-relaxed">
+                          <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0 mt-1.5 shadow-[0_0_6px_rgba(34,211,238,0.9)]"></span>{b}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            )}
+            {role.bullets && (
+              <ul class="space-y-2.5">
+                {role.bullets.map(b => (
+                  <li class="flex gap-3 text-slate-400 text-sm leading-relaxed">
+                    <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0 mt-1.5 shadow-[0_0_6px_rgba(34,211,238,0.9)]"></span>{b}
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         </div>
       ))}
@@ -176,8 +241,8 @@ const projects = [
   <!-- Projects -->
   <section class="py-32 px-6 max-w-5xl mx-auto border-t border-slate-800/50">
     <div data-animate class="mb-16">
-      <p class="font-mono text-indigo-400 text-xs tracking-widest uppercase mb-3">Things I've built</p>
-      <h2 class="text-4xl font-bold text-white">Projects</h2>
+      <p class="font-mono text-cyan-400 text-xs tracking-widest uppercase mb-3">Things I've built</p>
+      <h2 class="text-4xl font-bold text-white">Recent Projects</h2>
     </div>
     <div class="grid md:grid-cols-2 gap-6">
       {projects.map((project, i) => {
@@ -188,10 +253,10 @@ const projects = [
             {...linkProps}
             data-animate="scale"
             style={`transition-delay: ${i * 100}ms`}
-            class={`group bg-slate-900 rounded-2xl border border-slate-800 p-8 transition-colors flex flex-col gap-4 ${project.url ? 'hover:border-indigo-500/40' : ''}`}
+            class={`group bg-slate-900 rounded-2xl border border-slate-800 p-8 transition-colors flex flex-col gap-4 ${project.url ? 'hover:border-cyan-500/40' : ''}`}
           >
             <div class="flex items-start justify-between gap-4">
-              <h3 class={`text-white font-semibold text-lg ${project.url ? 'group-hover:text-indigo-400 transition-colors' : ''}`}>{project.name}</h3>
+              <h3 class={`text-white font-semibold text-lg ${project.url ? 'group-hover:text-cyan-400 transition-colors' : ''}`}>{project.name}</h3>
               {project.url
                 ? <span class="text-slate-600 group-hover:text-slate-300 transition-colors text-xl">↗</span>
                 : <span class="px-2 py-0.5 rounded text-xs font-mono bg-slate-800 text-slate-500 border border-slate-700">private</span>
@@ -203,6 +268,14 @@ const projects = [
                 <span class="px-2.5 py-1 rounded-lg text-xs font-mono bg-slate-800 text-slate-400 border border-slate-700">{t}</span>
               ))}
             </div>
+            {project.arch && (
+              <button
+                id="arch-open"
+                class="self-start px-3 py-1.5 rounded-lg text-xs font-mono bg-cyan-600/20 text-cyan-400 border border-cyan-500/30 hover:bg-cyan-600/30 hover:text-cyan-300 transition-colors"
+              >
+                View architecture ↗
+              </button>
+            )}
           </Tag>
         );
       })}
@@ -212,14 +285,14 @@ const projects = [
   <!-- Contact -->
   <section class="py-32 px-6 text-center border-t border-slate-800/50">
     <div data-animate>
-      <p class="font-mono text-indigo-400 text-xs tracking-widest uppercase mb-3">Get in touch</p>
+      <p class="font-mono text-cyan-400 text-xs tracking-widest uppercase mb-3">Get in touch</p>
       <h2 class="text-4xl font-bold text-white mb-6">Let's work together</h2>
       <p class="text-slate-400 mb-10 max-w-md mx-auto">
-        Open to remote DevOps and Platform Engineering contracts. Reach out anytime.
+        Open to new DevOps and Platform Engineering contracts. Reach out anytime.
       </p>
       <div class="flex gap-4 justify-center flex-wrap">
         <a href="mailto:tadas.juska@outlook.com"
-          class="px-8 py-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-medium transition-colors text-lg">
+          class="px-8 py-4 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-medium transition-colors text-lg">
           tadas.juska@outlook.com
         </a>
         <a href="https://www.linkedin.com/in/tadasjuska" target="_blank" rel="noopener noreferrer"
@@ -233,6 +306,16 @@ const projects = [
   <footer class="text-center text-slate-700 text-xs font-mono pb-8">
     Built with Astro · Self-hosted on homelab
   </footer>
+
+  <!-- Architecture modal -->
+  <div id="arch-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+    <div class="bg-slate-900 rounded-2xl border border-slate-700 max-w-4xl w-full p-8 relative max-h-[90vh] overflow-auto">
+      <button id="arch-close" class="absolute top-4 right-4 text-slate-500 hover:text-white transition-colors text-2xl leading-none">×</button>
+      <h3 class="text-white font-semibold text-xl mb-1">EKS Platform Architecture</h3>
+      <p class="text-slate-500 text-xs font-mono mb-6">preview → dev → stg → prod · GitOps · zero-trust</p>
+      <img src="/eks-arch.svg" alt="EKS Platform Architecture" class="w-full rounded-xl"/>
+    </div>
+  </div>
 
   <script>
     // Scroll progress bar
@@ -253,5 +336,22 @@ const projects = [
     }, { threshold: 0.15 });
 
     document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+
+    // Architecture modal
+    const archModal = document.getElementById('arch-modal');
+
+    document.getElementById('arch-open')?.addEventListener('click', () => {
+      archModal?.classList.remove('hidden');
+      archModal?.classList.add('flex');
+    });
+
+    const closeModal = () => {
+      archModal?.classList.add('hidden');
+      archModal?.classList.remove('flex');
+    };
+
+    document.getElementById('arch-close')?.addEventListener('click', closeModal);
+    archModal?.addEventListener('click', (e) => { if (e.target === archModal) closeModal(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
   </script>
 </Layout>
