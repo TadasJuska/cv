@@ -13,3 +13,10 @@ check (npm ci + build) ──► scan (Trivy CVE gate) ──► publish (ghcr.i
 ```
 
 Publish only runs on `main` after both checks pass. Dependabot keeps Actions versions current.
+
+## Planned
+
+- [ ] Download as PDF
+- [ ] Dark / light theme toggle
+- [ ] Blog or notes section
+- [ ] TBD
