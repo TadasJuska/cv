@@ -1,0 +1,55 @@
+%%{init: {'theme': 'dark', 'themeVariables': {
+  'darkMode': true,
+  'background': '#060d18',
+  'primaryColor': '#0a1628',
+  'primaryTextColor': '#e2e8f0',
+  'primaryBorderColor': '#06b6d4',
+  'lineColor': '#06b6d4',
+  'secondaryColor': '#0a1628',
+  'tertiaryColor': '#080f1e',
+  'clusterBkg': '#080f1e',
+  'clusterBorder': '#1e3a4a',
+  'titleColor': '#06b6d4',
+  'edgeLabelBackground': '#060d18',
+  'fontFamily': 'ui-monospace, monospace'
+}}}%%
+graph LR
+  subgraph SOURCE["SOURCE"]
+    GH["GitHub\nsource of truth"]
+    HELM["Helm\nChart Registry"]
+  end
+
+  subgraph CI["CI · AUTOMATION"]
+    PIPE["CI Pipeline\nlint · unit · integration\ngates all promotions"]
+    KARGO["Kargo\nPromotion Engine\nchart version promotion"]
+  end
+
+  subgraph GITOPS["GITOPS SYNC"]
+    ARGO["ArgoCD\nApplicationSet\nrenders apps per environment"]
+  end
+
+  subgraph ENVS["ENVIRONMENTS"]
+    PREVIEW["preview\nper PR · ephemeral"]
+    DEV["dev\ndevelopment"]
+    STG["stg\nstaging"]
+    PROD["prod\nproduction"]
+  end
+
+  subgraph PLATFORM["PLATFORM · ALL ENVIRONMENTS"]
+    CILIUM["Cilium\neBPF · pod-to-pod mTLS\nSPIFFE/SVID identity\nzero-trust · WireGuard"]
+    OPENBAO["OpenBao + ESO\nsecrets management\nExternal Secrets Operator\nauto-rotation · audit log"]
+    KARPENTER["Karpenter\nnode autoscaling\nEC2 Spot · On-Demand\nARM64 · x86_64"]
+    TF["Terraform / OpenTofu\ncluster IaC\nVPC · EKS · node groups\nIAM · Route53 · ACM"]
+  end
+
+  GH --> PIPE
+  PIPE --> ARGO
+  PIPE --> KARGO
+  HELM --> KARGO
+  KARGO --> DEV
+  ARGO -.-> PREVIEW
+  ARGO -.-> DEV
+  ARGO -.-> STG
+  ARGO -.-> PROD
+  DEV -->|"auto · tests"| STG
+  STG -->|"approval + tests"| PROD
