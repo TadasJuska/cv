@@ -1,6 +1,6 @@
 # cv
 
-> **Work in progress** — content and design are still being refined.
+**Live: [cv.hometds.duckdns.org](https://cv.hometds.duckdns.org)**
 
 Personal CV site for [Tadas Juška](https://www.linkedin.com/in/tadasjuska) — a Senior Platform Engineer based in Vilnius, Lithuania.
 
