@@ -64,9 +64,8 @@ html {
     animation: none !important;
   }
 
-  /* Keep cards and experience entries intact — no splitting across pages */
-  .rounded-2xl,
-  [data-animate] {
+  /* Keep cards intact — experience entries can split naturally */
+  .rounded-2xl {
     break-inside: avoid;
     page-break-inside: avoid;
   }
@@ -148,5 +147,62 @@ html {
   h2, h3 {
     break-after: avoid;
     page-break-after: avoid;
+  }
+
+  /* Scale down oversized section headings for print */
+  h2 {
+    font-size: 1.5rem !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Collapse the 4rem section-intro gap — biggest whitespace offender */
+  .mb-16 {
+    margin-bottom: 0.625rem !important;
+  }
+
+  .mb-10 {
+    margin-bottom: 0.5rem !important;
+  }
+
+  .mb-6 {
+    margin-bottom: 0.375rem !important;
+  }
+
+  /* Tighten experience/education entry vertical rhythm */
+  .space-y-12 > * + * {
+    margin-top: 1.25rem !important;
+  }
+
+  .space-y-8 > * + * {
+    margin-top: 0.75rem !important;
+  }
+
+  /* Compact bullet spacing */
+  .space-y-2\.5 > * + *,
+  .space-y-2 > * + * {
+    margin-top: 0.25rem !important;
+  }
+
+  /* Tighter card grids */
+  .gap-6 {
+    gap: 0.625rem !important;
+  }
+
+  .gap-4 {
+    gap: 0.5rem !important;
+  }
+
+  /* Reduce card internal padding */
+  .p-8 {
+    padding: 0.75rem !important;
+  }
+
+  .p-6 {
+    padding: 0.5rem !important;
+  }
+
+  /* Tighten cert card padding */
+  .px-6.py-4 {
+    padding: 0.375rem 0.5rem !important;
   }
 }
