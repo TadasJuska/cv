@@ -11,22 +11,6 @@
   transform: translateY(0);
 }
 
-[data-animate="left"] {
-  transform: translateX(-48px);
-}
-
-[data-animate="left"].in-view {
-  transform: translateX(0);
-}
-
-[data-animate="right"] {
-  transform: translateX(48px);
-}
-
-[data-animate="right"].in-view {
-  transform: translateX(0);
-}
-
 [data-animate="scale"] {
   transform: scale(0.92);
 }
