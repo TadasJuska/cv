@@ -54,10 +54,10 @@ jobs:
           msg=$(git log -1 --pretty=%B)
           if echo "$msg" | grep -q '#major'; then
             new="v$((major + 1)).0.0"
-          elif echo "$msg" | grep -q '#patch'; then
-            new="v${major}.${minor}.$((patch + 1))"
-          else
+          elif echo "$msg" | grep -q '#minor'; then
             new="v${major}.$((minor + 1)).0"
+          else
+            new="v${major}.${minor}.$((patch + 1))"
           fi
 
           git tag "$new"
