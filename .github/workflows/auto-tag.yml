@@ -15,7 +15,10 @@ jobs:
           fetch-depth: 0
 
       - name: Create and push tag
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}
           latest=$(git tag --sort=-v:refname | grep '^v' | head -1)
           version=${latest:-v0.0.0}
           IFS='.' read -r major minor patch <<< "${version#v}"
