@@ -1,0 +1,28 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="38%" r="60%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.18"/>
+      <stop offset="70%" stop-color="#020617" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="#020617"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#06b6d4"/>
+
+  <text x="600" y="232" text-anchor="middle"
+        font-family="Courier New, monospace" font-size="26" letter-spacing="6"
+        fill="#22d3ee">SENIOR PLATFORM ENGINEER</text>
+
+  <text x="600" y="338" text-anchor="middle"
+        font-family="Helvetica, Arial, sans-serif" font-size="92" font-weight="700"
+        fill="#ffffff">Tadas <tspan fill="#22d3ee">Ju&#353;ka</tspan></text>
+
+  <text x="600" y="408" text-anchor="middle"
+        font-family="Helvetica, Arial, sans-serif" font-size="28"
+        fill="#94a3b8">Kubernetes &#183; GitOps &#183; Zero-Trust &#183; Cloud-Native Infrastructure</text>
+
+  <text x="600" y="498" text-anchor="middle"
+        font-family="Courier New, monospace" font-size="24" letter-spacing="2"
+        fill="#64748b">cv.hometds.duckdns.org</text>
+</svg>
