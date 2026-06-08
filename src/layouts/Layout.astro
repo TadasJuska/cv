@@ -7,6 +7,23 @@ const {
   title = 'Tadas Juška — Platform & DevOps Engineer',
   description = 'Platform & DevOps Engineer available for contracts. Building scalable infrastructure, CI/CD pipelines, and developer platforms.',
 } = Astro.props;
+
+const siteUrl = 'https://cv.hometds.duckdns.org';
+const ogImage = `${siteUrl}/og.png`;
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Tadas Juška',
+  jobTitle: 'Senior Platform Engineer',
+  description,
+  url: siteUrl,
+  email: 'mailto:tadas.juska@outlook.com',
+  sameAs: [
+    'https://github.com/TadasJuska',
+    'https://www.linkedin.com/in/tadasjuska',
+  ],
+};
 ---
 <!doctype html>
 <html lang="en">
@@ -14,8 +31,22 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={siteUrl} />
     <meta name="description" content={description} />
     <title>{title}</title>
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
   </head>
   <body class="bg-slate-950 antialiased">
     <slot />
