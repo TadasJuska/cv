@@ -1,6 +1,6 @@
 # cv
 
-**Live: [cv.hometds.duckdns.org](https://cv.hometds.duckdns.org)**
+**Live: [cv.tadas.it](https://cv.tadas.it)**
 
 Personal CV site for [Tadas Juška](https://www.linkedin.com/in/tadasjuska) — a Senior Platform Engineer based in Vilnius, Lithuania.
 
