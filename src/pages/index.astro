@@ -22,7 +22,7 @@ const skills = [
   { category: 'Containers & Platform', items: ['Kubernetes', 'Cilium', 'Karpenter', 'Helm', 'Docker', 'Podman', 'containerd', 'k3s', 'OPA', 'Gatekeeper', 'cert-manager'] },
   { category: 'CI/CD & GitOps', items: ['ArgoCD', 'Kargo', 'Flux', 'GitHub Actions', 'GitLab CI', 'Jenkins', 'Tekton', 'Renovate'] },
   { category: 'Observability', items: ['Prometheus', 'Grafana', 'Loki', 'OpenTelemetry', 'Elasticsearch', 'Kibana', 'Zabbix', 'Icinga2'] },
-  { category: 'Security & Networking', items: ['mTLS', 'SPIFFE/SPIRE', 'VPN', 'OpenBao', 'Vault', 'Traefik', 'Nginx', 'Envoy', 'Istio'] },
+  { category: 'Security & Networking', items: ['mTLS', 'SPIFFE/SPIRE', 'VPN', 'Cloudflare Zero Trust', 'Vault', 'Traefik', 'Nginx', 'Envoy', 'Istio'] },
   { category: 'Data & Messaging', items: ['PostgreSQL', 'RabbitMQ', 'Kafka', 'Zookeeper', 'Apache Solr', 'Oracle DB', 'Elasticsearch'] },
   { category: 'Languages', items: ['Python', 'Go', 'Bash', 'HCL', 'YAML'] },
 ];
@@ -152,11 +152,11 @@ const projects = [
     description: 'Personal lab for running things I actually use.',
     bullets: [
       'Media server, home automation, and a custom OpenWrt router.',
-      'Traefik handles routing and TLS across all services.',
+      'Cloudflare Zero Trust tunnel points to a Traefik reverse proxy running in Docker that handles routing and TLS for all services — secure external access with no inbound ports exposed.',
       'k3s cluster running ArgoCD and Kargo — watches and promotes this CV into the homelab environment.',
       'Practical environment for testing infra patterns before applying them at work.',
     ],
-    tech: ['Docker', 'Traefik', 'Home Assistant', 'OpenWrt', "Let's Encrypt"],
+    tech: ['Docker', 'Traefik', 'Cloudflare Zero Trust', 'Home Assistant', 'OpenWrt', "Let's Encrypt"],
   },
 ];
 
