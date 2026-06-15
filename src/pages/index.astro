@@ -225,8 +225,8 @@ const education = [
     </p>
     <div class="flex gap-4 mt-10 opacity-0 animate-[charIn_0.6s_0.75s_cubic-bezier(0.16,1,0.3,1)_forwards] flex-wrap justify-center">
       <a href={`mailto:${hero.email}`}
-        class="px-6 py-3 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-medium transition-colors">
-        Email me
+        class="px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium transition-colors border border-slate-700">
+        {hero.email}
       </a>
       <a href={hero.github} target="_blank" rel="noopener noreferrer"
         class="px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium transition-colors border border-slate-700">
@@ -237,18 +237,18 @@ const education = [
         LinkedIn
       </a>
       <button
-        id="download-pdf"
+        data-print-pdf
         title="Opens browser print dialog — choose 'Save as PDF'"
         class="no-print group flex items-center gap-2 px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium transition-all border border-slate-700 hover:border-cyan-500/40 disabled:opacity-60 disabled:cursor-not-allowed"
       >
-        <svg id="pdf-icon" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <svg data-pdf-icon xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M12 15V3m0 12-4-4m4 4 4-4"/>
           <path d="M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"/>
         </svg>
-        <svg id="pdf-spinner" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0 hidden animate-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <svg data-pdf-spinner xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0 hidden animate-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
           <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
         </svg>
-        <span id="pdf-btn-text">Save as PDF</span>
+        <span data-pdf-text>Save as PDF</span>
       </button>
     </div>
     <p class="flex items-center gap-1.5 mt-6 opacity-0 animate-[charIn_0.6s_0.9s_cubic-bezier(0.16,1,0.3,1)_forwards] text-slate-400 text-xs font-mono">
@@ -467,13 +467,31 @@ const education = [
       </p>
       <div class="no-print flex gap-4 justify-center flex-wrap">
         <a href={`mailto:${hero.email}`}
-          class="px-8 py-4 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-medium transition-colors text-lg">
+          class="px-8 py-4 rounded-xl border border-slate-700 hover:border-slate-500 text-slate-300 hover:text-white font-medium transition-colors text-lg">
           {hero.email}
+        </a>
+        <a href={hero.github} target="_blank" rel="noopener noreferrer"
+          class="px-8 py-4 rounded-xl border border-slate-700 hover:border-slate-500 text-slate-300 hover:text-white font-medium transition-colors text-lg">
+          GitHub
         </a>
         <a href={hero.linkedin} target="_blank" rel="noopener noreferrer"
           class="px-8 py-4 rounded-xl border border-slate-700 hover:border-slate-500 text-slate-300 hover:text-white font-medium transition-colors text-lg">
           LinkedIn
         </a>
+        <button
+          data-print-pdf
+          title="Opens browser print dialog — choose 'Save as PDF'"
+          class="group flex items-center gap-2 px-8 py-4 rounded-xl border border-slate-700 hover:border-cyan-500/40 text-slate-300 hover:text-white font-medium transition-all text-lg disabled:opacity-60 disabled:cursor-not-allowed"
+        >
+          <svg data-pdf-icon xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 15V3m0 12-4-4m4 4 4-4"/>
+            <path d="M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"/>
+          </svg>
+          <svg data-pdf-spinner xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 shrink-0 hidden animate-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
+          </svg>
+          <span data-pdf-text>Save as PDF</span>
+        </button>
       </div>
       <div class="hidden print:flex justify-center gap-8 text-sm mt-2">
         <span class="text-cyan-600 font-semibold">{hero.email}</span>
@@ -568,26 +586,27 @@ const education = [
       });
     });
 
-    // PDF download with loading state
-    document.getElementById('download-pdf')?.addEventListener('click', () => {
-      const btn = document.getElementById('download-pdf') as HTMLButtonElement | null;
-      const text = document.getElementById('pdf-btn-text');
-      const icon = document.getElementById('pdf-icon');
-      const spinner = document.getElementById('pdf-spinner');
-      if (!btn || !text || !icon || !spinner) return;
-      text.textContent = 'Preparing…';
-      icon.classList.add('hidden');
-      spinner.classList.remove('hidden');
-      btn.disabled = true;
-      setTimeout(() => {
-        window.print();
+    // PDF download with loading state (applies to every [data-print-pdf] button)
+    document.querySelectorAll<HTMLButtonElement>('[data-print-pdf]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const text = btn.querySelector('[data-pdf-text]');
+        const icon = btn.querySelector('[data-pdf-icon]');
+        const spinner = btn.querySelector('[data-pdf-spinner]');
+        if (!text || !icon || !spinner) return;
+        text.textContent = 'Preparing…';
+        icon.classList.add('hidden');
+        spinner.classList.remove('hidden');
+        btn.disabled = true;
         setTimeout(() => {
-          text.textContent = 'Save as PDF';
-          icon.classList.remove('hidden');
-          spinner.classList.add('hidden');
-          btn.disabled = false;
-        }, 800);
-      }, 350);
+          window.print();
+          setTimeout(() => {
+            text.textContent = 'Save as PDF';
+            icon.classList.remove('hidden');
+            spinner.classList.add('hidden');
+            btn.disabled = false;
+          }, 800);
+        }, 350);
+      });
     });
   </script>
 </Layout>
