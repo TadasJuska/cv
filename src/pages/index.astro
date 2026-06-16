@@ -6,7 +6,7 @@ const hero = {
   title: 'Senior Platform Engineer',
   firstName: 'Tadas',
   lastName: 'Juška',
-  bio: "Platform and DevOps engineer with 8+ years building and operating secure, cloud-native infrastructure — production-grade, observable, automation-first environments. Specializing in Kubernetes platform engineering, GitOps, zero-trust networking, and scalable multi-tenant systems. Comfortable across any distribution or cloud provider. Platform changes — engineering principles don't.",
+  bio: "Platform and DevOps engineer with 8+ years running the infrastructure other engineers ship on — Kubernetes, GitOps, zero-trust networking, and multi-tenant systems, across any cloud or distribution. I bring LLM models and AI agents into my everyday work, turning deep platform expertise into agentic automation that ships more without trading away security or control.",
   email: 'tadas@juska.it',
   siteUrl: 'cv.hometds.duckdns.org',
   github: 'https://github.com/TadasJuska',
@@ -24,6 +24,7 @@ const skills = [
   { category: 'Observability', items: ['Prometheus', 'Grafana', 'Loki', 'OpenTelemetry', 'Elasticsearch', 'Kibana', 'Zabbix', 'Icinga2'] },
   { category: 'Security & Networking', items: ['mTLS', 'SPIFFE/SPIRE', 'VPN', 'Cloudflare Zero Trust', 'Vault', 'Traefik', 'Nginx', 'Envoy', 'Istio'] },
   { category: 'Data & Messaging', items: ['PostgreSQL', 'RabbitMQ', 'Kafka', 'Zookeeper', 'Apache Solr', 'Oracle DB', 'Elasticsearch'] },
+  { category: 'AI & Agents', items: ['LLMs', 'LLM code', 'LLM skills', 'AI agents', 'MCP', 'Prompt engineering', 'Workflow automation'] },
   { category: 'Languages', items: ['Python', 'Go', 'Bash', 'HCL', 'YAML'] },
 ];
 
@@ -32,15 +33,16 @@ const experience = [
     title: 'Platform Engineer',
     company: 'Self-Employed · Contract',
     period: 'Aug 2023 – Present',
-    description: 'Building and operating modern cloud-native platforms — where CI/CD, GitOps, and zero-trust networking are done right.',
     clients: [
       {
         name: 'Wise',
         location: 'Iceland',
         period: ' June 2024 – Jul 2026',
         bullets: [
+          'Owned the full stack — from network and infrastructure to the product running on top — as a team of 3 DevOps engineers, dividing work clearly and communicating constantly to cover that scope reliably.',
+          'Built LLM skills for the team that handle repetitive tasks — cutting routine work out of the day.',
           'Modernised platform networking with eBPF-based Cilium CNI — replacing kube-proxy, enabling WireGuard + ztunnel end-to-end encryption, and bringing zero-trust ambient mesh to production Kubernetes.',
-          'Migrated CI/CD from Jenkins to GitHub Actions and introduced GitOps with ArgoCD and Helm — every change versioned, auditable, and automatically reconciled.',
+          'Migrated CI/CD from Jenkins to GitHub Actions and introduced GitOps with ArgoCD and Helm — partnering with engineering teams to ship independently through versioned, auditable, self-reconciling pipelines.',
           'Moved all infrastructure to IaC with OpenTofu and OS configuration to SaltStack — every resource declared and version-controlled, no snowflakes, no undocumented state.',
           'Operated and maintained a production Python (Django, FastAPI) platform — PostgreSQL, Apache Solr, SSO, Redis, RabbitMQ, and PgPool — backed by full observability via Prometheus, Grafana, and Alertmanager.',
           'Reduced AWS infrastructure costs by 30–35% — migrating workloads to Spot instances, committing to Savings Plans, right-sizing container images, introducing workload scheduling to scale down non-production environments overnight, and eliminating idle resources.',
@@ -53,7 +55,6 @@ const experience = [
         bullets: [
           'Inherited outdated AWS infrastructure and brought it fully current — OS patches, dependency upgrades, and vulnerability remediation across the entire EC2 fleet.',
           'Automated infrastructure configuration with SaltStack — replaced manual, error-prone provisioning with repeatable, version-controlled state.',
-          'Tracked down and fixed performance bottlenecks across environments, improving throughput and stability across the stack.',
           'Kept CI/CD pipelines running daily — diagnosing and resolving failures fast to keep engineering teams unblocked.',
         ],
       },
@@ -70,8 +71,9 @@ const experience = [
         period: 'Jun 2020 – Aug 2023',
         bullets: [
           'Operated infrastructure for a high-security card data platform processing 10 million files per day — delivering data to other banks and financial services across internal teams and external partners.',
-          'Introduced Terraform and Ansible to the bank — bringing IaC and automated tool deployments to an environment that had neither, reducing toil and making scale-up a low-maintenance operation.',
-          'Owned security and authentication across the stack — TLS, LDAP, Kerberos, NTLM, SSO — and led internal and external performance, penetration, and security audits.',
+          'Led a team of 4 engineers — designing the platform architecture and coordinating delivery across the team.',
+          'Introduced Terraform and Ansible to the bank — bringing IaC and automated tool deployments to an environment that had neither, and onboarding the team onto these practices to reduce toil and make scale-up a low-maintenance operation.',
+          'Owned security and authentication across the stack — TLS, LDAP, Kerberos, NTLM, SSO — and led internal and external performance, penetration, and security audits, coordinating with external auditors and partner teams to remediate findings.',
           'Delivered full observability with Zabbix and Grafana across Oracle and Cassandra; on-call rotation and incident management.',
         ],
       },
@@ -96,7 +98,7 @@ const experience = [
         name: 'Senior System Administrator',
         period: 'Jan 2016 – Apr 2018',
         bullets: [
-          'Owned the IT department — budget, procurement, and a team of two (Desktop Technician and Junior Sysadmin).',
+          'Owned the IT department — budget, procurement, and leading and mentoring a team of two (Desktop Technician and Junior Sysadmin).',
           'Administered Linux and Windows server environments — patching, vulnerability remediation, network security, and disaster recovery planning with regular backup testing.',
           'Installed and maintained applications across Linux and Windows servers; handled hardware repairs, upgrades, and inventory management.',
         ],
@@ -115,7 +117,7 @@ const experience = [
 const projects = [
   {
     name: 'This Website · CV',
-    description: 'This site — an Astro CV with a production-grade DevOps pipeline behind it.',
+    description: 'This site — an Astro CV with a full CI/CD and security pipeline behind it.',
     bullets: [
       'Three gated GitHub Actions jobs: check (npm ci + build), scan (Trivy — blocks on CRITICAL/HIGH CVEs), and publish (multi-arch amd64/arm64 Docker image pushed to ghcr.io).',
       'Publish only runs on a version tag push after both check and scan pass.',
@@ -126,7 +128,7 @@ const projects = [
   },
   {
     name: 'GitOps-ready Kubernetes Platform',
-    description: 'Production-grade Kubernetes cluster built entirely as code — every component self-managed and reconciled from Git.',
+    description: 'Kubernetes cluster built entirely as code — every component self-managed and reconciled from Git.',
     bullets: [
       'ArgoCD app-of-apps GitOps with ApplicationSet templates — scales Helm deployments across environments without duplication.',
       'Kargo chart promotion with per-PR preview environments and approval gates into stg and prod.',
@@ -381,7 +383,7 @@ const education = [
   <!-- Certifications -->
   <section class="py-32 px-6 max-w-5xl mx-auto border-t border-slate-800/50">
     <div data-animate class="mb-16">
-      <p class="font-mono text-cyan-400 text-xs tracking-widest uppercase mb-3">Useless certifications</p>
+      <p class="font-mono text-cyan-400 text-xs tracking-widest uppercase mb-3">What I've learned</p>
       <h2 class="text-4xl font-bold text-white">Certifications</h2>
     </div>
     <div class="grid md:grid-cols-2 gap-4">
