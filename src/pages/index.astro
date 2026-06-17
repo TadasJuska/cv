@@ -24,7 +24,7 @@ const skills = [
   { category: 'Observability', items: ['Prometheus', 'Grafana', 'Loki', 'OpenTelemetry', 'Elasticsearch', 'Kibana', 'Zabbix', 'Icinga2'] },
   { category: 'Security & Networking', items: ['mTLS', 'SPIFFE/SPIRE', 'VPN', 'Cloudflare Zero Trust', 'Vault', 'Traefik', 'Nginx', 'Envoy', 'Istio'] },
   { category: 'Data & Messaging', items: ['PostgreSQL', 'RabbitMQ', 'Kafka', 'Zookeeper', 'Apache Solr', 'Oracle DB', 'Elasticsearch'] },
-  { category: 'AI & Agents', items: ['LLMs', 'LLM code', 'LLM skills', 'AI agents', 'MCP', 'Prompt engineering', 'Workflow automation'] },
+  { category: 'AI & Agents', items: ['LLMs', 'AI agents', 'Claude Code', 'MCP', 'Prompt engineering', 'Workflow automation'] },
   { category: 'Languages', items: ['Python', 'Go', 'Bash', 'HCL', 'YAML'] },
 ];
 
@@ -37,21 +37,20 @@ const experience = [
       {
         name: 'Wise',
         location: 'Iceland',
-        period: ' June 2024 – Jul 2026',
+        period: 'Jun 2024 – Jul 2026',
         bullets: [
-          'Owned the full stack — from network and infrastructure to the product running on top — as a team of 3 DevOps engineers, dividing work clearly and communicating constantly to cover that scope reliably.',
-          'Built LLM skills for the team that handle repetitive tasks — cutting routine work out of the day.',
-          'Modernised platform networking with eBPF-based Cilium CNI — replacing kube-proxy, enabling WireGuard + ztunnel end-to-end encryption, and bringing zero-trust ambient mesh to production Kubernetes.',
-          'Migrated CI/CD from Jenkins to GitHub Actions and introduced GitOps with ArgoCD and Helm — partnering with engineering teams to ship independently through versioned, auditable, self-reconciling pipelines.',
-          'Moved all infrastructure to IaC with OpenTofu and OS configuration to SaltStack — every resource declared and version-controlled, no snowflakes, no undocumented state.',
-          'Operated and maintained a production Python (Django, FastAPI) platform — PostgreSQL, Apache Solr, SSO, Redis, RabbitMQ, and PgPool — backed by full observability via Prometheus, Grafana, and Alertmanager.',
-          'Reduced AWS infrastructure costs by 30–35% — migrating workloads to Spot instances, committing to Savings Plans, right-sizing container images, introducing workload scheduling to scale down non-production environments overnight, and eliminating idle resources.',
+          'Owned the full stack — from network and infrastructure to the product running on top — as a 3-person DevOps team covering that scope reliably.',
+          'Reduced AWS infrastructure costs by ~30% — migrating workloads to Spot instances, committing to Savings Plans, and scheduling non-production environments to scale down overnight.',
+          'Redesigned platform networking on eBPF-based Cilium CNI — replacing kube-proxy, adding an Envoy-based API gateway for ingress, and enabling WireGuard + ztunnel end-to-end encryption for a zero-trust ambient mesh on production Kubernetes.',
+          'Built Claude Code skills for the team to speed up routine tasks — wired into Jira, Git, and monitoring via MCP — automating PR code review, ticket creation, and a pipeline that turns Prometheus alerts and log errors into structured Jira issues without duplicates, opening a fix PR when the root cause is clear.',
+          'Moved CI/CD from Jenkins to GitHub Actions and set up GitOps with ArgoCD and Kargo — shipping customer code to AWS and on-prem through tracked, approved releases teams could run themselves.',
+          'Modernised unmaintained Terraform — fixing broken modules and refactoring them to work cleanly across environments — and managed OS configuration with SaltStack, returning infrastructure to a maintainable, version-controlled state.',
         ],
       },
       {
         name: 'Coredata',
         location: 'Iceland',
-        period: 'Aug 2023 – June 2024 ',
+        period: 'Aug 2023 – Jun 2024',
         bullets: [
           'Inherited outdated AWS infrastructure and brought it fully current — OS patches, dependency upgrades, and vulnerability remediation across the entire EC2 fleet.',
           'Automated infrastructure configuration with SaltStack — replaced manual, error-prone provisioning with repeatable, version-controlled state.',
@@ -117,8 +116,10 @@ const experience = [
 const projects = [
   {
     name: 'This Website · CV',
-    description: 'This site — an Astro CV with a full CI/CD and security pipeline behind it.',
+    description: 'An Astro CV with a full CI/CD and security pipeline behind it.',
     bullets: [
+      'A basic demo of how I ship software — self-hosted on my homelab using the same GitOps and security practices I apply at work.',
+      'Single-page Astro site — responsive layout, scroll-triggered animations, a print-optimised "Save as PDF" export, and an interactive architecture-diagram modal.',
       'Three gated GitHub Actions jobs: check (npm ci + build), scan (Trivy — blocks on CRITICAL/HIGH CVEs), and publish (multi-arch amd64/arm64 Docker image pushed to ghcr.io).',
       'Publish only runs on a version tag push after both check and scan pass.',
       'Dependabot keeps all Actions versions current.',
