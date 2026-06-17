@@ -1,15 +1,21 @@
 # cv
 
-**Live: [cv.tadas.it](https://cv.tadas.it)**
+**Live: [cv.juska.it](https://cv.juska.it)**
 
-Personal CV site for [Tadas Juška](https://www.linkedin.com/in/tadasjuska) — a Senior Platform Engineer based in Vilnius, Lithuania.
+Personal CV site for [Tadas Juška](https://www.linkedin.com/in/tadasjuska) — a Senior Platform Engineer.
 
-Built with [Astro](https://astro.build) and deployed via a GitHub Actions pipeline that gates on a Trivy security scan before publishing a multi-arch Docker image to ghcr.io. ArgoCD and Kargo promote it into a homelab k3s cluster.
+Built with [Astro](https://astro.build) and deployed through a GitHub Actions pipeline. Every push and pull request to `main` is built and security-scanned; once those pass on `main`, the commit is auto-versioned and published as a multi-arch Docker image to ghcr.io. ArgoCD and Kargo then promote that image into a homelab k3s cluster.
 
 ## Pipeline
 
 ```
-check (npm ci + build) ──► scan (Trivy CVE gate) ──► publish (ghcr.io)
+check (npm ci + build)
+   └─► scan (Trivy — fails on CRITICAL/HIGH CVEs)
+          └─► tag (auto semver bump)        # main only
+                 └─► publish (multi-arch image → ghcr.io)
 ```
 
-Publish only runs on `main` after both checks pass. Dependabot keeps Actions versions current.
+- **check** and **scan** run on every push and pull request to `main`.
+- **tag** and **publish** run only after a merge to `main`, and only once check and scan pass.
+- Version bump is driven by the commit message: `#major` or `#minor`, otherwise a patch bump.
+- Dependabot keeps GitHub Actions versions current.
