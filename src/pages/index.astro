@@ -24,7 +24,7 @@ const skills = [
   { category: 'Observability', items: ['Prometheus', 'Grafana', 'Loki', 'OpenTelemetry', 'Elasticsearch', 'Kibana', 'Zabbix', 'Icinga2'] },
   { category: 'Security & Networking', items: ['mTLS', 'SPIFFE/SPIRE', 'VPN', 'Cloudflare Zero Trust', 'Vault', 'Traefik', 'Nginx', 'Envoy', 'Istio'] },
   { category: 'Data & Messaging', items: ['PostgreSQL', 'RabbitMQ', 'Kafka', 'Zookeeper', 'Apache Solr', 'Oracle DB', 'Elasticsearch'] },
-  { category: 'AI & Agents', items: ['LLMs', 'LLM code', 'LLM skills', 'AI agents', 'MCP', 'Prompt engineering', 'Workflow automation'] },
+  { category: 'AI & Agents', items: ['LLMs', 'AI agents', 'Claude Code', 'MCP', 'Prompt engineering', 'Workflow automation'] },
   { category: 'Languages', items: ['Python', 'Go', 'Bash', 'HCL', 'YAML'] },
 ];
 
@@ -37,21 +37,21 @@ const experience = [
       {
         name: 'Wise',
         location: 'Iceland',
-        period: ' June 2024 – Jul 2026',
+        period: 'Jun 2024 – Jul 2026',
         bullets: [
-          'Owned the full stack — from network and infrastructure to the product running on top — as a team of 3 DevOps engineers, dividing work clearly and communicating constantly to cover that scope reliably.',
-          'Built LLM skills for the team that handle repetitive tasks — cutting routine work out of the day.',
+          'Owned the full stack — from network and infrastructure to the product running on top — as a 3-person DevOps team covering that scope reliably.',
+          'Reduced AWS infrastructure costs by ~30% — migrating workloads to Spot instances, committing to Savings Plans, and scheduling non-production environments to scale down overnight.',
+          'Developed Claude Code skills automating team workflows — PR code review, Jira ticket creation, and alert triage that converts Prometheus alerts and log anomalies into structured Jira issues, auto-raising a fix PR where applicable.',
           'Modernised platform networking with eBPF-based Cilium CNI — replacing kube-proxy, enabling WireGuard + ztunnel end-to-end encryption, and bringing zero-trust ambient mesh to production Kubernetes.',
           'Migrated CI/CD from Jenkins to GitHub Actions and introduced GitOps with ArgoCD and Helm — partnering with engineering teams to ship independently through versioned, auditable, self-reconciling pipelines.',
-          'Moved all infrastructure to IaC with OpenTofu and OS configuration to SaltStack — every resource declared and version-controlled, no snowflakes, no undocumented state.',
-          'Operated and maintained a production Python (Django, FastAPI) platform — PostgreSQL, Apache Solr, SSO, Redis, RabbitMQ, and PgPool — backed by full observability via Prometheus, Grafana, and Alertmanager.',
-          'Reduced AWS infrastructure costs by 30–35% — migrating workloads to Spot instances, committing to Savings Plans, right-sizing container images, introducing workload scheduling to scale down non-production environments overnight, and eliminating idle resources.',
+          'Took over unmaintained Terraform — fixing broken modules and refactoring them to work cleanly across environments — and managed OS configuration with SaltStack, returning infrastructure to a maintainable, version-controlled state.',
+          'Ran a production Python (Django, FastAPI) platform with full observability — PostgreSQL, Apache Solr, Redis, RabbitMQ, and PgPool behind end-to-end monitoring via Prometheus, Grafana, and Alertmanager.',
         ],
       },
       {
         name: 'Coredata',
         location: 'Iceland',
-        period: 'Aug 2023 – June 2024 ',
+        period: 'Aug 2023 – Jun 2024',
         bullets: [
           'Inherited outdated AWS infrastructure and brought it fully current — OS patches, dependency upgrades, and vulnerability remediation across the entire EC2 fleet.',
           'Automated infrastructure configuration with SaltStack — replaced manual, error-prone provisioning with repeatable, version-controlled state.',
