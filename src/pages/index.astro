@@ -116,8 +116,10 @@ const experience = [
 const projects = [
   {
     name: 'This Website · CV',
-    description: 'This site — an Astro CV with a full CI/CD and security pipeline behind it.',
+    description: 'An Astro CV with a full CI/CD and security pipeline behind it.',
     bullets: [
+      'A basic demo of how I ship software — self-hosted on my homelab using the same GitOps and security practices I apply at work.',
+      'Single-page Astro site — responsive layout, scroll-triggered animations, a print-optimised "Save as PDF" export, and an interactive architecture-diagram modal.',
       'Three gated GitHub Actions jobs: check (npm ci + build), scan (Trivy — blocks on CRITICAL/HIGH CVEs), and publish (multi-arch amd64/arm64 Docker image pushed to ghcr.io).',
       'Publish only runs on a version tag push after both check and scan pass.',
       'Dependabot keeps all Actions versions current.',
