@@ -24,7 +24,7 @@ const skills = [
   { category: 'Observability', items: ['Prometheus', 'Grafana', 'Loki', 'OpenTelemetry', 'Elasticsearch', 'Kibana', 'Zabbix', 'Icinga2'] },
   { category: 'Security & Networking', items: ['mTLS', 'SPIFFE/SPIRE', 'VPN', 'Cloudflare Zero Trust', 'Vault', 'Traefik', 'Nginx', 'Envoy', 'Istio'] },
   { category: 'Data & Messaging', items: ['PostgreSQL', 'RabbitMQ', 'Kafka', 'Zookeeper', 'Apache Solr', 'Oracle DB', 'Elasticsearch'] },
-  { category: 'AI & Agents', items: ['LLMs', 'AI agents', 'Claude Code', 'MCP', 'Prompt engineering', 'Workflow automation'] },
+  { category: 'AI & Agents', items: ['LLMs', 'AI agents', 'Claude Code', 'GitHub Copilot', 'MCP', 'Agentic PR review', 'CodeRabbit', 'Workflow automation'] },
   { category: 'Languages', items: ['Python', 'Go', 'Bash', 'HCL', 'YAML'] },
 ];
 
@@ -110,12 +110,13 @@ const projects = [
     description: 'An Astro CV with a full CI/CD and security pipeline behind it.',
     bullets: [
       'A basic demo of how I ship software — self-hosted on my homelab using the same GitOps and security practices I apply at work.',
+      'Written with AI agentic coding — Claude Code and GitHub Copilot — with every pull request reviewed by CodeRabbit before it merges to main.',
       'Single-page Astro site — responsive layout, scroll-triggered animations, a print-optimised "Save as PDF" export, and an interactive architecture-diagram modal.',
       'Four gated GitHub Actions jobs: check (npm ci + build), scan (Trivy — blocks on CRITICAL/HIGH CVEs), tag (auto semver bump), and publish (multi-arch amd64/arm64 Docker image pushed to ghcr.io).',
       'Tag and publish run only on main after check and scan pass — the version bumps automatically from the commit message.',
       'Dependabot keeps all Actions versions current.',
     ],
-    tech: ['Astro', 'Docker', 'GitHub Actions', 'Trivy', 'ghcr.io'],
+    tech: ['Astro', 'Docker', 'GitHub Actions', 'Trivy', 'ghcr.io', 'Claude Code', 'GitHub Copilot', 'CodeRabbit'],
     url: 'https://github.com/TadasJuska/cv',
   },
   {
