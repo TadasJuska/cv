@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import '../styles/global.css';
 
 const hero = {
-  title: 'Senior Platform Engineer',
+  title: 'Senior AI Platform Engineer',
   firstName: 'Tadas',
   lastName: 'Juška',
   bio: "Platform and DevOps engineer with 8+ years running the infrastructure other engineers ship on — Kubernetes, GitOps, zero-trust networking, and multi-tenant systems, across any cloud or distribution. I bring LLM models and AI agents into my everyday work, turning deep platform expertise into agentic automation that ships more without trading away security or control.",
@@ -14,7 +14,7 @@ const hero = {
   linkedin: 'https://www.linkedin.com/in/tadasjuska',
   location: 'Remote · Europe',
   languages: 'Lithuanian · English',
-  availability: 'Available now · Contract · Remote',
+  availability: 'Available now · Full-time · Contract · Remote',
 };
 
 const skills = [
@@ -24,7 +24,7 @@ const skills = [
   { category: 'Observability', items: ['Prometheus', 'Grafana', 'Loki', 'OpenTelemetry', 'Elasticsearch', 'Kibana', 'Zabbix', 'Icinga2'] },
   { category: 'Security & Networking', items: ['mTLS', 'SPIFFE/SPIRE', 'VPN', 'Cloudflare Zero Trust', 'Vault', 'Traefik', 'Nginx', 'Envoy', 'Istio'] },
   { category: 'Data & Messaging', items: ['PostgreSQL', 'RabbitMQ', 'Kafka', 'Zookeeper', 'Apache Solr', 'Oracle DB', 'Elasticsearch'] },
-  { category: 'AI & Agents', items: ['LLMs', 'AI agents', 'Claude Code', 'MCP', 'Prompt engineering', 'Workflow automation'] },
+  { category: 'AI & Agents', items: ['LLMs', 'AI agents', 'Claude Code', 'GitHub Copilot', 'MCP', 'Agentic PR review', 'CodeRabbit', 'Workflow automation'] },
   { category: 'Languages', items: ['Python', 'Go', 'Bash', 'HCL', 'YAML'] },
 ];
 
@@ -107,15 +107,14 @@ const experience = [
 const projects = [
   {
     name: 'This Website · CV',
-    description: 'An Astro CV with a full CI/CD and security pipeline behind it.',
+    description: 'A single-page Astro CV wired to a full AI-authored, security-scanned, GitOps-deployed pipeline — here is how it works.',
     bullets: [
-      'A basic demo of how I ship software — self-hosted on my homelab using the same GitOps and security practices I apply at work.',
-      'Single-page Astro site — responsive layout, scroll-triggered animations, a print-optimised "Save as PDF" export, and an interactive architecture-diagram modal.',
-      'Four gated GitHub Actions jobs: check (npm ci + build), scan (Trivy — blocks on CRITICAL/HIGH CVEs), tag (auto semver bump), and publish (multi-arch amd64/arm64 Docker image pushed to ghcr.io).',
-      'Tag and publish run only on main after check and scan pass — the version bumps automatically from the commit message.',
-      'Dependabot keeps all Actions versions current.',
+      'Written with Claude Code, and every pull request is reviewed by CodeRabbit before it can merge.',
+      'Each change is gated on a passing build and a Trivy security scan that blocks on CRITICAL/HIGH CVEs.',
+      'On merge to main, the version auto-bumps and a multi-arch Docker image is published to ghcr.io.',
+      'The homelab runs on k3s, where ArgoCD and Kargo pick up the new image and roll out the CV on their own.',
     ],
-    tech: ['Astro', 'Docker', 'GitHub Actions', 'Trivy', 'ghcr.io'],
+    tech: ['Astro', 'Docker', 'GitHub Actions', 'Trivy', 'ghcr.io', 'Claude Code', 'CodeRabbit', 'ArgoCD', 'Kargo'],
     url: 'https://github.com/TadasJuska/cv',
   },
   {
@@ -457,7 +456,7 @@ const education = [
       <p class="font-mono text-cyan-400 text-xs tracking-widest uppercase mb-3">Get in touch</p>
       <h2 class="text-4xl font-bold text-white mb-6">Let's work together</h2>
       <p class="text-slate-400 mb-10 max-w-md mx-auto">
-        Open to new DevOps and Platform Engineering contracts. Reach out anytime.
+        Open to new contracts. Reach out anytime.
       </p>
       <div class="no-print flex gap-4 justify-center flex-wrap">
         <a href={`mailto:${hero.email}`}
