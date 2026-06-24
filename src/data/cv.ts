@@ -30,7 +30,7 @@ export const experience = [
     company: 'Wise',
     location: 'Iceland',
     employment: 'Contract · Remote',
-    period: 'Aug 2023 – Jul 2026',
+    period: 'Aug 2023 – Present',
     bullets: [
       'Owned the full stack — from network and infrastructure to the product running on top — as a 3-person DevOps team covering that scope reliably.',
       'Reduced AWS infrastructure costs by ~30% — migrating workloads to Spot instances, committing to Savings Plans, and scheduling non-production environments to scale down overnight.',
