@@ -107,16 +107,16 @@ const experience = [
 const projects = [
   {
     name: 'This Website · CV',
-    description: 'An Astro CV with a full CI/CD and security pipeline behind it.',
+    description: 'A working demo of how I ship software end to end — the same GitOps, security, and review practices I use at work, self-hosted on my homelab.',
     bullets: [
-      'A basic demo of how I ship software — self-hosted on my homelab using the same GitOps and security practices I apply at work.',
-      'Written with AI agentic coding — Claude Code — with every pull request reviewed by CodeRabbit before it merges to main.',
-      'Single-page Astro site — responsive layout, scroll-triggered animations, a print-optimised "Save as PDF" export, and an interactive architecture-diagram modal.',
-      'Four gated GitHub Actions jobs: check (npm ci + build), scan (Trivy — blocks on CRITICAL/HIGH CVEs), tag (auto semver bump), and publish (multi-arch amd64/arm64 Docker image pushed to ghcr.io).',
-      'Tag and publish run only on main after check and scan pass — the version bumps automatically from the commit message.',
-      'Dependabot keeps all Actions versions current.',
+      '1. The site: a single-page Astro CV — responsive layout, scroll-triggered animations, a print-optimised "Save as PDF" export, and an interactive architecture-diagram modal.',
+      '2. Authored with AI agentic coding (Claude Code) on a short-lived branch — main is protected, so every change has to go through a pull request.',
+      '3. Reviewed before merge: CodeRabbit runs an automated PR review, and two gated checks must pass — check (npm ci + build) and scan (Trivy, which blocks on CRITICAL/HIGH CVEs).',
+      '4. On merge to main, two more jobs run automatically — tag (semantic version bump driven by the commit message) and publish (multi-arch amd64/arm64 Docker image pushed to ghcr.io).',
+      '5. Deployed via GitOps: ArgoCD and Kargo promote that image into a homelab k3s cluster — the running site.',
+      'Dependabot keeps all GitHub Actions versions current.',
     ],
-    tech: ['Astro', 'Docker', 'GitHub Actions', 'Trivy', 'ghcr.io', 'Claude Code', 'CodeRabbit'],
+    tech: ['Astro', 'Docker', 'GitHub Actions', 'Trivy', 'ghcr.io', 'Claude Code', 'CodeRabbit', 'ArgoCD', 'Kargo'],
     url: 'https://github.com/TadasJuska/cv',
   },
   {
