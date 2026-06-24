@@ -33,7 +33,7 @@ export const experience = [
     period: 'Aug 2023 – Present',
     bullets: [
       'Owned the full stack — from network and infrastructure to the product running on top — as a 3-person DevOps team covering that scope reliably.',
-      'Reduced AWS infrastructure costs by ~30% — migrating workloads to Spot instances, committing to Savings Plans, and scheduling non-production environments to scale down overnight.',
+      'Reduced AWS infrastructure costs by ~30% — migrating workloads to Spot instances, committing to Savings Plans, scheduling non-production environments to scale down overnight, slimming down Docker images, and adding ECR lifecycle policies to clean up stale images.',
       'Redesigned platform networking on eBPF-based Cilium CNI — replacing kube-proxy, adding an Envoy-based API gateway for ingress, and enabling WireGuard + ztunnel end-to-end encryption for a zero-trust ambient mesh on production Kubernetes.',
       'Built Claude Code skills for the team to speed up routine tasks — wired into Jira, Git, and monitoring via MCP — automating PR code review, ticket creation, and a pipeline that turns Prometheus alerts and log errors into structured Jira issues without duplicates, opening a fix PR when the root cause is clear.',
       'Moved CI/CD from Jenkins to GitHub Actions and set up GitOps with ArgoCD and Kargo — shipping customer code to AWS and on-prem through tracked, approved releases teams could run themselves.',
