@@ -6,7 +6,7 @@ Personal CV site for [Tadas Juška](https://www.linkedin.com/in/tadasjuska) — 
 
 Built with [Astro](https://astro.build) and deployed through a GitHub Actions pipeline. Every push and pull request to `main` is built and security-scanned; once those pass on `main`, the commit is auto-versioned and published as a multi-arch Docker image to ghcr.io. ArgoCD and Kargo then promote that image into a homelab k3s cluster.
 
-Written with AI agentic coding ([Claude Code](https://claude.com/claude-code) and GitHub Copilot), with every pull request reviewed by [CodeRabbit](https://coderabbit.ai) before it merges to `main`.
+Written with AI agentic coding ([Claude Code](https://claude.com/claude-code)), with every pull request reviewed by [CodeRabbit](https://coderabbit.ai) before it merges to `main`.
 
 ## Pipeline
 
