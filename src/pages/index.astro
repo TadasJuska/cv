@@ -107,14 +107,12 @@ const experience = [
 const projects = [
   {
     name: 'This Website · CV',
-    description: 'A working demo of how I ship software end to end — the same GitOps, security, and review practices I use at work, self-hosted on my homelab.',
+    description: 'A single-page Astro CV wired to a full AI-authored, security-scanned, GitOps-deployed pipeline — here is how it works.',
     bullets: [
-      '1. The site: a single-page Astro CV — responsive layout, scroll-triggered animations, a print-optimised "Save as PDF" export, and an interactive architecture-diagram modal.',
-      '2. Authored with AI agentic coding (Claude Code) on a short-lived branch — main is protected, so every change has to go through a pull request.',
-      '3. Reviewed before merge: CodeRabbit runs an automated PR review, and two gated checks must pass — check (npm ci + build) and scan (Trivy, which blocks on CRITICAL/HIGH CVEs).',
-      '4. On merge to main, two more jobs run automatically — tag (semantic version bump driven by the commit message) and publish (multi-arch amd64/arm64 Docker image pushed to ghcr.io).',
-      '5. Deployed via GitOps: ArgoCD and Kargo promote that image into a homelab k3s cluster — the running site.',
-      'Dependabot keeps all GitHub Actions versions current.',
+      'Written with Claude Code, and every pull request is reviewed by CodeRabbit before it can merge.',
+      'Each change is gated on a passing build and a Trivy security scan that blocks on CRITICAL/HIGH CVEs.',
+      'On merge to main, the version auto-bumps and a multi-arch Docker image is published to ghcr.io.',
+      'ArgoCD and Kargo then promote that image into a homelab k3s cluster — the running site.',
     ],
     tech: ['Astro', 'Docker', 'GitHub Actions', 'Trivy', 'ghcr.io', 'Claude Code', 'CodeRabbit', 'ArgoCD', 'Kargo'],
     url: 'https://github.com/TadasJuska/cv',
