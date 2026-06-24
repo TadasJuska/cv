@@ -112,7 +112,7 @@ const projects = [
       'Written with Claude Code, and every pull request is reviewed by CodeRabbit before it can merge.',
       'Each change is gated on a passing build and a Trivy security scan that blocks on CRITICAL/HIGH CVEs.',
       'On merge to main, the version auto-bumps and a multi-arch Docker image is published to ghcr.io.',
-      'ArgoCD and Kargo then promote that image into a homelab k3s cluster — the running site.',
+      'The homelab runs on k3s, where ArgoCD and Kargo pick up the new image and roll out the CV on their own.',
     ],
     tech: ['Astro', 'Docker', 'GitHub Actions', 'Trivy', 'ghcr.io', 'Claude Code', 'CodeRabbit', 'ArgoCD', 'Kargo'],
     url: 'https://github.com/TadasJuska/cv',
