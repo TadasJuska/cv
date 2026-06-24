@@ -77,9 +77,16 @@ const resumeExperience = experience.map((role, i) =>
                 <span class="entry-title">{role.title} · <span class="org">{role.company}</span></span>
                 <span class="period">{role.period}</span>
               </div>
-              {role.location && <p class="loc">{role.location}</p>}
+              {(role.location || role.employment) && (
+                <p class="loc">{[role.location, role.employment].filter(Boolean).join(' · ')}</p>
+              )}
               {role.summary && <p class="role-summary">{role.summary}</p>}
-              {role.clients.map(client => (
+              {role.bullets && (
+                <ul>
+                  {role.bullets.map(b => <li>{b}</li>)}
+                </ul>
+              )}
+              {role.clients?.map(client => (
                 <div class="client">
                   <div class="entry-head">
                     <span class="client-name">{client.name}</span>
