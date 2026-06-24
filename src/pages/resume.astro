@@ -1,0 +1,322 @@
+---
+import { hero, skills, experience, certifications, education } from '../data/cv';
+
+const fullName = `${hero.firstName} ${hero.lastName}`;
+
+// One-page constraint: collapse the oldest role to a single summary line
+// (the detailed sub-positions push the CV onto a second page).
+const resumeExperience = experience.map((role, i) =>
+  i < experience.length - 1
+    ? role
+    : { ...role, clients: [], summary: 'Led the IT department and administered Linux and Windows server environments — patching, security, networking, and disaster recovery.' }
+);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullName} — {hero.title}</title>
+    <meta name="description" content={`${fullName} — ${hero.title}. One-page CV.`} />
+  </head>
+  <body>
+    <button id="dl-pdf" type="button" class="no-print print-btn" title="Opens the print dialog — choose 'Save as PDF'">
+      <svg class="dl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 15V3m0 12-4-4m4 4 4-4"/>
+        <path d="M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"/>
+      </svg>
+      <svg class="dl-spinner" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
+      </svg>
+      <span class="dl-text">Save as PDF</span>
+    </button>
+
+    <main class="page">
+      <header class="head">
+        <div>
+          <h1>{fullName}</h1>
+          <p class="role">{hero.title}</p>
+        </div>
+        <div class="contact">
+          <span class="ci-row">
+            <svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            {hero.siteUrl}
+          </span>
+          <span class="ci-row">
+            <svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            {hero.email}
+          </span>
+          <span class="ci-row">
+            <svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            {hero.location}
+          </span>
+          <span class="ci-row">
+            <svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg>
+            {hero.languages}
+          </span>
+          <span class="ci-row">
+            <svg class="ci" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.62-5.49 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12.01 12.01 0 0 0 24 12.5C24 5.87 18.63.5 12 .5z"/></svg>
+            {hero.githubShort}
+          </span>
+          <span class="ci-row">
+            <svg class="ci" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+            linkedin.com/in/tadasjuska
+          </span>
+        </div>
+      </header>
+
+      <p class="summary">{hero.bio}</p>
+
+      <div class="grid">
+        <section class="main">
+          <h2>Experience</h2>
+          {resumeExperience.map(role => (
+            <article class="entry">
+              <div class="entry-head">
+                <span class="entry-title">{role.title} · <span class="org">{role.company}</span></span>
+                <span class="period">{role.period}</span>
+              </div>
+              {role.location && <p class="loc">{role.location}</p>}
+              {role.summary && <p class="role-summary">{role.summary}</p>}
+              {role.clients.map(client => (
+                <div class="client">
+                  <div class="entry-head">
+                    <span class="client-name">{client.name}</span>
+                    <span class="period">{client.period}</span>
+                  </div>
+                  {client.location && <p class="loc">{client.location}</p>}
+                  <ul>
+                    {client.bullets.map(b => <li>{b}</li>)}
+                  </ul>
+                </div>
+              ))}
+            </article>
+          ))}
+        </section>
+
+        <aside class="side">
+          <h2>Skills</h2>
+          <ul class="skills">
+            {skills.map(group => (
+              <li><span class="cat">{group.category}</span>{group.items.join(' · ')}</li>
+            ))}
+          </ul>
+
+          <h2>Certifications</h2>
+          <ul class="certs">
+            {certifications.map(c => (
+              <li><span class="cert-name">{c.name}</span><span class="cert-meta">{c.issuer} · {c.issued}</span></li>
+            ))}
+          </ul>
+
+          <h2>Education</h2>
+          {education.map(e => (
+            <div class="edu">
+              <span class="edu-degree">{e.degree}</span>
+              <span class="cert-meta">{e.institution} · {e.period}</span>
+            </div>
+          ))}
+        </aside>
+      </div>
+    </main>
+
+    <style>
+      :root {
+        --ink: #1a1a1a;
+        --body: #383838;
+        --muted: #6b6b6b;
+        --accent: #1a1a1a;
+        --hl: #1a1a1a;
+        --accent-soft: #4a4a4a;
+        --line: #d0d0d0;
+        --panel: #f3f3f3;
+      }
+      * { box-sizing: border-box; }
+      html, body {
+        margin: 0;
+        background: #dcdcdc;
+        color: var(--body);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        font-size: 10.5px;
+        line-height: 1.45;
+      }
+      .page {
+        max-width: 210mm;
+        min-height: 297mm;
+        margin: 1.5rem auto;
+        background: #fff;
+        padding: 14mm 14mm 12mm;
+        box-shadow: 0 4px 24px rgba(15, 23, 42, 0.12);
+      }
+      .head {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 1.5rem;
+        border-bottom: 3px solid var(--hl);
+        padding-bottom: 0.6rem;
+        margin-bottom: 0.6rem;
+      }
+      h1 {
+        font-size: 26px;
+        margin: 0;
+        color: var(--ink);
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+      }
+      .role {
+        margin: 0.15rem 0 0;
+        color: var(--muted);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-size: 10px;
+      }
+      .contact {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.2rem 1rem;
+        color: var(--muted);
+        font-size: 9.5px;
+      }
+      .ci-row {
+        display: flex;
+        align-items: center;
+        gap: 0.32rem;
+        justify-content: flex-end;
+      }
+      .ci {
+        width: 11px;
+        height: 11px;
+        flex: none;
+        color: var(--accent-soft);
+      }
+      .summary {
+        margin: 0 0 0.8rem;
+        color: #334155;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: 1.65fr 1fr;
+        gap: 1.4rem;
+      }
+      .side {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 0.85rem 0.95rem;
+        align-self: start;
+      }
+      h2 {
+        font-size: 12px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        color: var(--ink);
+        border-bottom: 2px solid var(--ink);
+        padding-bottom: 0.25rem;
+        margin: 0 0 0.55rem;
+      }
+      .side h2 { margin-top: 0.9rem; }
+      .side h2:first-child { margin-top: 0; }
+      .entry { margin-bottom: 0.7rem; }
+      .entry:last-child { margin-bottom: 0; }
+      .entry-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 0.5rem;
+      }
+      .entry-title { font-weight: 600; font-size: 11.5px; color: var(--ink); }
+      .client { margin-top: 0.4rem; }
+      .client:first-of-type { margin-top: 0.15rem; }
+      .client-name { font-weight: 600; font-size: 10.5px; color: var(--ink); }
+      .client { break-inside: avoid; }
+      .org { color: var(--accent); font-weight: 700; }
+      .period { color: var(--muted); font-size: 9.5px; white-space: nowrap; }
+      .loc { margin: 0 0 0.25rem; color: var(--muted); font-size: 9.5px; }
+      .role-summary { margin: 0.2rem 0 0; color: var(--body); }
+      ul { margin: 0; padding-left: 1rem; }
+      .main li { margin-bottom: 0.18rem; }
+      .main li::marker { color: var(--accent-soft); }
+      .skills, .certs { list-style: none; padding: 0; }
+      .skills li { margin-bottom: 0.3rem; }
+      .cat {
+        display: block;
+        font-weight: 600;
+        color: var(--ink);
+        font-size: 9px;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+      .skills li { color: var(--muted); }
+      .certs li { margin-bottom: 0.3rem; }
+      .cert-name { display: block; font-weight: 600; color: var(--ink); }
+      .cert-meta { display: block; color: var(--muted); font-size: 9.5px; }
+      .edu-degree { display: block; font-weight: 600; color: var(--ink); }
+      .print-btn {
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        background: #1a1a1a;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 0.55rem 1rem;
+        font: inherit;
+        font-weight: 700;
+        cursor: pointer;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        transition: background 0.15s, box-shadow 0.15s, opacity 0.15s;
+      }
+      .print-btn:hover { background: #000; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.28); }
+      .print-btn:disabled { opacity: 0.7; cursor: progress; }
+      .dl-icon, .dl-spinner { width: 14px; height: 14px; flex: none; }
+      .dl-spinner { display: none; animation: dl-spin 0.7s linear infinite; }
+      .print-btn.is-loading .dl-icon { display: none; }
+      .print-btn.is-loading .dl-spinner { display: inline; }
+      @keyframes dl-spin { to { transform: rotate(360deg); } }
+
+      @page { size: A4; margin: 0; }
+      @media print {
+        html, body { background: #fff; font-size: 10px; }
+        .no-print { display: none !important; }
+        .page {
+          margin: 0;
+          box-shadow: none;
+          max-width: none;
+          min-height: auto;
+          padding: 12mm 12mm 10mm;
+        }
+        .entry, article { break-inside: avoid; }
+        h2 { break-after: avoid; }
+        * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      }
+    </style>
+
+    <script>
+      const btn = document.getElementById('dl-pdf') as HTMLButtonElement | null;
+      const text = btn?.querySelector('.dl-text');
+      const reset = () => {
+        if (!btn || !text) return;
+        btn.classList.remove('is-loading');
+        text.textContent = 'Save as PDF';
+        btn.disabled = false;
+      };
+      btn?.addEventListener('click', () => {
+        if (!btn || !text) return;
+        btn.classList.add('is-loading');
+        text.textContent = 'Preparing…';
+        btn.disabled = true;
+        // Let the spinner paint before the (blocking) print dialog opens.
+        setTimeout(() => window.print(), 80);
+      });
+      window.addEventListener('afterprint', reset);
+    </script>
+  </body>
+</html>
