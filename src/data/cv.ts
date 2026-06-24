@@ -2,7 +2,7 @@ export const hero = {
   title: 'Senior AI Platform Engineer',
   firstName: 'Tadas',
   lastName: 'Juška',
-  bio: "Platform engineer with an AI focus and 8+ years running the infrastructure other engineers ship on — Kubernetes, GitOps, zero-trust networking, and multi-tenant systems, across any cloud or distribution. I bring LLM models and AI agents into my everyday work, turning deep platform expertise into agentic automation that ships more without trading away security or control.",
+  bio: "Senior Platform Engineer with 8+ years designing and operating the infrastructure that engineering teams and customer-facing applications depend on — Kubernetes, GitOps, zero-trust networking, and multi-tenant systems across cloud and on-prem. Currently combining platform engineering and AI, applying LLMs and agentic tooling to real platform problems to cut manual overhead and move faster without losing control.",
   email: 'tadas@juska.it',
   siteUrl: 'cv.juska.it',
   github: 'https://github.com/TadasJuska',

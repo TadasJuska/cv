@@ -126,20 +126,21 @@ html {
   }
 
   h1 span {
-    color: #0891b2 !important;
+    color: #059669 !important;
   }
 
   p, li, span {
     color: #334155 !important;
   }
 
-  .text-cyan-400,
-  .text-cyan-500 {
-    color: #0891b2 !important;
+  .text-emerald-400,
+  .text-emerald-500,
+  .text-emerald-600 {
+    color: #059669 !important;
   }
 
-  .bg-slate-900,
-  .bg-slate-800 {
+  .bg-zinc-900,
+  .bg-zinc-800 {
     background: #f8fafc !important;
     border-color: #e2e8f0 !important;
   }
@@ -149,12 +150,12 @@ html {
     text-decoration: none !important;
   }
 
-  .border-slate-800 {
+  .border-zinc-800 {
     border-color: #e2e8f0 !important;
   }
 
   /* Remove glow from bullet dots — box-shadow doesn't print */
-  .shadow-\[0_0_6px_rgba\(34\,211\,238\,0\.9\)\] {
+  .shadow-\[0_0_6px_rgba\(52\,211\,153\,0\.9\)\] {
     box-shadow: none !important;
   }
 

@@ -6,17 +6,17 @@ import { hero, skills, experience, projects, certifications, education } from '.
 
 <Layout>
   <!-- Scroll progress bar -->
-  <div id="progress-bar" class="fixed top-0 left-0 h-0.5 bg-cyan-500 z-50 w-0 transition-none"></div>
+  <div id="progress-bar" class="fixed top-0 left-0 h-0.5 bg-emerald-600 z-50 w-0 transition-none"></div>
 
   <!-- Print-only header banner -->
   <div class="print-only" style="background:#f1f5f9;border-bottom:1px solid #e2e8f0;padding:0.5rem 1.5rem;font-size:0.7rem;color:#64748b;text-align:center;">
-    This is a printable version of <span style="color:#0891b2;font-weight:600">{hero.siteUrl}</span>
+    This is a printable version of <span style="color:#059669;font-weight:600">{hero.siteUrl}</span>
   </div>
 
   <!-- Print-only hero (static, no animations) -->
   <section class="print-only px-6 py-4 max-w-5xl mx-auto" style="text-align:center">
-    <p style="color:#0891b2;font-family:monospace;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.15em;margin-bottom:0.25rem">{hero.title}</p>
-    <h1 style="font-size:2.25rem;font-weight:700;color:#0f172a;margin-bottom:0.625rem">{hero.firstName} <span style="color:#0891b2">{hero.lastName}</span></h1>
+    <p style="color:#059669;font-family:monospace;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.15em;margin-bottom:0.25rem">{hero.title}</p>
+    <h1 style="font-size:2.25rem;font-weight:700;color:#0f172a;margin-bottom:0.625rem">{hero.firstName} <span style="color:#059669">{hero.lastName}</span></h1>
     <p style="color:#334155;font-size:0.875rem;line-height:1.65;max-width:44rem;margin-bottom:0.625rem;margin-left:auto;margin-right:auto">{hero.bio}</p>
     <div style="display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:center;color:#64748b;font-size:0.78rem;margin-bottom:0.2rem">
       <span>{hero.email}</span>
@@ -27,104 +27,101 @@ import { hero, skills, experience, projects, certifications, education } from '.
       <span>{hero.location}</span>
       <span>{hero.languages}</span>
     </div>
-    <p style="color:#0891b2;font-size:0.78rem;font-weight:600">{hero.availability}</p>
+    <p style="color:#059669;font-size:0.78rem;font-weight:600">{hero.availability}</p>
   </section>
 
   <!-- Hero -->
   <section class="no-print min-h-screen flex flex-col items-center justify-center relative px-6 text-center">
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(6,182,212,0.08)_0%,_transparent_70%)]"></div>
-    <p class="font-mono text-cyan-400 text-sm tracking-widest uppercase mb-8 opacity-0 animate-[charIn_0.6s_0.1s_cubic-bezier(0.16,1,0.3,1)_forwards]">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(16,185,129,0.08)_0%,_transparent_70%)]"></div>
+    <p class="font-mono text-emerald-600 text-sm tracking-widest uppercase mb-8 opacity-0 animate-[charIn_0.6s_0.1s_cubic-bezier(0.16,1,0.3,1)_forwards]">
       {hero.title}
     </p>
-    <h1 class="text-5xl sm:text-7xl md:text-9xl font-bold text-white tracking-tight mb-6 overflow-hidden whitespace-nowrap">
-      <span class="hero-char" style="animation-delay: 0.15s">T</span><span class="hero-char" style="animation-delay: 0.2s">a</span><span class="hero-char" style="animation-delay: 0.25s">d</span><span class="hero-char" style="animation-delay: 0.3s">a</span><span class="hero-char" style="animation-delay: 0.35s">s</span><span class="hero-char inline-block w-6" style="animation-delay: 0.4s"> </span><span class="hero-char text-cyan-400" style="animation-delay: 0.45s">J</span><span class="hero-char text-cyan-400" style="animation-delay: 0.5s">u</span><span class="hero-char text-cyan-400" style="animation-delay: 0.55s">š</span><span class="hero-char text-cyan-400" style="animation-delay: 0.6s">k</span><span class="hero-char text-cyan-400" style="animation-delay: 0.65s">a</span>
+    <h1 class="text-5xl sm:text-7xl md:text-9xl font-bold text-zinc-100 tracking-tight mb-6 overflow-hidden whitespace-nowrap">
+      <span class="hero-char" style="animation-delay: 0.15s">T</span><span class="hero-char" style="animation-delay: 0.2s">a</span><span class="hero-char" style="animation-delay: 0.25s">d</span><span class="hero-char" style="animation-delay: 0.3s">a</span><span class="hero-char" style="animation-delay: 0.35s">s</span><span class="hero-char inline-block w-6" style="animation-delay: 0.4s"> </span><span class="hero-char text-emerald-600" style="animation-delay: 0.45s">J</span><span class="hero-char text-emerald-600" style="animation-delay: 0.5s">u</span><span class="hero-char text-emerald-600" style="animation-delay: 0.55s">š</span><span class="hero-char text-emerald-600" style="animation-delay: 0.6s">k</span><span class="hero-char text-emerald-600" style="animation-delay: 0.65s">a</span>
     </h1>
-    <p class="text-slate-400 text-base max-w-lg leading-relaxed opacity-0 animate-[charIn_0.6s_0.6s_cubic-bezier(0.16,1,0.3,1)_forwards]">
+    <p class="text-zinc-300 text-base max-w-xl leading-relaxed opacity-0 animate-[charIn_0.6s_0.6s_cubic-bezier(0.16,1,0.3,1)_forwards]">
       {hero.bio}
     </p>
     <p class="mt-4 opacity-0 animate-[charIn_0.6s_0.68s_cubic-bezier(0.16,1,0.3,1)_forwards]">
-      <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-sm font-mono">
-        <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+      <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-600/10 border border-emerald-600/30 text-emerald-600 text-sm font-mono">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>
         {hero.availability}
       </span>
     </p>
     <div class="flex gap-4 mt-10 opacity-0 animate-[charIn_0.6s_0.75s_cubic-bezier(0.16,1,0.3,1)_forwards] flex-wrap justify-center">
       <a href={`mailto:${hero.email}`}
-        class="px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium transition-colors border border-slate-700">
+        class="px-6 py-3 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-medium transition-colors border border-zinc-700">
         {hero.email}
       </a>
       <a href={hero.github} target="_blank" rel="noopener noreferrer"
-        class="px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium transition-colors border border-slate-700">
+        class="px-6 py-3 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-medium transition-colors border border-zinc-700">
         GitHub
       </a>
       <a href={hero.linkedin} target="_blank" rel="noopener noreferrer"
-        class="px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium transition-colors border border-slate-700">
+        class="px-6 py-3 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-medium transition-colors border border-zinc-700">
         LinkedIn
       </a>
-      <button
-        data-print-pdf
-        title="Opens browser print dialog — choose 'Save as PDF'"
-        class="no-print group flex items-center gap-2 px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium transition-all border border-slate-700 hover:border-cyan-500/40 disabled:opacity-60 disabled:cursor-not-allowed"
+      <a
+        href="/resume"
+        title="Open the printable one-page CV"
+        class="no-print group flex items-center gap-2 px-6 py-3 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-medium transition-all border border-zinc-700 hover:border-emerald-600/40"
       >
-        <svg data-pdf-icon xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M12 15V3m0 12-4-4m4 4 4-4"/>
           <path d="M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"/>
         </svg>
-        <svg data-pdf-spinner xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0 hidden animate-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
-        </svg>
-        <span data-pdf-text>Save as PDF</span>
-      </button>
+        Download
+      </a>
     </div>
-    <p class="flex items-center gap-1.5 mt-6 opacity-0 animate-[charIn_0.6s_0.9s_cubic-bezier(0.16,1,0.3,1)_forwards] text-slate-400 text-xs font-mono">
+    <p class="flex items-center gap-1.5 mt-6 opacity-0 animate-[charIn_0.6s_0.9s_cubic-bezier(0.16,1,0.3,1)_forwards] text-zinc-300 text-xs font-mono">
       <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
       {hero.location}
     </p>
-    <p class="flex items-center gap-1.5 mt-2 opacity-0 animate-[charIn_0.6s_0.95s_cubic-bezier(0.16,1,0.3,1)_forwards] text-slate-400 text-xs font-mono">
+    <p class="flex items-center gap-1.5 mt-2 opacity-0 animate-[charIn_0.6s_0.95s_cubic-bezier(0.16,1,0.3,1)_forwards] text-zinc-300 text-xs font-mono">
       <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm-1 17.93V18a1 1 0 0 0-1-1H8v-2a1 1 0 0 1 1-1h2a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1h-1a1 1 0 0 1-1-1v-.5A1.5 1.5 0 0 0 7.5 9H7a1 1 0 0 1-1-1V7.07A8.003 8.003 0 0 1 11 4.07V5a1 1 0 0 0 1 1h.5A1.5 1.5 0 0 1 14 7.5v.5a1 1 0 0 0 1 1h.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H15a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 3 3 0 0 1 3 3v.17A8.003 8.003 0 0 1 11 19.93z"/></svg>
       {hero.languages}
     </p>
     <div class="absolute bottom-4 opacity-0 animate-[charIn_0.6s_1s_cubic-bezier(0.16,1,0.3,1)_forwards] hidden sm:flex flex-col items-center gap-2">
-      <span class="text-slate-600 text-xs font-mono tracking-widest">SCROLL</span>
-      <div class="w-px h-12 bg-gradient-to-b from-slate-600 to-transparent"></div>
+      <span class="text-zinc-600 text-xs font-mono tracking-widest">SCROLL</span>
+      <div class="w-px h-12 bg-gradient-to-b from-zinc-600 to-transparent"></div>
     </div>
   </section>
 
   <!-- Experience -->
-  <section class="py-32 px-6 max-w-5xl mx-auto border-t border-slate-800/50">
+  <section class="py-32 px-6 max-w-5xl mx-auto border-t border-zinc-800/50">
     <div data-animate class="mb-16">
-      <p class="font-mono text-cyan-400 text-xs tracking-widest uppercase mb-3">Where I've worked</p>
-      <h2 class="text-4xl font-bold text-white">Experience</h2>
+      <p class="font-mono text-emerald-600 text-xs tracking-widest uppercase mb-3">Where I've worked</p>
+      <h2 class="text-4xl font-bold text-zinc-100">Experience</h2>
     </div>
     <div class="space-y-12">
       {experience.map((role, i) => (
         <div data-animate style={`transition-delay: ${i * 120}ms`} class="grid md:grid-cols-3 gap-6">
           <div class="md:col-span-1">
-            <p class="font-mono text-slate-500 text-sm">{role.period}</p>
+            <p class="font-mono text-zinc-500 text-sm">{role.period}</p>
           </div>
-          <div class="md:col-span-2 border-l-2 border-cyan-500/30 pl-6">
-            <h3 class="text-white font-semibold text-xl mb-1">{role.title}</h3>
+          <div class="md:col-span-2 border-l-2 border-emerald-600/30 pl-6">
+            <h3 class="text-zinc-100 font-semibold text-xl mb-1">{role.title}</h3>
             <div class="flex items-center gap-3 mb-4 flex-wrap">
-              <p class="text-cyan-400 text-sm font-semibold">{role.company}</p>
+              <p class="text-emerald-600 text-sm font-semibold">{role.company}</p>
               {role.location && (
-                <span class="flex items-center gap-1 text-slate-500 text-xs font-mono">
+                <span class="flex items-center gap-1 text-zinc-500 text-xs font-mono">
                   <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                   {role.location}
                 </span>
               )}
             </div>
             {role.description && (
-              <p class="text-slate-400 text-sm leading-relaxed mb-6">{role.description}</p>
+              <p class="text-zinc-300 text-sm leading-relaxed mb-6">{role.description}</p>
             )}
             {role.clients && (
               <div class="space-y-6">
                 {role.clients.map(client => (
                   <div>
-                    <p class="font-mono text-slate-500 text-xs mb-1">{client.period}</p>
+                    <p class="font-mono text-zinc-500 text-xs mb-1">{client.period}</p>
                     <div class="flex items-center gap-3 mb-2 flex-wrap">
-                      <span class="text-cyan-400 text-sm font-semibold">{client.name}</span>
+                      <span class="text-emerald-600 text-sm font-semibold">{client.name}</span>
                       {client.location && (
-                        <span class="flex items-center gap-1 text-slate-500 text-xs font-mono">
+                        <span class="flex items-center gap-1 text-zinc-500 text-xs font-mono">
                           <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                           {client.location}
                         </span>
@@ -132,8 +129,8 @@ import { hero, skills, experience, projects, certifications, education } from '.
                     </div>
                     <ul class="space-y-2.5">
                       {client.bullets.map(b => (
-                        <li class="flex gap-3 text-slate-400 text-sm leading-relaxed">
-                          <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0 mt-1.5 shadow-[0_0_6px_rgba(34,211,238,0.9)]"></span>{b}
+                        <li class="flex gap-3 text-zinc-300 text-sm leading-relaxed">
+                          <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 shrink-0 mt-1.5 shadow-[0_0_6px_rgba(52,211,153,0.9)]"></span>{b}
                         </li>
                       ))}
                     </ul>
@@ -144,8 +141,8 @@ import { hero, skills, experience, projects, certifications, education } from '.
             {role.bullets && (
               <ul class="space-y-2.5">
                 {role.bullets.map(b => (
-                  <li class="flex gap-3 text-slate-400 text-sm leading-relaxed">
-                    <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0 mt-1.5 shadow-[0_0_6px_rgba(34,211,238,0.9)]"></span>{b}
+                  <li class="flex gap-3 text-zinc-300 text-sm leading-relaxed">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 shrink-0 mt-1.5 shadow-[0_0_6px_rgba(52,211,153,0.9)]"></span>{b}
                   </li>
                 ))}
               </ul>
@@ -157,20 +154,20 @@ import { hero, skills, experience, projects, certifications, education } from '.
   </section>
 
   <!-- Education -->
-  <section class="py-32 px-6 max-w-5xl mx-auto border-t border-slate-800/50">
+  <section class="py-32 px-6 max-w-5xl mx-auto border-t border-zinc-800/50">
     <div data-animate class="mb-16">
-      <p class="font-mono text-cyan-400 text-xs tracking-widest uppercase mb-3">Where I studied</p>
-      <h2 class="text-4xl font-bold text-white">Education</h2>
+      <p class="font-mono text-emerald-600 text-xs tracking-widest uppercase mb-3">Where I studied</p>
+      <h2 class="text-4xl font-bold text-zinc-100">Education</h2>
     </div>
     <div class="space-y-8">
       {education.map((entry, i) => (
         <div data-animate style={`transition-delay: ${i * 100}ms`} class="grid md:grid-cols-3 gap-6">
           <div class="md:col-span-1">
-            <p class="font-mono text-slate-500 text-sm">{entry.period}</p>
+            <p class="font-mono text-zinc-500 text-sm">{entry.period}</p>
           </div>
-          <div class="md:col-span-2 border-l-2 border-cyan-500/30 pl-6">
-            <h3 class="text-white font-semibold text-lg mb-1">{entry.degree}</h3>
-            <p class="text-cyan-400 text-sm font-semibold">{entry.institution}</p>
+          <div class="md:col-span-2 border-l-2 border-emerald-600/30 pl-6">
+            <h3 class="text-zinc-100 font-semibold text-lg mb-1">{entry.degree}</h3>
+            <p class="text-emerald-600 text-sm font-semibold">{entry.institution}</p>
           </div>
         </div>
       ))}
@@ -178,22 +175,22 @@ import { hero, skills, experience, projects, certifications, education } from '.
   </section>
 
   <!-- Skills -->
-  <section class="py-32 px-6 max-w-5xl mx-auto border-t border-slate-800/50">
+  <section class="py-32 px-6 max-w-5xl mx-auto border-t border-zinc-800/50">
     <div data-animate class="mb-16">
-      <p class="font-mono text-cyan-400 text-xs tracking-widest uppercase mb-3">What I work with</p>
-      <h2 class="text-4xl font-bold text-white">Skills</h2>
+      <p class="font-mono text-emerald-600 text-xs tracking-widest uppercase mb-3">What I work with</p>
+      <h2 class="text-4xl font-bold text-zinc-100">Skills</h2>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 print:grid-cols-3 gap-4">
       {skills.map((group, i) => (
         <div
           data-animate
           style={`transition-delay: ${i * 80}ms`}
-          class="bg-slate-900 rounded-2xl border border-slate-800 p-6 hover:border-cyan-500/30 transition-colors"
+          class="bg-zinc-900 rounded-2xl border border-zinc-800 p-6 hover:border-emerald-600/30 transition-colors"
         >
-          <h3 class="text-slate-400 text-xs font-mono uppercase tracking-widest mb-4">{group.category}</h3>
+          <h3 class="text-zinc-300 text-xs font-mono uppercase tracking-widest mb-4">{group.category}</h3>
           <div class="flex flex-wrap gap-2">
             {group.items.map(item => (
-              <span class="px-3 py-1 rounded-full text-xs font-mono bg-slate-800 text-slate-400 border border-slate-700">
+              <span class="px-3 py-1 rounded-full text-xs font-mono bg-zinc-800 text-zinc-300 border border-zinc-700">
                 {item}
               </span>
             ))}
@@ -204,23 +201,23 @@ import { hero, skills, experience, projects, certifications, education } from '.
   </section>
 
   <!-- Certifications -->
-  <section class="py-32 px-6 max-w-5xl mx-auto border-t border-slate-800/50">
+  <section class="py-32 px-6 max-w-5xl mx-auto border-t border-zinc-800/50">
     <div data-animate class="mb-16">
-      <p class="font-mono text-cyan-400 text-xs tracking-widest uppercase mb-3">What I've learned</p>
-      <h2 class="text-4xl font-bold text-white">Certifications</h2>
+      <p class="font-mono text-emerald-600 text-xs tracking-widest uppercase mb-3">What I've learned</p>
+      <h2 class="text-4xl font-bold text-zinc-100">Certifications</h2>
     </div>
     <div class="grid md:grid-cols-2 gap-4">
       {certifications.map((cert, i) => (
         <div
           data-animate
           style={`transition-delay: ${i * 60}ms`}
-          class="bg-slate-900 rounded-2xl border border-slate-800 px-6 py-4 hover:border-cyan-500/30 transition-colors flex gap-4 items-start"
+          class="bg-zinc-900 rounded-2xl border border-zinc-800 px-6 py-4 hover:border-emerald-600/30 transition-colors flex gap-4 items-start"
         >
-          <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0 mt-2 shadow-[0_0_6px_rgba(34,211,238,0.9)]"></span>
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 shrink-0 mt-2 shadow-[0_0_6px_rgba(52,211,153,0.9)]"></span>
           <div>
-            <p class="text-white font-medium text-sm">{cert.name}</p>
-            <p class="text-cyan-400 text-xs font-mono mt-0.5">{cert.issuer}</p>
-            <p class="text-slate-500 text-xs font-mono mt-0.5">{cert.issued}</p>
+            <p class="text-zinc-100 font-medium text-sm">{cert.name}</p>
+            <p class="text-emerald-600 text-xs font-mono mt-0.5">{cert.issuer}</p>
+            <p class="text-zinc-500 text-xs font-mono mt-0.5">{cert.issued}</p>
           </div>
         </div>
       ))}
@@ -228,10 +225,10 @@ import { hero, skills, experience, projects, certifications, education } from '.
   </section>
 
   <!-- Projects -->
-  <section class="py-32 px-6 max-w-5xl mx-auto border-t border-slate-800/50">
+  <section class="py-32 px-6 max-w-5xl mx-auto border-t border-zinc-800/50">
     <div data-animate class="mb-16">
-      <p class="font-mono text-cyan-400 text-xs tracking-widest uppercase mb-3">Things I've built</p>
-      <h2 class="text-4xl font-bold text-white">Recent Projects</h2>
+      <p class="font-mono text-emerald-600 text-xs tracking-widest uppercase mb-3">Things I've built</p>
+      <h2 class="text-4xl font-bold text-zinc-100">Recent Projects</h2>
     </div>
     <div class="grid md:grid-cols-2 gap-6">
       {projects.map((project, i) => {
@@ -242,22 +239,22 @@ import { hero, skills, experience, projects, certifications, education } from '.
             {...linkProps}
             data-animate="scale"
             style={`transition-delay: ${i * 100}ms`}
-            class={`group bg-slate-900 rounded-2xl border border-slate-800 p-8 transition-colors flex flex-col gap-4 ${project.url ? 'hover:border-cyan-500/40' : ''}`}
+            class={`group bg-zinc-900 rounded-2xl border border-zinc-800 p-8 transition-colors flex flex-col gap-4 ${project.url ? 'hover:border-emerald-600/40' : ''}`}
           >
             <div class="flex items-start justify-between gap-4">
-              <h3 class={`text-white font-semibold text-lg ${project.url ? 'group-hover:text-cyan-400 transition-colors' : ''}`}>{project.name}</h3>
+              <h3 class={`text-zinc-100 font-semibold text-lg ${project.url ? 'group-hover:text-emerald-600 transition-colors' : ''}`}>{project.name}</h3>
               {project.url
-                ? <span class="text-slate-600 group-hover:text-slate-300 transition-colors text-xl">↗</span>
-                : <span class="px-2 py-0.5 rounded text-xs font-mono bg-slate-800 text-slate-500 border border-slate-700">private</span>
+                ? <span class="text-zinc-600 group-hover:text-zinc-300 transition-colors text-xl">↗</span>
+                : <span class="px-2 py-0.5 rounded text-xs font-mono bg-zinc-800 text-zinc-500 border border-zinc-700">private</span>
               }
             </div>
             <div class="flex-1 flex flex-col gap-3">
-              {project.description && <p class="text-slate-400 text-sm leading-relaxed">{project.description}</p>}
+              {project.description && <p class="text-zinc-300 text-sm leading-relaxed">{project.description}</p>}
               {project.bullets && (
                 <ul class="space-y-2">
                   {project.bullets.map((b: string) => (
-                    <li class="flex gap-3 text-slate-400 text-sm leading-relaxed">
-                      <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0 mt-1.5 shadow-[0_0_6px_rgba(34,211,238,0.9)]"></span>{b}
+                    <li class="flex gap-3 text-zinc-300 text-sm leading-relaxed">
+                      <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 shrink-0 mt-1.5 shadow-[0_0_6px_rgba(52,211,153,0.9)]"></span>{b}
                     </li>
                   ))}
                 </ul>
@@ -265,13 +262,13 @@ import { hero, skills, experience, projects, certifications, education } from '.
             </div>
             <div class="flex flex-wrap gap-2">
               {project.tech.map(t => (
-                <span class="px-2.5 py-1 rounded-lg text-xs font-mono bg-slate-800 text-slate-400 border border-slate-700">{t}</span>
+                <span class="px-2.5 py-1 rounded-lg text-xs font-mono bg-zinc-800 text-zinc-300 border border-zinc-700">{t}</span>
               ))}
             </div>
             {project.arch && (
               <button
                 id="arch-open"
-                class="self-start px-3 py-1.5 rounded-lg text-xs font-mono bg-cyan-600/20 text-cyan-400 border border-cyan-500/30 hover:bg-cyan-600/30 hover:text-cyan-300 transition-colors"
+                class="self-start px-3 py-1.5 rounded-lg text-xs font-mono bg-emerald-600/20 text-emerald-600 border border-emerald-600/30 hover:bg-emerald-600/30 hover:text-emerald-300 transition-colors"
               >
                 View architecture ↗
               </button>
@@ -283,59 +280,56 @@ import { hero, skills, experience, projects, certifications, education } from '.
   </section>
 
   <!-- Contact -->
-  <section class="py-32 px-6 text-center border-t border-slate-800/50 print:break-before-page">
+  <section class="py-32 px-6 text-center border-t border-zinc-800/50 print:break-before-page">
     <div data-animate>
-      <p class="font-mono text-cyan-400 text-xs tracking-widest uppercase mb-3">Get in touch</p>
-      <h2 class="text-4xl font-bold text-white mb-6">Let's work together</h2>
-      <p class="text-slate-400 mb-10 max-w-md mx-auto">
+      <p class="font-mono text-emerald-600 text-xs tracking-widest uppercase mb-3">Get in touch</p>
+      <h2 class="text-4xl font-bold text-zinc-100 mb-6">Let's work together</h2>
+      <p class="text-zinc-300 mb-10 max-w-md mx-auto">
         Open to new contracts. Reach out anytime.
       </p>
       <div class="no-print flex gap-4 justify-center flex-wrap">
         <a href={`mailto:${hero.email}`}
-          class="px-8 py-4 rounded-xl border border-slate-700 hover:border-slate-500 text-slate-300 hover:text-white font-medium transition-colors text-lg">
+          class="px-8 py-4 rounded-xl border border-zinc-700 hover:border-zinc-500 text-zinc-300 hover:text-zinc-100 font-medium transition-colors text-lg">
           {hero.email}
         </a>
         <a href={hero.github} target="_blank" rel="noopener noreferrer"
-          class="px-8 py-4 rounded-xl border border-slate-700 hover:border-slate-500 text-slate-300 hover:text-white font-medium transition-colors text-lg">
+          class="px-8 py-4 rounded-xl border border-zinc-700 hover:border-zinc-500 text-zinc-300 hover:text-zinc-100 font-medium transition-colors text-lg">
           GitHub
         </a>
         <a href={hero.linkedin} target="_blank" rel="noopener noreferrer"
-          class="px-8 py-4 rounded-xl border border-slate-700 hover:border-slate-500 text-slate-300 hover:text-white font-medium transition-colors text-lg">
+          class="px-8 py-4 rounded-xl border border-zinc-700 hover:border-zinc-500 text-zinc-300 hover:text-zinc-100 font-medium transition-colors text-lg">
           LinkedIn
         </a>
-        <button
-          data-print-pdf
-          title="Opens browser print dialog — choose 'Save as PDF'"
-          class="group flex items-center gap-2 px-8 py-4 rounded-xl border border-slate-700 hover:border-cyan-500/40 text-slate-300 hover:text-white font-medium transition-all text-lg disabled:opacity-60 disabled:cursor-not-allowed"
+        <a
+          href="/resume"
+          title="Open the printable one-page CV"
+          class="group flex items-center gap-2 px-8 py-4 rounded-xl border border-zinc-700 hover:border-emerald-600/40 text-zinc-300 hover:text-zinc-100 font-medium transition-all text-lg"
         >
-          <svg data-pdf-icon xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M12 15V3m0 12-4-4m4 4 4-4"/>
             <path d="M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"/>
           </svg>
-          <svg data-pdf-spinner xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 shrink-0 hidden animate-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
-          </svg>
-          <span data-pdf-text>Save as PDF</span>
-        </button>
+          Download
+        </a>
       </div>
       <div class="hidden print:flex justify-center gap-8 text-sm mt-2">
-        <span class="text-cyan-600 font-semibold">{hero.email}</span>
-        <span class="text-slate-300">·</span>
-        <span class="text-cyan-600 font-semibold">linkedin.com/in/tadasjuska</span>
+        <span class="text-emerald-600 font-semibold">{hero.email}</span>
+        <span class="text-zinc-300">·</span>
+        <span class="text-emerald-600 font-semibold">linkedin.com/in/tadasjuska</span>
       </div>
     </div>
   </section>
 
-  <footer class="no-print text-center text-slate-600 text-xs font-mono pb-8">
+  <footer class="no-print text-center text-zinc-600 text-xs font-mono pb-8">
     Built with Astro · Self-hosted on homelab
   </footer>
 
   <!-- Architecture modal -->
   <div id="arch-modal" role="dialog" aria-modal="true" aria-labelledby="arch-title" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
-    <div class="bg-slate-900 rounded-2xl border border-slate-700 max-w-4xl w-full p-8 relative max-h-[90vh] overflow-auto">
-      <button id="arch-close" aria-label="Close architecture dialog" class="absolute top-4 right-4 text-slate-500 hover:text-white transition-colors text-2xl leading-none">×</button>
-      <h3 id="arch-title" class="text-white font-semibold text-xl mb-1">EKS Platform Architecture</h3>
-      <p class="text-slate-500 text-xs font-mono mb-6">preview → dev → stg → prod · GitOps · zero-trust</p>
+    <div class="bg-zinc-900 rounded-2xl border border-zinc-700 max-w-4xl w-full p-8 relative max-h-[90vh] overflow-auto">
+      <button id="arch-close" aria-label="Close architecture dialog" class="absolute top-4 right-4 text-zinc-500 hover:text-zinc-100 transition-colors text-2xl leading-none">×</button>
+      <h3 id="arch-title" class="text-zinc-100 font-semibold text-xl mb-1">EKS Platform Architecture</h3>
+      <p class="text-zinc-500 text-xs font-mono mb-6">preview → dev → stg → prod · GitOps · zero-trust</p>
       <img src="/eks-arch.svg" alt="EKS Platform Architecture" loading="lazy" class="w-full rounded-xl"/>
     </div>
   </div>
@@ -408,29 +402,6 @@ import { hero, skills, experience, projects, certifications, education } from '.
     window.addEventListener('beforeprint', () => {
       document.querySelectorAll<HTMLElement>('[data-animate]').forEach(el => {
         el.classList.add('in-view');
-      });
-    });
-
-    // PDF download with loading state (applies to every [data-print-pdf] button)
-    document.querySelectorAll<HTMLButtonElement>('[data-print-pdf]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const text = btn.querySelector('[data-pdf-text]');
-        const icon = btn.querySelector('[data-pdf-icon]');
-        const spinner = btn.querySelector('[data-pdf-spinner]');
-        if (!text || !icon || !spinner) return;
-        text.textContent = 'Preparing…';
-        icon.classList.add('hidden');
-        spinner.classList.remove('hidden');
-        btn.disabled = true;
-        setTimeout(() => {
-          window.print();
-          setTimeout(() => {
-            text.textContent = 'Save as PDF';
-            icon.classList.remove('hidden');
-            spinner.classList.add('hidden');
-            btn.disabled = false;
-          }, 800);
-        }, 350);
       });
     });
   </script>
