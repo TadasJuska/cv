@@ -56,7 +56,7 @@ export const experience = [
           'Led a team of 4 engineers — designing the platform architecture and coordinating delivery across the team.',
           'Introduced Terraform and Ansible to the bank — bringing IaC and automated tool deployments to an environment that had neither, and onboarding the team onto these practices to reduce toil and make scale-up a low-maintenance operation.',
           'Owned security and authentication across the stack — TLS, LDAP, Kerberos, NTLM, SSO — and led internal and external performance, penetration, and security audits, coordinating with external auditors and partner teams to remediate findings.',
-          'Delivered full observability with Zabbix and Grafana across Oracle and Cassandra; on-call rotation and incident management.',
+          'Built push- and pull-based Zabbix observability across the bank, with triggers into the internal Operations Center that activated on-call duty based on the incident level.',
         ],
       },
       {
