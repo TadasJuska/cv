@@ -20,7 +20,7 @@ export const skills = [
   { category: 'Observability', items: ['Prometheus', 'Grafana', 'Loki', 'OpenTelemetry', 'Elasticsearch', 'Kibana', 'Zabbix', 'Icinga2'] },
   { category: 'Security & Networking', items: ['mTLS', 'SPIFFE/SPIRE', 'VPN', 'Cloudflare Zero Trust', 'Vault', 'Traefik', 'Nginx', 'Envoy', 'Istio'] },
   { category: 'Data & Messaging', items: ['PostgreSQL', 'RabbitMQ', 'Kafka', 'Zookeeper', 'Apache Solr', 'Oracle DB', 'Elasticsearch'] },
-  { category: 'AI & Agents', items: ['LLMs', 'AI agents', 'Claude Code', 'GitHub Copilot', 'MCP', 'Agentic PR review', 'CodeRabbit', 'Workflow automation'] },
+  { category: 'AI & Agents', items: ['LLMs', 'AI agents', 'MCP', 'Agentic PR review', 'CodeRabbit', 'RTK', 'Headroom', 'Token optimization', 'Workflow automation'] },
   { category: 'Languages', items: ['Python', 'Go', 'Bash', 'HCL', 'YAML'] },
 ];
 
