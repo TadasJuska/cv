@@ -2,7 +2,7 @@ export const hero = {
   title: 'Senior Platform & AI Engineer',
   firstName: 'Tadas',
   lastName: 'Juška',
-  bio: "Senior Platform & AI Engineer with 8+ years designing and operating the infrastructure that engineering teams and customer-facing applications depend on — Kubernetes, GitOps, zero-trust networking, and multi-tenant systems across cloud and on-prem. Currently combining platform engineering and AI, applying LLMs and agentic tooling to real platform problems to cut manual overhead and move faster without losing control.",
+  bio: "Platform engineer with 8+ years building the infrastructure and tooling engineering teams depend on: Kubernetes, GitOps, and zero-trust networking across cloud and on-prem. These days most of my time goes into AI developer experience: building agentic systems and MCP integrations that give LLMs real production context, from logs and traces to metrics and internal tooling, so they can sort through incidents, track down root causes, and open fix PRs on their own rather than just answering questions. I care more about AI that holds up in production than about the demos.",
   email: 'tadas@juska.it',
   siteUrl: 'cv.juska.it',
   github: 'https://github.com/TadasJuska',
@@ -26,17 +26,18 @@ export const skills = [
 
 export const experience = [
   {
-    title: 'Platform Engineer',
+    title: 'DevSecOps Engineer',
     company: 'Wise',
     location: 'Iceland',
     employment: 'Contract · Remote',
     period: 'Aug 2023 – Present',
     bullets: [
-      'Owned the full stack — from network and infrastructure to the product running on top — as a 3-person DevOps team covering that scope reliably.',
-      'Reduced AWS infrastructure costs by ~30% — migrating workloads to Spot instances, committing to Savings Plans, scheduling non-production environments to scale down overnight, slimming down Docker images, and adding ECR lifecycle policies to clean up stale images.',
+      "Built the team's AI developer tooling — a library of Claude Code skills wired into Jira, Git, and monitoring over MCP — so engineers could offload routine work like PR review, ticket creation, and triage to agents from inside their normal workflow.",
+      'Designed an agentic incident pipeline that turns Prometheus alerts and log errors into structured, de-duplicated Jira issues and opens a fix PR when the root cause is clear — cutting manual triage and turning alert noise into actionable work.',
+      'Owned the full platform stack end to end — from network and infrastructure to the product running on top — keeping engineering teams shipping reliably.',
       'Redesigned platform networking on eBPF-based Cilium CNI — replacing kube-proxy, adding an Envoy-based API gateway for ingress, and enabling WireGuard + ztunnel end-to-end encryption for a zero-trust ambient mesh on production Kubernetes.',
-      'Built Claude Code skills for the team to speed up routine tasks — wired into Jira, Git, and monitoring via MCP — automating PR code review, ticket creation, and a pipeline that turns Prometheus alerts and log errors into structured Jira issues without duplicates, opening a fix PR when the root cause is clear.',
       'Moved CI/CD from Jenkins to GitHub Actions and set up GitOps with ArgoCD and Kargo — shipping customer code to AWS and on-prem through tracked, approved releases teams could run themselves.',
+      'Reduced AWS infrastructure costs by ~30% — migrating workloads to Spot instances, committing to Savings Plans, scheduling non-production environments to scale down overnight, slimming down Docker images, and adding ECR lifecycle policies to clean up stale images.',
       'Modernised unmaintained Terraform — fixing broken modules and refactoring them to work cleanly across environments — and managed OS configuration with SaltStack, returning infrastructure to a maintainable, version-controlled state.',
       'Inherited outdated AWS infrastructure and brought it fully current — OS patches, dependency upgrades, and vulnerability remediation across the entire EC2 fleet — keeping CI/CD pipelines running daily to keep engineering teams unblocked.',
     ],
