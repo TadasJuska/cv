@@ -34,6 +34,7 @@ export const experience = [
     bullets: [
       "Built the team's AI developer tooling — a library of Claude Code skills wired into Jira, Git, and monitoring over MCP — so engineers could offload routine work like PR review, ticket creation, and triage to agents from inside their normal workflow.",
       'Designed an agentic incident pipeline that turns Prometheus alerts and log errors into structured, de-duplicated Jira issues and opens a fix PR when the root cause is clear — cutting manual triage and turning alert noise into actionable work.',
+      'Built RTK and Headroom — token-optimization tooling (library, proxy, and MCP server) that compresses tool outputs, logs, files, and RAG chunks before they reach the LLM, cutting token use 60–95% with no loss in answer quality and keeping agentic workflows fast and affordable at scale.',
       'Owned the full platform stack end to end — from network and infrastructure to the product running on top — keeping engineering teams shipping reliably.',
       'Redesigned platform networking on eBPF-based Cilium CNI — replacing kube-proxy, adding an Envoy-based API gateway for ingress, and enabling WireGuard + ztunnel end-to-end encryption for a zero-trust ambient mesh on production Kubernetes.',
       'Moved CI/CD from Jenkins to GitHub Actions and set up GitOps with ArgoCD and Kargo — shipping customer code to AWS and on-prem through tracked, approved releases teams could run themselves.',
