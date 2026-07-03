@@ -39,6 +39,7 @@ export const experience = [
       'Moved CI/CD from Jenkins to GitHub Actions and set up GitOps with ArgoCD and Kargo — shipping customer code to AWS and on-prem through tracked, approved releases teams could run themselves.',
       'Reduced AWS infrastructure costs by ~30% — migrating workloads to Spot instances, committing to Savings Plans, scheduling non-production environments to scale down overnight, slimming down Docker images, and adding ECR lifecycle policies to clean up stale images.',
       'Structured Terraform with Terragrunt — shared modules parameterised per environment so onboarding a new customer was a single terraform apply with no duplication across envs.',
+      'Standardised observability across the platform — Prometheus and Grafana for metrics and alerting, ELK for log aggregation, and Sentry for developer error tracking — giving teams a single, consistent place to debug and monitor production.',
     ],
   },
   {
