@@ -3,8 +3,7 @@ import { hero, skills, experience, certifications, education } from '../data/cv'
 
 const fullName = `${hero.firstName} ${hero.lastName}`;
 
-// One-page constraint: collapse the oldest role to a single summary line
-// (the detailed sub-positions push the CV onto a second page).
+// One-page constraint: collapse the oldest role to a single summary line.
 const resumeExperience = experience.map((role, i) =>
   i < experience.length - 1
     ? role
