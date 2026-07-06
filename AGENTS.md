@@ -19,6 +19,9 @@
 - **Metadata/SEO** → `src/layouts/Layout.astro` (title, description, og tags)
 - **Docker deploy** → `Dockerfile`, `docker-compose.yml`, `nginx.conf`
 
+## Workflow
+- `main` is PR-protected — never push directly. Always create a branch, commit, push, and open a PR.
+
 ## Commands
 - `npm run dev` — local dev server
 - `npm run build` — production build
