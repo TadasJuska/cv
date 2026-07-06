@@ -37,7 +37,7 @@ export const experience = [
       'Owned the platform end to end — network, infra, and the products running on top.',
       'Replaced kube-proxy with eBPF-based Cilium CNI, added an Envoy API gateway, and rolled out WireGuard + ztunnel zero-trust encryption across production Kubernetes.',
       'Moved CI/CD from Jenkins to GitHub Actions with ArgoCD + Kargo GitOps. Teams ship their own customer code to AWS and on-prem through approved releases.',
-      'Cut AWS costs ~30% with Spot instances, Savings Plans, overnight non-prod scaling, leaner Docker images, and ECR lifecycle policies.',
+      'Cut AWS costs ~30% with Spot instances, Savings Plans, Graviton migration, rightsizing, overnight non-prod scaling, leaner Docker images, data transfer optimisation, and ECR lifecycle policies.',
       'Parameterised Terraform modules with Terragrunt so onboarding a new customer was a single apply — no env duplication.',
       'Gave every team a single observability stack: Prometheus + Grafana for metrics, ELK for logs, Sentry for errors.',
     ],
