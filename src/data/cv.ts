@@ -32,14 +32,14 @@ export const experience = [
     employment: 'Contract · Remote',
     period: 'Aug 2023 – Present',
     bullets: [
-      "Built the team's AI developer tooling — a library of Claude Code skills wired into Jira, Git, and monitoring over MCP",
-      'Built RTK and Headroom — LLM token-optimization tooling (library, proxy, and MCP server) that compresses tool outputs, logs, files, and RAG chunks before they reach the LLM, cutting token use 60–95% with no loss in answer quality and keeping agentic workflows fast and affordable at scale.',
-      'Owned the full platform stack end to end — from network and infrastructure to the product running on top — keeping engineering teams shipping reliably.',
-      'Redesigned platform networking on eBPF-based Cilium CNI — replacing kube-proxy, adding an Envoy-based API gateway for ingress, and enabling WireGuard + ztunnel end-to-end encryption for a zero-trust ambient mesh on production Kubernetes.',
-      'Moved CI/CD from Jenkins to GitHub Actions and set up GitOps with ArgoCD and Kargo — shipping customer code to AWS and on-prem through tracked, approved releases teams could run themselves.',
-      'Reduced AWS infrastructure costs by ~30% — migrating workloads to Spot instances, committing to Savings Plans, scheduling non-production environments to scale down overnight, slimming down Docker images, and adding ECR lifecycle policies to clean up stale images.',
-      'Structured Terraform with Terragrunt — shared modules parameterised per environment so onboarding a new customer was a single terraform apply with no duplication across envs.',
-      'Standardised observability across the platform — Prometheus and Grafana for metrics and alerting, ELK for log aggregation, and Sentry for developer error tracking — giving teams a single, consistent place to debug and monitor production.',
+      "Built the team's AI developer tooling: a library of Claude Code skills wired into Jira, Git, and monitoring over MCP",
+      'Built RTK and Headroom: LLM token-optimization tooling (library, proxy, and MCP server) that compresses tool outputs, logs, files, and RAG chunks before they reach the LLM, cutting token use 60–95% with no loss in answer quality and keeping agentic workflows fast and affordable at scale.',
+      'Owned the full platform stack end to end, from network and infrastructure to the product running on top, keeping engineering teams shipping reliably.',
+      'Redesigned platform networking on eBPF-based Cilium CNI: replacing kube-proxy, adding an Envoy-based API gateway for ingress, and enabling WireGuard + ztunnel end-to-end encryption for a zero-trust ambient mesh on production Kubernetes.',
+      'Moved CI/CD from Jenkins to GitHub Actions and set up GitOps with ArgoCD and Kargo: shipping customer code to AWS and on-prem through tracked, approved releases teams could run themselves.',
+      'Reduced AWS infrastructure costs by ~30%: migrating workloads to Spot instances, committing to Savings Plans, scheduling non-production environments to scale down overnight, slimming down Docker images, and adding ECR lifecycle policies to clean up stale images.',
+      'Structured Terraform with Terragrunt: shared modules parameterised per environment so onboarding a new customer was a single terraform apply with no duplication across envs.',
+      'Standardised observability across the platform with Prometheus and Grafana for metrics and alerting, ELK for log aggregation, and Sentry for developer error tracking, giving teams a single, consistent place to debug and monitor production.',
     ],
   },
   {
@@ -53,10 +53,10 @@ export const experience = [
         name: 'Senior Infrastructure Engineer',
         period: 'Jun 2020 – Aug 2023',
         bullets: [
-          'Operated infrastructure for a high-security card data platform processing 10 million files per day — delivering data to other banks and financial services across internal teams and external partners.',
-          'Led a team of 4 engineers — designing the platform architecture and coordinating delivery across the team.',
-          'Introduced Terraform and Ansible to the bank — bringing IaC and automated tool deployments to an environment that had neither, and onboarding the team onto these practices to reduce toil and make scale-up a low-maintenance operation.',
-          'Owned security and authentication across the stack — TLS, LDAP, Kerberos, NTLM, SSO — and led internal and external performance, penetration, and security audits, coordinating with external auditors and partner teams to remediate findings.',
+          'Operated infrastructure for a high-security card data platform processing 10 million files per day: delivering data to other banks and financial services across internal teams and external partners.',
+          'Led a team of 4 engineers: designing the platform architecture and coordinating delivery across the team.',
+          'Introduced Terraform and Ansible to the bank: bringing IaC and automated tool deployments to an environment that had neither, and onboarding the team onto these practices to reduce toil and make scale-up a low-maintenance operation.',
+          'Owned security and authentication across the stack (TLS, LDAP, Kerberos, NTLM, SSO) and led internal and external performance, penetration, and security audits, coordinating with external auditors and partner teams to remediate findings.',
           'Built push- and pull-based Zabbix observability across the bank, with triggers into the internal Operations Center that activated on-call duty based on the incident level.',
         ],
       },
@@ -64,7 +64,7 @@ export const experience = [
         name: 'Infrastructure Engineer',
         period: 'Apr 2018 – Jun 2020',
         bullets: [
-          'Managed Linux and Windows server environments — patching, vulnerability remediation, and network security.',
+          'Managed Linux and Windows server environments: patching, vulnerability remediation, and network security.',
           'Automated operational tasks with Python, Bash, Jenkins, and Azure Pipelines.',
           'Implemented authentication and encryption: TLS, LDAP, Kerberos, NTLM, SSO.',
         ],
@@ -82,8 +82,8 @@ export const experience = [
         name: 'Senior System Administrator',
         period: 'Jan 2016 – Apr 2018',
         bullets: [
-          'Owned the IT department — budget, procurement, and leading and mentoring a team of two (Desktop Technician and Junior Sysadmin).',
-          'Administered Linux and Windows server environments — patching, vulnerability remediation, network security, and disaster recovery planning with regular backup testing.',
+          'Owned the IT department: budget, procurement, and leading and mentoring a team of two (Desktop Technician and Junior Sysadmin).',
+          'Administered Linux and Windows server environments: patching, vulnerability remediation, network security, and disaster recovery planning with regular backup testing.',
           'Installed and maintained applications across Linux and Windows servers; handled hardware repairs, upgrades, and inventory management.',
         ],
       },
@@ -101,7 +101,7 @@ export const experience = [
 export const projects = [
   {
     name: 'This Website · CV',
-    description: 'A single-page Astro CV wired to a full AI-authored, security-scanned, GitOps-deployed pipeline — here is how it works.',
+    description: 'A single-page Astro CV wired to a full AI-authored, security-scanned, GitOps-deployed pipeline. Here is how it works.',
     bullets: [
       'Written with Claude Code, and every pull request is reviewed by CodeRabbit before it can merge.',
       'Each change is gated on a passing build and a Trivy security scan that blocks on CRITICAL/HIGH CVEs.',
@@ -113,11 +113,11 @@ export const projects = [
   },
   {
     name: 'GitOps-ready Kubernetes Platform',
-    description: 'Kubernetes cluster built entirely as code — every component self-managed and reconciled from Git.',
+    description: 'Kubernetes cluster built entirely as code. Every component self-managed and reconciled from Git.',
     bullets: [
-      'ArgoCD app-of-apps GitOps with ApplicationSet templates — scales Helm deployments across environments without duplication.',
+      'ArgoCD app-of-apps GitOps with ApplicationSet templates: scales Helm deployments across environments without duplication.',
       'Kargo chart promotion with per-PR preview environments and approval gates into stg and prod.',
-      'Cilium CNI with pod-to-pod mTLS and SPIFFE/SVID identity — zero-trust encryption for all in-cluster traffic, no sidecars.',
+      'Cilium CNI with pod-to-pod mTLS and SPIFFE/SVID identity: zero-trust encryption for all in-cluster traffic, no sidecars.',
       'Karpenter node autoscaling, OpenBao + ESO for secrets, cert-manager for TLS, external-dns for automatic Route53 management.',
     ],
     tech: ['EKS', 'Terraform', 'OpenTofu', 'ArgoCD', 'Kargo', 'Cilium', 'Karpenter', 'OpenBao', 'ESO', 'Helm', 'external-dns', 'Route53'],
@@ -126,9 +126,9 @@ export const projects = [
   },
   {
     name: 'Cilium',
-    description: 'Beta tester for Cilium releases on Kubernetes — validating new features in real cluster environments before they ship.',
+    description: 'Beta tester for Cilium releases on Kubernetes: validating new features in real cluster environments before they ship.',
     bullets: [
-      'Tested the ztunnel ambient proxy model — zero-trust, sidecar-free mTLS for production Kubernetes.',
+      'Tested the ztunnel ambient proxy model: zero-trust, sidecar-free mTLS for production Kubernetes.',
       'Validated end-to-end encryption with WireGuard and SPIFFE/SVID identity across in-cluster traffic, providing feedback on edge cases ahead of stable release.',
     ],
     tech: ['Kubernetes', 'eBPF', 'Cilium', 'WireGuard', 'Zero Trust'],
@@ -139,8 +139,8 @@ export const projects = [
     description: 'Personal lab for running things I actually use.',
     bullets: [
       'Media server, home automation, and a custom OpenWrt router.',
-      'Cloudflare Zero Trust tunnel points to a Traefik reverse proxy running in Docker that handles routing and TLS for all services — secure external access with no inbound ports exposed.',
-      'k3s cluster running ArgoCD and Kargo — watches and promotes this CV into the homelab environment.',
+      'Cloudflare Zero Trust tunnel points to a Traefik reverse proxy running in Docker that handles routing and TLS for all services: secure external access with no inbound ports exposed.',
+      'k3s cluster running ArgoCD and Kargo: watches and promotes this CV into the homelab environment.',
       'Practical environment for testing infra patterns before applying them at work.',
     ],
     tech: ['Docker', 'Traefik', 'Cloudflare Zero Trust', 'Home Assistant', 'OpenWrt', "Let's Encrypt"],
