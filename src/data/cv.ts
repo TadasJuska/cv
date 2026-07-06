@@ -2,7 +2,7 @@ export const hero = {
   title: 'Senior Platform & AI Engineer',
   firstName: 'Tadas',
   lastName: 'Juška',
-  bio: "Platform engineer with 10+ years in AI tooling and top-stack infrastructure: Kubernetes, GitOps, IaC, and zero-trust networking across cloud and on-prem. Building agentic systems and MCP integrations that give LLMs real production context.",
+  bio: "Platform engineer with 10+ years in top-stack infrastructure and AI: Kubernetes, GitOps, IaC, and zero-trust networking across cloud and on-prem. Building agentic systems and MCP integrations that give LLMs real production context.",
   email: 'tadas@juska.it',
   siteUrl: 'cv.juska.it',
   github: 'https://github.com/TadasJuska',
