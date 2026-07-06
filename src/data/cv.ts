@@ -53,7 +53,8 @@ export const experience = [
         name: 'Senior Infrastructure Engineer',
         period: 'Jun 2020 – Aug 2023',
         bullets: [
-          'Ran infrastructure for a PCI-level card data platform processing 10M files per day — serving banks and financial partners across internal and external channels.',
+          'Ran a card data platform processing 10M files per day — serving banks and financial partners across internal and external channels.',
+          'Ran a custom containerd-based container environment — Java services, cron jobs, APIs, data lakes, and message queues.',
           'Led 4 engineers on platform architecture and delivery.',
           'Introduced Terraform and Ansible to a bank that had no IaC — automated deployments, cut toil, and made scale-up a low-maintenance operation.',
           'Owned TLS, LDAP, Kerberos, NTLM, and SSO. Led security audits with external auditors and coordinated remediation across partner teams.',
