@@ -2,7 +2,7 @@ export const hero = {
   title: 'Senior Platform & AI Engineer',
   firstName: 'Tadas',
   lastName: 'Juška',
-  bio: "Platform engineer with 10+ years in AI tooling and top-stack infrastructure: Kubernetes, GitOps, IaC, and zero-trust networking across cloud and on-prem. Building agentic systems and MCP integrations that give LLMs real production context.",
+  bio: "Platform engineer with 10+ years in top-stack infrastructure and AI: Kubernetes, GitOps, IaC, and zero-trust networking across cloud and on-prem. Building agentic systems and MCP integrations that give LLMs real production context.",
   email: 'tadas@juska.it',
   siteUrl: 'cv.juska.it',
   github: 'https://github.com/TadasJuska',
@@ -53,7 +53,7 @@ export const experience = [
         name: 'Senior Infrastructure Engineer',
         period: 'Jun 2020 – Aug 2023',
         bullets: [
-          'Ran a card data platform processing 10M files per day — serving banks and financial partners across internal and external channels.',
+          'Operated a card data platform processing 10M files per day — serving banks and financial partners across internal and external channels.',
           'Ran a custom containerd-based container environment — Java services, cron jobs, APIs, data lakes, and message queues.',
           'Led 4 engineers on platform architecture and delivery.',
           'Introduced Terraform and Ansible to a bank that had no IaC — automated deployments, cut toil, and made scale-up a low-maintenance operation.',
