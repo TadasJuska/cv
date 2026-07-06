@@ -53,7 +53,7 @@ export const experience = [
         name: 'Senior Infrastructure Engineer',
         period: 'Jun 2020 – Aug 2023',
         bullets: [
-          'Ran a card data platform processing 10M files per day — serving banks and financial partners across internal and external channels.',
+          'Operated a card data platform processing 10M files per day — serving banks and financial partners across internal and external channels.',
           'Ran a custom containerd-based container environment — Java services, cron jobs, APIs, data lakes, and message queues.',
           'Led 4 engineers on platform architecture and delivery.',
           'Introduced Terraform and Ansible to a bank that had no IaC — automated deployments, cut toil, and made scale-up a low-maintenance operation.',
