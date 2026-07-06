@@ -32,7 +32,7 @@ export const experience = [
     employment: 'Contract · Remote',
     period: 'Aug 2023 – Present',
     bullets: [
-      "Wired Claude Code into Jira, Git, and monitoring over MCP — the team's AI developer tooling library.",
+      "Built the team's AI developer tooling library by wiring Claude Code into Jira, Git, and MCP monitoring.",
       'Built RTK and Headroom, an MCP-native token optimization stack. Cuts token use 60–95% upstream of the LLM with no loss in answer quality.',
       'Owned the platform end to end — network, infra, and the products running on top.',
       'Replaced kube-proxy with eBPF-based Cilium CNI, added an Envoy API gateway, and rolled out WireGuard + ztunnel zero-trust encryption across production Kubernetes.',
@@ -126,7 +126,7 @@ export const projects = [
   },
   {
     name: 'Cilium',
-    description: 'Beta tester for Cilium releases on Kubernetes — validating new features in real cluster environments before they ship.',
+    description: 'Beta tested Cilium releases on Kubernetes, validating new features in real cluster environments before they ship.',
     bullets: [
       'Tested the ztunnel ambient proxy model — zero-trust, sidecar-free mTLS for production Kubernetes.',
       'Validated end-to-end encryption with WireGuard and SPIFFE/SVID identity across in-cluster traffic, providing feedback on edge cases ahead of stable release.',
