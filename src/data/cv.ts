@@ -8,7 +8,7 @@ export const hero = {
   github: 'https://github.com/TadasJuska',
   githubShort: 'github.com/TadasJuska',
   linkedin: 'https://www.linkedin.com/in/tadasjuska',
-  location: 'Remote · Europe',
+  location: 'Remote · Lithuania',
   languages: 'Lithuanian · English',
   availability: 'Available now · Full-time · Contract · Remote',
 };
