@@ -8,11 +8,14 @@
     "preview": "astro preview"
   },
   "dependencies": {
-    "@tailwindcss/postcss": "^4.3.0",
-    "astro": "^6.4.6",
+    "@tailwindcss/vite": "^4.3.0",
+    "astro": "^7.2.0",
     "tailwindcss": "^4.3.0"
   },
   "overrides": {
-    "esbuild": "^0.28.1"
+    "esbuild": "^0.28.1",
+    "postcss": "^8.5.18",
+    "sharp": "^0.35.0",
+    "svgo": "^4.0.2"
   }
 }
