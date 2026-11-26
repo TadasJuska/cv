@@ -34,7 +34,7 @@ export const experience = [
     period: 'Aug 2026 – Present',
     bullets: [
       'Built the OpenTelemetry observability platform on SigNoz from scratch and onboarded the logs, traces, and metrics the teams needed into it',
-      'Built Playwright browser checks for the critical user flows behind status.samesystem.com, managed with Terraform and run from GitHub Actions as automated tests before every frontend release',
+      'Introduced status.samesystem.com, a customer-facing status page that did not exist before, backed by monitoring and Playwright browser checks of critical systems, managed with Terraform and run from GitHub Actions as automated tests before every frontend release',
     ],
   },
   {
