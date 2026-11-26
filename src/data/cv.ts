@@ -10,27 +10,39 @@ export const hero = {
   linkedin: 'https://www.linkedin.com/in/tadasjuska',
   location: 'Remote · Lithuania',
   languages: 'Lithuanian · English',
-  availability: 'Available now · Full-time · Contract · Remote',
+  availability: 'Open to opportunities · Remote',
 };
 
 export const skills = [
   { category: 'Cloud & IaC', items: ['AWS', 'Azure', 'GCP', 'Terraform', 'OpenTofu', 'Terragrunt', 'Pulumi', 'Ansible', 'SaltStack', 'Chef', 'Puppet'] },
-  { category: 'Containers & Platform', items: ['Kubernetes', 'Cilium', 'Karpenter', 'Helm', 'Docker', 'Podman', 'containerd', 'k3s', 'OPA', 'Gatekeeper', 'cert-manager'] },
-  { category: 'CI/CD & GitOps', items: ['ArgoCD', 'Kargo', 'Flux', 'GitHub Actions', 'GitLab CI', 'Jenkins', 'Tekton', 'Renovate'] },
-  { category: 'Observability', items: ['Prometheus', 'Grafana', 'Loki', 'OpenTelemetry', 'Elasticsearch', 'Kibana', 'Zabbix', 'Icinga2'] },
-  { category: 'Security & Networking', items: ['mTLS', 'SPIFFE/SPIRE', 'VPN', 'Cloudflare Zero Trust', 'Vault', 'Traefik', 'Nginx', 'Envoy', 'Istio'] },
-  { category: 'Data & Messaging', items: ['PostgreSQL', 'Redis', 'RabbitMQ', 'Kafka', 'Zookeeper', 'Apache Solr', 'Oracle DB', 'Elasticsearch'] },
-  { category: 'AI & Agents', items: ['LLMs', 'AI agents', 'MCP', 'Agentic PR review', 'CodeRabbit', 'RTK', 'Headroom', 'Token optimization', 'Workflow automation'] },
-  { category: 'Languages', items: ['Python', 'Go', 'Bash', 'HCL', 'YAML'] },
+  { category: 'Containers & Platform', items: ['Kubernetes', 'OpenShift', 'Cilium', 'Karpenter', 'Helm', 'Docker', 'Podman', 'containerd', 'k3s', 'OPA', 'Gatekeeper', 'cert-manager'] },
+  { category: 'CI/CD & GitOps', items: ['ArgoCD', 'Kargo', 'Flux', 'GitHub Actions', 'GitLab CI', 'Jenkins', 'Tekton', 'Renovate', 'Playwright'] },
+  { category: 'Observability', items: ['Prometheus', 'Grafana', 'Loki', 'OpenTelemetry', 'SigNoz', 'Sentry', 'Elasticsearch', 'Kibana', 'Zabbix', 'Icinga2'] },
+  { category: 'Security', items: ['Trivy', 'Aikido', 'Vault', 'OpenBao', 'mTLS', 'SPIFFE/SPIRE', 'Cloudflare Zero Trust'] },
+  { category: 'Networking', items: ['eBPF', 'WireGuard', 'VPN', 'Traefik', 'Nginx', 'Envoy', 'Istio'] },
+  { category: 'Data & Messaging', items: ['PostgreSQL', 'MySQL', 'Redis', 'RabbitMQ', 'Kafka', 'Zookeeper', 'Apache Solr', 'Oracle DB', 'Elasticsearch'] },
+  { category: 'AI & Agents', items: ['LLMs', 'AI agents', 'MCP', 'AIOps', 'AI-assisted incident response', 'Agentic PR review', 'CodeRabbit', 'Codex', 'OpenCode', 'OpenClaw', 'RTK', 'Headroom'] },
+  { category: 'Languages', items: ['Python', 'Go', 'Bash', 'TypeScript', 'SQL', 'PromQL', 'HCL', 'YAML'] },
 ];
 
 export const experience = [
   {
-    title: 'DevSecOps Engineer',
+    title: 'Senior DevOps Engineer',
+    company: 'SameSystem',
+    location: 'Lithuania',
+    employment: 'Full-time · Hybrid',
+    period: 'Aug 2026 – Present',
+    bullets: [
+      'Built the OpenTelemetry observability platform on SigNoz from scratch and onboarded the logs, traces, and metrics the teams needed into it',
+      'Built Playwright browser checks for the critical user flows behind status.samesystem.com, managed with Terraform and run from GitHub Actions as automated tests before every frontend release',
+    ],
+  },
+  {
+    title: 'Senior DevSecOps Engineer',
     company: 'Wise',
     location: 'Iceland',
     employment: 'Contract · Remote',
-    period: 'Aug 2023 – Present',
+    period: 'Aug 2023 – Aug 2026',
     summary: 'Owned the platform end to end. Networking, cloud infrastructure, Kubernetes, and the delivery pipeline for every product team.',
     bullets: [
       'Re-architected the Kubernetes data plane: replaced kube-proxy with eBPF-based Cilium CNI, introduced an Envoy API gateway, and rolled out zero-trust encryption with WireGuard + ztunnel across all production clusters.',
@@ -149,6 +161,7 @@ export const projects = [
 ];
 
 export const certifications = [
+  { name: 'Claude Certified Architect', issuer: 'Anthropic', issued: 'Aug 2026' },
   { name: 'Certified Kubernetes Administrator (CKA)', issuer: 'The Linux Foundation', issued: 'Feb 2024' },
   { name: 'Azure Architect Design (AZ-301)', issuer: 'Microsoft', issued: 'May 2020' },
   { name: 'Agile Expert Certificate of Proficiency', issuer: 'Swedbank', issued: 'Apr 2020' },
